@@ -1,0 +1,40 @@
+[
+  {
+    "version": "1.0",
+    "name": "Initial System",
+    "date": "2026-10-07",
+    "changes": "Initial rule set: rule-based regime model (6 regimes), 6 screener setups + news/price mismatch, 1.5\u00d7ATR stops, \u22652:1 reward/risk, options only when they beat the stock on risk/reward, risk limits 1% per trade / 5% total / 15% options / 15% single position.",
+    "reason": "Starting point for the paper-trading desk.",
+    "evidence": "None yet: this is the untested baseline. Rules come from standard practice, not from this desk's results.",
+    "expected_effect": "Unknown. Establish a measurable baseline; first statistical review at 20 closed trades.",
+    "approved_by": "Samanyu (desk specification, 2026-10-07)",
+    "previous": null,
+    "params": {
+      "account": {
+        "starting_cash": 30000
+      },
+      "risk": {
+        "max_risk_per_trade": 0.01,
+        "max_total_risk": 0.05,
+        "max_options_exposure": 0.15,
+        "max_single_stock": 0.15,
+        "options_risk_basis": "max_loss"
+      },
+      "screening": {
+        "min_price": 10,
+        "min_dollar_volume": 50000000,
+        "atr_stop_multiple": 1.5,
+        "min_reward_risk": 2.0,
+        "top_n": 10
+      },
+      "options": {
+        "min_open_interest": 100,
+        "max_spread_pct": 0.15,
+        "min_days": 14,
+        "max_days": 120,
+        "risk_free_rate": 0.04
+      }
+    },
+    "params_hash": "2dad23d95362"
+  }
+]

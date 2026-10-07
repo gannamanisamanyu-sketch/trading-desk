@@ -1,0 +1,251 @@
+[
+  {
+    "id": 1,
+    "date": "2026-10-06",
+    "after_close": true,
+    "title": "Marvell investor day: FY2028 revenue target raised to ~$20B on AI data-center demand; S&P 500 inclusion announced after the close",
+    "category": "AI",
+    "expected_impact": "Confirms custom AI silicon demand; index inclusion adds forced buying. Guidance largely priced (MRVL +5.8% on Oct 6); inclusion new and only partly priced. MRVL and AVGO positive.",
+    "expected_spy": null,
+    "tickers": [
+      "MRVL",
+      "AVGO"
+    ],
+    "sectors": [
+      "SMH"
+    ],
+    "source": "Reuters, Barron's, CNBC, Oct 6 (desk report 2026-10-07)",
+    "notes": "",
+    "options_impact": "",
+    "lesson": "",
+    "recorded": "2026-10-07 17:02",
+    "regime_trend": "BULL",
+    "regime_vol": "LOW VOLATILITY",
+    "regime_risk": "MIXED",
+    "regime_rule": "BULL",
+    "regime_source": "2026-10-07 15:16 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-10-07",
+      "returns": {
+        "SPY": {
+          "1d": -0.002624913520670513,
+          "5d": null
+        },
+        "MRVL": {
+          "1d": -0.013640669007045858,
+          "5d": null
+        },
+        "AVGO": {
+          "1d": -0.007477176171066691,
+          "5d": null
+        },
+        "SMH": {
+          "1d": -0.016126501513092917,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null
+    }
+  },
+  {
+    "id": 2,
+    "date": "2026-10-06",
+    "after_close": true,
+    "title": "SpaceX seeking ~$40B financing (Apollo-led) to buy Nvidia chips",
+    "category": "AI",
+    "expected_impact": "Another very large AI-compute buyer extends the demand runway. New after the close and not yet in the price (NVDA +0.1%): news/price mismatch, NVDA positive.",
+    "expected_spy": null,
+    "tickers": [
+      "NVDA"
+    ],
+    "sectors": [
+      "SMH"
+    ],
+    "source": "Reuters citing FT, Oct 6 18:37 ET",
+    "notes": "",
+    "options_impact": "",
+    "lesson": "",
+    "recorded": "2026-10-07 17:02",
+    "regime_trend": "BULL",
+    "regime_vol": "LOW VOLATILITY",
+    "regime_risk": "MIXED",
+    "regime_rule": "BULL",
+    "regime_source": "2026-10-07 15:16 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-10-07",
+      "returns": {
+        "SPY": {
+          "1d": -0.002624913520670513,
+          "5d": null
+        },
+        "NVDA": {
+          "1d": -0.009697405412762539,
+          "5d": null
+        },
+        "SMH": {
+          "1d": -0.016126501513092917,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null
+    }
+  },
+  {
+    "id": 3,
+    "date": "2026-10-07",
+    "after_close": false,
+    "title": "FOMC minutes (Sep 15-16 meeting) released 2:00 pm ET",
+    "category": "Fed",
+    "expected_impact": "Two-sided. Hawkish minutes: yields up, long-duration tech and small caps down, dollar up. Dovish: relief rally in rate-sensitive sectors. No consensus exists for minutes.",
+    "expected_spy": null,
+    "tickers": [
+      "IWM"
+    ],
+    "sectors": [
+      "XLK",
+      "XLRE",
+      "XLU"
+    ],
+    "source": "Federal Reserve calendar; desk report 2026-10-07",
+    "notes": "Intraday check at 15:07 ET: non-event (SPY 777.29 to 777.21 since 2pm, 10Y 5.275%, VIX 15.09). Close-to-close measurement includes the whole session.",
+    "options_impact": "",
+    "lesson": "",
+    "recorded": "2026-10-07 17:02",
+    "regime_trend": "BULL",
+    "regime_vol": "LOW VOLATILITY",
+    "regime_risk": "MIXED",
+    "regime_rule": "BULL",
+    "regime_source": "2026-10-07 15:16 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-10-07",
+      "returns": {
+        "SPY": {
+          "1d": -0.002624913520670513,
+          "5d": null
+        },
+        "IWM": {
+          "1d": -0.012652635349213903,
+          "5d": null
+        },
+        "XLK": {
+          "1d": -0.004358877049814303,
+          "5d": null
+        },
+        "XLRE": {
+          "1d": -0.008783456798969524,
+          "5d": null
+        },
+        "XLU": {
+          "1d": 0.0009718395450835082,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null
+    }
+  },
+  {
+    "id": 4,
+    "date": "2026-10-07",
+    "after_close": false,
+    "title": "Houthi attacks on Saudi Arabia keep a risk premium in crude (~$89 WTI)",
+    "category": "Geopolitics",
+    "expected_impact": "Gulf/Red Sea supply threat: higher crude and product cracks; refiners (MPC, VLO) benefit, airlines and chemicals hurt.",
+    "expected_spy": null,
+    "tickers": [
+      "MPC",
+      "VLO",
+      "DAL",
+      "UAL"
+    ],
+    "sectors": [
+      "XLE"
+    ],
+    "source": "CNBC World, Oct 7",
+    "notes": "",
+    "options_impact": "",
+    "lesson": "",
+    "recorded": "2026-10-07 17:02",
+    "regime_trend": "BULL",
+    "regime_vol": "LOW VOLATILITY",
+    "regime_risk": "MIXED",
+    "regime_rule": "BULL",
+    "regime_source": "2026-10-07 15:16 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-10-07",
+      "returns": {
+        "SPY": {
+          "1d": -0.002624913520670513,
+          "5d": null
+        },
+        "MPC": {
+          "1d": 0.02111667404972417,
+          "5d": null
+        },
+        "VLO": {
+          "1d": 0.009541529479396571,
+          "5d": null
+        },
+        "DAL": {
+          "1d": -0.010877404043451278,
+          "5d": null
+        },
+        "UAL": {
+          "1d": -0.02114065822025124,
+          "5d": null
+        },
+        "XLE": {
+          "1d": -0.0036078359566482643,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null
+    }
+  },
+  {
+    "id": 5,
+    "date": "2026-10-06",
+    "after_close": false,
+    "title": "Fed to restructure bank supervision (Vice Chair Bowman); criticizes rules blocking rural bank mergers",
+    "category": "Regulation",
+    "expected_impact": "Slow-burn regulatory tailwind for bank M&A (regional banks). No tradable signal: financials weak (-8% vs SPY over 1m).",
+    "expected_spy": null,
+    "tickers": [],
+    "sectors": [
+      "KRE",
+      "XLF"
+    ],
+    "source": "Yahoo Finance, PYMNTS, Oct 6",
+    "notes": "",
+    "options_impact": "",
+    "lesson": "",
+    "recorded": "2026-10-07 17:02",
+    "regime_trend": "BULL",
+    "regime_vol": "LOW VOLATILITY",
+    "regime_risk": "MIXED",
+    "regime_rule": "BULL",
+    "regime_source": "2026-10-07 15:16 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-10-06",
+      "returns": {
+        "SPY": {
+          "1d": 0.005497992684414754,
+          "5d": null
+        },
+        "KRE": {
+          "1d": -0.004546096002257971,
+          "5d": null
+        },
+        "XLF": {
+          "1d": 0.0024127180928157355,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null
+    }
+  }
+]

@@ -1,0 +1,628 @@
+{
+ "generated": "2026-10-07 17:02 ET",
+ "data_through": "2026-10-07",
+ "system_version": "1.0",
+ "version_check": {
+  "ok": true,
+  "version": "1.0",
+  "diffs": [],
+  "problem": ""
+ },
+ "trades": {
+  "1": {
+   "underlying_last": 236.9199981689453
+  }
+ },
+ "performance": {
+  "overall": {
+   "n": 0,
+   "evidence": "INSUFFICIENT (n=0 < 20): no conclusions"
+  },
+  "by_strategies": {},
+  "by_regime_trend": {},
+  "by_regime_vol": {},
+  "by_regime_risk": {},
+  "by_catalyst_category": {},
+  "by_sector": {},
+  "by_instrument": {},
+  "by_direction": {},
+  "by_structure": {},
+  "by_system_version": {}
+ },
+ "strategy_by_regime": {},
+ "options": {
+  "closed_option_trades": 0
+ },
+ "predictions": {
+  "total": 0,
+  "scored": 0,
+  "pending": 0
+ },
+ "events": {
+  "AI": {
+   "n": 2,
+   "avg_spy_1d": -0.002624913520670513,
+   "avg_abs_spy_1d": 0.002624913520670513,
+   "avg_spy_5d": null,
+   "expectation_hit_rate": null,
+   "evidence": "INSUFFICIENT (n=2 < 20): no conclusions"
+  },
+  "Fed": {
+   "n": 1,
+   "avg_spy_1d": -0.002624913520670513,
+   "avg_abs_spy_1d": 0.002624913520670513,
+   "avg_spy_5d": null,
+   "expectation_hit_rate": null,
+   "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+  },
+  "Geopolitics": {
+   "n": 1,
+   "avg_spy_1d": -0.002624913520670513,
+   "avg_abs_spy_1d": 0.002624913520670513,
+   "avg_spy_5d": null,
+   "expectation_hit_rate": null,
+   "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+  },
+  "Regulation": {
+   "n": 1,
+   "avg_spy_1d": 0.005497992684414754,
+   "avg_abs_spy_1d": 0.005497992684414754,
+   "avg_spy_5d": null,
+   "expectation_hit_rate": null,
+   "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+  }
+ },
+ "forward_test": {
+  "signals": 21,
+  "resolved": 0,
+  "open": 15,
+  "overall": {
+   "n": 0,
+   "evidence": "INSUFFICIENT (n=0 < 20): no conclusions"
+  },
+  "by_setup": {},
+  "by_regime": {},
+  "by_direction": {},
+  "setup_by_regime": {},
+  "recent": [
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "CRM",
+    "direction": "LONG",
+    "setups": "pullback+laggard_in_strong_sector",
+    "entry_ref": 224.99,
+    "stop": 211.83,
+    "target": 264.42,
+    "reward_risk": 3.0,
+    "score": 5.8,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 225.24000549316406,
+    "mark_r": 0.030946541099059317,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "pullback",
+     "laggard_in_strong_sector"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "MRVL",
+    "direction": "LONG",
+    "setups": "breakout",
+    "entry_ref": 287.01,
+    "stop": 265.38,
+    "target": 330.26,
+    "reward_risk": 2.0,
+    "score": 5.78,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 280.9949951171875,
+    "mark_r": 0.1344865040146018,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "breakout"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "HPE",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 70.48,
+    "stop": 65.07,
+    "target": 81.3,
+    "reward_risk": 2.0,
+    "score": 5.51,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 70.11000061035156,
+    "mark_r": 0.5228178208586888,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "CRWD",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 278.86,
+    "stop": 261.94,
+    "target": 312.7,
+    "reward_risk": 2.0,
+    "score": 5.49,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 276.8999938964844,
+    "mark_r": -0.8188506014617272,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "PANW",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 419.91,
+    "stop": 393.99,
+    "target": 471.76,
+    "reward_risk": 2.0,
+    "score": 5.39,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 413.4100036621094,
+    "mark_r": -0.4065138642494153,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "MSFT",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 529.3,
+    "stop": 511.72,
+    "target": 564.46,
+    "reward_risk": 2.0,
+    "score": 5.38,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 530.7249755859375,
+    "mark_r": -0.003927708076035809,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "AMD",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 649.42,
+    "stop": 613.46,
+    "target": 721.35,
+    "reward_risk": 2.0,
+    "score": 5.37,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 634.3920288085938,
+    "mark_r": 0.29896746572885996,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "MPC",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 432.36,
+    "stop": 409.72,
+    "target": 477.63,
+    "reward_risk": 2.0,
+    "score": 5.34,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 435.5799865722656,
+    "mark_r": 0.22853854334355125,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "VLO",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 419.22,
+    "stop": 395.93,
+    "target": 465.79,
+    "reward_risk": 2.0,
+    "score": 5.32,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 423.239990234375,
+    "mark_r": -0.0007319304584267077,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "DELL",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 574.0,
+    "stop": 531.16,
+    "target": 659.67,
+    "reward_risk": 2.0,
+    "score": 5.31,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 563.27001953125,
+    "mark_r": 0.5524752240374732,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "SNOW",
+    "direction": "LONG",
+    "setups": "laggard_in_strong_sector",
+    "entry_ref": 335.95,
+    "stop": 315.18,
+    "target": 377.5,
+    "reward_risk": 2.0,
+    "score": 5.3,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 333.4200134277344,
+    "mark_r": 0.03070159793535352,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "laggard_in_strong_sector"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "PSX",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 269.79,
+    "stop": 256.95,
+    "target": 295.47,
+    "reward_risk": 2.0,
+    "score": 5.25,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 271.8399963378906,
+    "mark_r": -0.007386526434705683,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "NOW",
+    "direction": "LONG",
+    "setups": "laggard_in_strong_sector",
+    "entry_ref": 137.97,
+    "stop": 129.3,
+    "target": 189.26,
+    "reward_risk": 5.9,
+    "score": 5.24,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 139.5,
+    "mark_r": -0.09656868728936897,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "laggard_in_strong_sector"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "NVDA",
+    "direction": "LONG",
+    "setups": "laggard_in_strong_sector",
+    "entry_ref": 239.24,
+    "stop": 230.52,
+    "target": 256.69,
+    "reward_risk": 2.0,
+    "score": 5.14,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 237.6750030517578,
+    "mark_r": -0.1055212523811593,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "laggard_in_strong_sector"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 04:24 ET",
+    "session": "pre-market",
+    "ticker": "TMO",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 656.58,
+    "stop": 629.32,
+    "target": 711.1,
+    "reward_risk": 2.0,
+    "score": 5.07,
+    "regime_rule": "NEUTRAL",
+    "system_version": 1.0,
+    "status": "open",
+    "entry": 662.4000244140625,
+    "mark_r": -0.025091187341775553,
+    "days": 1.0,
+    "regime_trend": "SIDEWAYS",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 15:16 ET",
+    "session": "open",
+    "ticker": "XOM",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 164.6401,
+    "stop": 159.4338,
+    "target": 175.0528,
+    "reward_risk": 2.0,
+    "score": 5.491,
+    "regime_rule": "BULL",
+    "system_version": 1.0,
+    "status": "waiting",
+    "entry": null,
+    "mark_r": null,
+    "days": null,
+    "regime_trend": "BULL",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 15:16 ET",
+    "session": "open",
+    "ticker": "MRK",
+    "direction": "LONG",
+    "setups": "pullback",
+    "entry_ref": 143.0,
+    "stop": 137.9154,
+    "target": 155.5319,
+    "reward_risk": 2.465,
+    "score": 5.304,
+    "regime_rule": "BULL",
+    "system_version": 1.0,
+    "status": "waiting",
+    "entry": null,
+    "mark_r": null,
+    "days": null,
+    "regime_trend": "BULL",
+    "month": "2026-10",
+    "setup_list": [
+     "pullback"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 15:16 ET",
+    "session": "open",
+    "ticker": "ASML",
+    "direction": "LONG",
+    "setups": "laggard_in_strong_sector",
+    "entry_ref": 1796.1639,
+    "stop": 1722.084,
+    "target": 1986.8704,
+    "reward_risk": 2.574,
+    "score": 4.714,
+    "regime_rule": "BULL",
+    "system_version": 1.0,
+    "status": "waiting",
+    "entry": null,
+    "mark_r": null,
+    "days": null,
+    "regime_trend": "BULL",
+    "month": "2026-10",
+    "setup_list": [
+     "laggard_in_strong_sector"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 15:16 ET",
+    "session": "open",
+    "ticker": "DE",
+    "direction": "LONG",
+    "setups": "pullback",
+    "entry_ref": 658.815,
+    "stop": 630.8834,
+    "target": 714.6782,
+    "reward_risk": 2.0,
+    "score": 4.615,
+    "regime_rule": "BULL",
+    "system_version": 1.0,
+    "status": "waiting",
+    "entry": null,
+    "mark_r": null,
+    "days": null,
+    "regime_trend": "BULL",
+    "month": "2026-10",
+    "setup_list": [
+     "pullback"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 15:16 ET",
+    "session": "open",
+    "ticker": "QCOM",
+    "direction": "LONG",
+    "setups": "pullback+laggard_in_strong_sector",
+    "entry_ref": 176.495,
+    "stop": 165.0167,
+    "target": 248.7425,
+    "reward_risk": 6.294,
+    "score": 4.549,
+    "regime_rule": "BULL",
+    "system_version": 1.0,
+    "status": "waiting",
+    "entry": null,
+    "mark_r": null,
+    "days": null,
+    "regime_trend": "BULL",
+    "month": "2026-10",
+    "setup_list": [
+     "pullback",
+     "laggard_in_strong_sector"
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 15:16 ET",
+    "session": "open",
+    "ticker": "MRNA",
+    "direction": "LONG",
+    "setups": "rs_leader",
+    "entry_ref": 194.31,
+    "stop": 172.2636,
+    "target": 238.4027,
+    "reward_risk": 2.0,
+    "score": 4.506,
+    "regime_rule": "BULL",
+    "system_version": 1.0,
+    "status": "waiting",
+    "entry": null,
+    "mark_r": null,
+    "days": null,
+    "regime_trend": "BULL",
+    "month": "2026-10",
+    "setup_list": [
+     "rs_leader"
+    ]
+   }
+  ]
+ },
+ "regimes": {
+  "days_logged": 1,
+  "history": [
+   {
+    "date": "2026-10-07",
+    "generated": "2026-10-07 15:16 ET",
+    "regime_rule": "BULL",
+    "score": 3.0,
+    "spy": 777.0449829101562,
+    "vix": 15.039999961853027,
+    "vix3m": 17.670000076293945,
+    "vix_term_inverted": 0.0,
+    "breadth_above_50d": 0.4051282051282051,
+    "spy_vs_50d": 0.0163026841605782,
+    "spy_vs_200d": 0.081228448305175,
+    "fed_signal": "HIKES priced (2Y above fed funds)"
+   }
+  ],
+  "by_regime": {
+   "BULL": {
+    "days": 1,
+    "spy_fwd_5d_avg": null,
+    "n_5d": 0,
+    "spy_fwd_5d_pos_share": null,
+    "spy_fwd_20d_avg": null,
+    "n_20d": 0,
+    "best_sectors_5d_vs_spy": [],
+    "worst_sectors_5d_vs_spy": [],
+    "evidence": "INSUFFICIENT (n=0 < 20): no conclusions (overlapping days are not independent)"
+   }
+  }
+ }
+}

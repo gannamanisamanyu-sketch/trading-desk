@@ -85,7 +85,8 @@ def _position_value(t: Dict, mark: float) -> float:
 # ------------------------------------------------------------------ open / close
 def add_trade(ticker: str, instrument: str, direction: str, quantity: int, entry_price: float, stop: float,
               target: float, reason: str, catalyst: str, setup: str, regime: str, confidence: str,
-              risk: float, expected_return: float, option: Optional[Dict] = None, notes: str = "") -> Dict:
+              risk: float, expected_return: float, option: Optional[Dict] = None, notes: str = "",
+              extra: Optional[Dict] = None) -> Dict:
     """Record a recommendation as an open paper position. Prices: stock price, or option debit per share."""
     book = load()
     mult = 100 if instrument == "option" else 1
@@ -98,7 +99,7 @@ def add_trade(ticker: str, instrument: str, direction: str, quantity: int, entry
          "entry_price": float(entry_price), "stop": float(stop), "target": float(target), "cost": float(cost),
          "risk": float(risk), "expected_return": float(expected_return), "reason": reason, "catalyst": catalyst,
          "setup": setup, "regime": regime, "confidence": confidence, "option": option or {}, "notes": notes,
-         "status": "open", "last_mark": float(entry_price)}
+         "status": "open", "last_mark": float(entry_price), **(extra or {})}
     issues = portfolio_check(acct["equity"], [x for x in book["trades"] if x["status"] == "open"] + [
         {**t, "market_value": cost}])
     if issues:

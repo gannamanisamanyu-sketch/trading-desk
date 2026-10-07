@@ -6,4 +6,3 @@ __pycache__/
 scratch/
 data/*.pkl
 data/*.json
-data/briefs/

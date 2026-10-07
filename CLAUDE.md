@@ -18,17 +18,41 @@ but stay disciplined: **if there is no edge, the answer is HOLD CASH.**
    or clear technical edge. Social-media buzz is never a reason on its own.
 5. **Separate fact from inference.** Label inferences ("likely", "my read") and give a confidence (low/medium/high).
 
-## Memory: Obsidian (read first, write last)
-The desk mirrors itself into Samanyu's Obsidian vault: `brain 2/01 Projects/Trading Desk/`
-(`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Samanyu/`).
-- **Start of every desk session:** read `Desk Memory.md` (lessons, watchlist, open theses, performance) and the
-  latest `Desk Log/<day> Desk.md`. Apply the lessons; don't repeat a logged mistake.
-- **End of every session:** add dated, evidence-based entries to `Desk Memory.md` (new lessons, watchlist
-  changes, thesis updates; remove stale watchlist items). When a trade closes, write its `## Review` section in
-  `Trades/Trade NNN TICKER.md`: what happened vs. the plan, whether the thesis was right, what to do differently.
-  Write only outside the `desk:auto` markers. Never invent lessons from fewer trades than the evidence supports.
-- Auto-generated content (portfolio, trade facts, desk logs, headlines, raw scans) syncs on its own after `scan`
-  and `paper` commands, when the Trading Desk app opens, and on a weekday schedule; `desk.py obsidian` forces it.
+## Memory: the Obsidian vault is the system's long-term memory (read first, write last)
+Vault folder: `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Samanyu/brain 2/Trading/` (start at
+`Trading Dashboard.md`). Do not treat any day as an isolated session.
+
+**Before any recommendation** (in this order):
+1. `Trading Dashboard.md`: clear its **Action items** first (overdue post-trade reviews, self-critiques, weekly or
+   monthly reviews, due predictions, version warnings).
+2. `00 - System/`: Trading Constitution, Risk Rules, Strategy, Current System Version.
+3. The last 3-5 `01 - Daily Intelligence/` notes (decisions and self-critiques) and `09 - Strategy Research/Improvement Pipeline.md`.
+4. `.venv/bin/python desk.py context`: recent trades, winners and losers, strategy evidence, current regime and
+   history in it, past events by category, options learning, exposure, open predictions.
+5. `desk.py recall TICKER` for every shortlisted name (prior trades, predictions, events, signals), plus
+   `03 - Portfolio/Watchlist.md` and the `06 - Macro/News Reaction Database.md` entries similar to today's news.
+Use this history to adjust **confidence and ranking** only, and only when its evidence level is at least PRELIMINARY.
+It never overrides the hard rules.
+
+**While working:** log every meaningful call with `desk.py predict add` (it anchors the live price) and every
+material event with `desk.py event add` (expected impact now; the actual impact is measured automatically). Record
+paper trades with `--strategy`, `--catalyst-category` and `--horizon-days`.
+
+**End of day:** `desk.py paper update`, then `desk.py learn`, then:
+- write the self-critique in today's Daily Intelligence note (remove the `critique:pending` marker);
+- write the post-trade review for every trade in `02 - Trades/Completed/` that is marked `review:pending`;
+- add dated OBSERVATIONS to the Improvement Pipeline; `desk.py event update --id N --lesson ...` where a lesson is clear;
+- update the Watchlist.
+**Weekly / monthly:** fill in the notes in `10 - Performance/Weekly Reviews` and `Monthly Reviews`.
+
+**Controlled improvement (never skip a stage):** OBSERVATION → HYPOTHESIS → EXPERIMENT → VALIDATED or REJECTED
+change, with the evidence standards in the Trading Constitution (n ≥ 20 for a hypothesis; n ≥ 50 with a 95% CI that
+excludes 0 plus robustness checks for a validated change). Never change rules after one trade, a few losses, one
+stock or one unusual event. A strategy or parameter change needs Samanyu's approval, then
+`desk.py version new --version x.y ...`, then bump `system.version` in `config/desk.yaml`. `desk.py version check`
+must pass; an undocumented parameter change is a red flag on the dashboard.
+**Write only outside the `desk:auto` markers.** Auto blocks are regenerated from the ledger, journal and market data.
+Never fabricate outcomes, performance, data or news, and never call an open trade a win or a loss.
 
 ## Sync (this repo is shared with a GitHub Action)
 A GitHub Action runs the scan at ~8:00 ET and a paper update at ~16:30 ET on weekdays and commits the results.

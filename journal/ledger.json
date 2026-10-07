@@ -21,9 +21,20 @@
       "regime": "NEUTRAL",
       "confidence": "medium",
       "option": {},
-      "notes": "",
+      "notes": " Memory fields backfilled 2026-10-07: strategy from setup news_mismatch, catalyst category AI, regime tags from the 15:16 ET scan; holding horizon not recorded at entry (plan was to exit before Nov 17 earnings).",
       "status": "open",
-      "last_mark": 237.47000122070312
+      "last_mark": 237.47000122070312,
+      "strategies": [
+        "News-driven"
+      ],
+      "catalyst_category": "AI",
+      "horizon_days": null,
+      "system_version": "1.0",
+      "regime_trend": "SIDEWAYS",
+      "regime_vol": "LOW VOLATILITY",
+      "regime_risk": "MIXED",
+      "regime_rule": "BULL",
+      "regime_source": "2026-10-07 15:16 ET"
     }
   ]
 }

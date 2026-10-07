@@ -3,6 +3,11 @@
 # PAPER TRADING / RESEARCH ONLY. No brokerage connection exists anywhere.
 # =====================================================================
 
+# Strategy version. Parameters below are snapshotted per version in journal/system_versions.json;
+# `desk.py version check` flags any change that was not documented as a new version.
+system:
+  version: "1.0"
+
 account:
   starting_cash: 30000
 
@@ -107,4 +112,4 @@ sector_etfs:
 
 # Obsidian mirror (local Mac only; skipped automatically where the folder doesn't exist, e.g. GitHub Actions)
 obsidian:
-  folder: "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Samanyu/brain 2/01 Projects/Trading Desk"
+  folder: "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Samanyu/brain 2/Trading"
