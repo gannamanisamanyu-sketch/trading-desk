@@ -625,7 +625,7 @@ def sync(root: Path, book: Dict, L: Dict, mark) -> None:
     mark(_upsert(R / "Screener Backtest.md", backtest_note(L), head="---\ntype: analytics\ntags: [trading/backtest]\n---\n# Screener Backtest"),
          R / "Screener Backtest.md")
     for x in I.get("experiments") or []:
-        p = R / "Experiments" / f"X{x['id']} {re.sub(r'[^A-Za-z0-9 &()+-]', '', x['name'])[:60]}.md"
+        p = R / "Experiments" / f"X{x['id']} {re.sub(r'[^A-Za-z0-9 &()+_-]', '', x['name'])[:60]}.md"
         mark(_upsert(p, experiment_note(x), front=_front({"type": "experiment", "status": x["status"], "dataset": x["dataset"],
                                                           "tags": ["research/experiment"]}), head=f"# Experiment X{x['id']}: {x['name']}",
                      tail="## Notes\n- "), p)

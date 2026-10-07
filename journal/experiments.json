@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "name": "Breakdown shorts have negative expectancy",
+    "created": "2026-10-07 18:29",
+    "hypothesis": "Screener 'breakdown' short signals lose money on average.",
+    "reason": "Backtest (biased): breakdown n=47 independent signals, avg -0.44R, 95% CI [-0.79, -0.09] = PRELIMINARY. Needs forward confirmation.",
+    "dataset": "forward",
+    "baseline_filter": "direction=LONG",
+    "alternative_filter": "setup_list=breakdown",
+    "metric": "R multiple",
+    "min_n_per_arm": 30,
+    "status": "running",
+    "decision": "",
+    "decision_evidence": "",
+    "notes": "",
+    "system_version": "1.1"
+  },
+  {
+    "id": 2,
+    "name": "rs_leader works better in Risk-On regimes",
+    "created": "2026-10-07 18:29",
+    "hypothesis": "rs_leader signals have higher average R when the composite risk regime is Risk-On than when it is Mixed or Risk-Off.",
+    "reason": "Backtest (biased): rs_leader x Risk-On n=482 avg +0.26R (BACKTEST-SUPPORTED) vs rs_leader x Mixed n=211 avg +0.01R.",
+    "dataset": "forward",
+    "baseline_filter": "setup_list=rs_leader;risk=Mixed,Risk-Off",
+    "alternative_filter": "setup_list=rs_leader;risk=Risk-On",
+    "metric": "R multiple",
+    "min_n_per_arm": 30,
+    "status": "running",
+    "decision": "",
+    "decision_evidence": "",
+    "notes": "",
+    "system_version": "1.1"
+  },
+  {
+    "id": 3,
+    "name": "Decision scorecard predicts outcomes",
+    "created": "2026-10-07 18:29",
+    "hypothesis": "Paper trades with an overall scorecard \u2265 6 have higher average R than trades scoring < 6.",
+    "reason": "V1.1 scorecard weights are judgment-based; the score may only influence ranking once it is shown to predict results.",
+    "dataset": "trades",
+    "baseline_filter": "score<6",
+    "alternative_filter": "score>=6",
+    "metric": "R multiple",
+    "min_n_per_arm": 20,
+    "status": "running",
+    "decision": "",
+    "decision_evidence": "",
+    "notes": "",
+    "system_version": "1.1"
+  }
+]

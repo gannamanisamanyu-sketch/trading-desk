@@ -36,5 +36,122 @@
       }
     },
     "params_hash": "2dad23d95362"
+  },
+  {
+    "version": "1.1",
+    "name": "Intelligence Layer",
+    "date": "2026-10-07",
+    "changes": "Adds an analysis and recording layer only: composite market-regime database (point-in-time, 3y), point-in-time screener backtest with overlapping signals removed, rejected-trade and opportunity-cost tracking, analytical-error database, evidence-gated pattern database, formal experiments (baseline vs alternative), prediction calibration buckets with magnitude and timing accuracy, benchmarks for every trade, multi-asset event reactions (1h/1d/1w/1m), company and sector intelligence files, and a strategy-weighted decision scorecard (new config key 'scorecard'). NO change to screening, entry/stop/target, options rules, sizing or risk limits (1%/5%/15%/15% unchanged).",
+    "reason": "Samanyu's add-on specification (2026-10-07): learn from trades taken AND not taken, measure calibration, avoid hindsight bias and overfitting.",
+    "evidence": "Not evidence-based: this is infrastructure. Scorecard weights are judgment-based starting values; experiment X3 tests whether the score predicts outcomes before it may influence ranking.",
+    "expected_effect": "Better-measured decisions and earlier detection of what works; no direct effect on trade selection until a pattern or experiment is validated and approved.",
+    "approved_by": "Samanyu (add-on instruction, 2026-10-07)",
+    "previous": "1.0",
+    "params": {
+      "account": {
+        "starting_cash": 30000
+      },
+      "risk": {
+        "max_risk_per_trade": 0.01,
+        "max_total_risk": 0.05,
+        "max_options_exposure": 0.15,
+        "max_single_stock": 0.15,
+        "options_risk_basis": "max_loss"
+      },
+      "screening": {
+        "min_price": 10,
+        "min_dollar_volume": 50000000,
+        "atr_stop_multiple": 1.5,
+        "min_reward_risk": 2.0,
+        "top_n": 10
+      },
+      "options": {
+        "min_open_interest": 100,
+        "max_spread_pct": 0.15,
+        "min_days": 14,
+        "max_days": 120,
+        "risk_free_rate": 0.04
+      },
+      "scorecard": {
+        "default_weights": {
+          "catalyst": 1.0,
+          "fundamentals": 1.0,
+          "technical": 1.0,
+          "regime": 1.0,
+          "sector": 1.0,
+          "options": 0.5,
+          "liquidity": 1.0,
+          "risk_reward": 1.5,
+          "timing": 1.0,
+          "contradictory": 1.0
+        },
+        "strategy_weights": {
+          "News-driven": {
+            "catalyst": 2.0,
+            "timing": 1.5
+          },
+          "Catalyst": {
+            "catalyst": 2.0,
+            "timing": 1.5
+          },
+          "Earnings": {
+            "catalyst": 2.0,
+            "fundamentals": 1.5,
+            "options": 1.5
+          },
+          "Breakout": {
+            "technical": 2.0,
+            "sector": 1.5
+          },
+          "Pullback": {
+            "technical": 2.0,
+            "regime": 1.5
+          },
+          "Momentum": {
+            "technical": 1.5,
+            "sector": 1.5,
+            "regime": 1.5
+          },
+          "Mean reversion": {
+            "technical": 1.5,
+            "regime": 1.5
+          },
+          "Sector rotation": {
+            "sector": 2.0,
+            "regime": 1.5
+          },
+          "Macro": {
+            "regime": 2.0,
+            "catalyst": 1.5
+          },
+          "Political": {
+            "catalyst": 1.5,
+            "regime": 1.5
+          },
+          "Geopolitical": {
+            "catalyst": 1.5,
+            "regime": 1.5
+          },
+          "Options directional": {
+            "options": 2.0,
+            "liquidity": 1.5
+          },
+          "Options spread": {
+            "options": 2.0,
+            "liquidity": 1.5
+          },
+          "Volatility": {
+            "options": 2.0,
+            "regime": 1.5
+          }
+        },
+        "gate": {
+          "risk_reward": 3,
+          "liquidity": 3
+        },
+        "gate_cap": 4
+      }
+    },
+    "params_hash": "830ace97c902"
   }
 ]

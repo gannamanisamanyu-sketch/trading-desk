@@ -34,7 +34,11 @@
       "regime_vol": "LOW VOLATILITY",
       "regime_risk": "MIXED",
       "regime_rule": "BULL",
-      "regime_source": "2026-10-07 15:16 ET"
+      "regime_source": "2026-10-07 15:16 ET",
+      "event_ids": [
+        2
+      ],
+      "prediction_ids": []
     }
   ]
 }

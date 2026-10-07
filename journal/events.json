@@ -110,7 +110,11 @@
       },
       "one_hour": null,
       "verdict": "1-day move -0.8% (0.2\u00d7 a typical day); 1-month follow-through pending"
-    }
+    },
+    "what_happened": "Marvell investor day raised its FY2028 revenue target to ~$20B on AI data-center demand; S&P 500 inclusion was announced after the close (Oct 6).",
+    "market_expected": "Guidance upgrade largely priced (MRVL +5.8% on Oct 6, opened +10%).",
+    "interpretation": "Index inclusion adds forced buying before it takes effect; only partly priced (desk report, medium confidence).",
+    "reliability": "high (company + index provider announcements)"
   },
   {
     "id": 2,
@@ -212,7 +216,11 @@
       },
       "one_hour": null,
       "verdict": "1-day move -0.7% (0.3\u00d7 a typical day); 1-month follow-through pending"
-    }
+    },
+    "what_happened": "Reuters, citing the FT, reported SpaceX is seeking ~$40B of financing led by Apollo to buy Nvidia chips (Oct 6, 18:37 ET).",
+    "interpretation": "Another very large AI-compute buyer; the financing is debt-funded and SpaceX's own stock slipped on the report (headline, Yahoo Finance 10:02 ET Oct 7), so the market may discount debt-funded demand (low confidence, n=1).",
+    "second_order": "AI networking and power names as secondary beneficiaries (per the desk report).",
+    "reliability": "medium (single press report via Reuters/FT)"
   },
   {
     "id": 3,
@@ -334,9 +342,19 @@
           "unit": "%"
         }
       },
-      "one_hour": null,
+      "one_hour": {
+        "SPY": -0.00012859754174576743,
+        "QQQ": -0.0007122669030786843,
+        "IWM": -0.000754957611669993
+      },
       "verdict": "1-day move -1.3% (1.1\u00d7 a typical day); 1-month follow-through pending"
-    }
+    },
+    "time": "14:00",
+    "what_happened": "Fed released the minutes of the Sep 15-16 FOMC meeting at 2:00 pm ET.",
+    "market_expected": "No consensus figure exists for minutes; the market was watching how many officials favored further hikes, with ~26% odds of an Oct 28 hike (prediction markets via DeFi Rate, Oct 2).",
+    "actual_vs_expected": "Intraday non-event: SPY 777.29 to 777.21 between 2:00 and 3:07 pm, 10Y held at 5.275%, VIX 15.09 (Yahoo, 15:07 ET).",
+    "interpretation": "Minutes did not shift rate expectations meaningfully (low confidence: based on one intraday check).",
+    "reliability": "high (official release; prices from Yahoo, delayed)"
   },
   {
     "id": 4,
@@ -471,7 +489,11 @@
       },
       "one_hour": null,
       "verdict": "1-day move +2.3% (1.0\u00d7 a typical day); 1-month follow-through pending"
-    }
+    },
+    "what_happened": "Houthi attacks on Saudi Arabia reported (CNBC World, Oct 7); WTI near $89.",
+    "interpretation": "Keeps a risk premium in crude; refiners benefit, airlines and chemicals are hurt (desk report, medium confidence).",
+    "second_order": "Energy-driven inflation impulse keeps the Fed hawkish and yields high.",
+    "reliability": "medium (news report; geopolitical facts evolve)"
   },
   {
     "id": 5,
@@ -572,6 +594,9 @@
       },
       "one_hour": null,
       "verdict": "1-day move +0.5% (0.7\u00d7 a typical day); 1-month follow-through pending"
-    }
+    },
+    "what_happened": "Fed Vice Chair Bowman said bank supervision will be restructured and criticized rules that block rural bank mergers (Oct 6).",
+    "interpretation": "Slow-burn regulatory tailwind for bank M&A; no tradable signal while financials are weak (-8% vs SPY over 1m).",
+    "reliability": "high (official remarks via Yahoo Finance, PYMNTS)"
   }
 ]

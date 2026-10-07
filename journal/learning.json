@@ -1,17 +1,12 @@
 {
- "generated": "2026-10-07 18:21 ET",
+ "generated": "2026-10-07 18:29 ET",
  "data_through": "2026-10-07",
- "system_version": "1.0",
+ "system_version": "1.1",
  "version_check": {
-  "ok": false,
-  "version": "1.0",
-  "diffs": [
-   "scorecard.default_weights: None \u2192 {'catalyst': 1.0, 'fundamentals': 1.0, 'technical': 1.0, 'regime': 1.0, 'sector': 1.0, 'options': 0.5, 'liquidity': 1.0, 'risk_reward': 1.5, 'timing': 1.0, 'contradictory': 1.0}",
-   "scorecard.gate: None \u2192 {'risk_reward': 3, 'liquidity': 3}",
-   "scorecard.gate_cap: None \u2192 4",
-   "scorecard.strategy_weights: None \u2192 {'News-driven': {'catalyst': 2.0, 'timing': 1.5}, 'Catalyst': {'catalyst': 2.0, 'timing': 1.5}, 'Earnings': {'catalyst': 2.0, 'fundamentals': 1.5, 'options': 1.5}, 'Breakout': {'technical': 2.0, 'sector': 1.5}, 'Pullback': {'technical': 2.0, 'regime': 1.5}, 'Momentum': {'technical': 1.5, 'sector': 1.5, 'regime': 1.5}, 'Mean reversion': {'technical': 1.5, 'regime': 1.5}, 'Sector rotation': {'sector': 2.0, 'regime': 1.5}, 'Macro': {'regime': 2.0, 'catalyst': 1.5}, 'Political': {'catalyst': 1.5, 'regime': 1.5}, 'Geopolitical': {'catalyst': 1.5, 'regime': 1.5}, 'Options directional': {'options': 2.0, 'liquidity': 1.5}, 'Options spread': {'options': 2.0, 'liquidity': 1.5}, 'Volatility': {'options': 2.0, 'regime': 1.5}}"
-  ],
-  "problem": "UNDOCUMENTED PARAMETER CHANGE since this version was recorded"
+  "ok": true,
+  "version": "1.1",
+  "diffs": [],
+  "problem": ""
  },
  "trades": {
   "1": {
@@ -114,7 +109,10 @@
      "pullback",
      "laggard_in_strong_sector"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -139,7 +137,10 @@
     "setup_list": [
      "breakout"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -164,7 +165,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -189,7 +193,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -214,7 +221,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -239,7 +249,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -264,7 +277,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -289,7 +305,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -314,7 +333,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -339,7 +361,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -364,7 +389,10 @@
     "setup_list": [
      "laggard_in_strong_sector"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -389,7 +417,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -414,7 +445,10 @@
     "setup_list": [
      "laggard_in_strong_sector"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -439,7 +473,10 @@
     "setup_list": [
      "laggard_in_strong_sector"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -464,7 +501,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": true
+    "independent": true,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -489,7 +529,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": false
+    "independent": false,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -514,7 +557,10 @@
     "setup_list": [
      "pullback"
     ],
-    "independent": false
+    "independent": false,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -539,7 +585,10 @@
     "setup_list": [
      "laggard_in_strong_sector"
     ],
-    "independent": false
+    "independent": false,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -564,7 +613,10 @@
     "setup_list": [
      "pullback"
     ],
-    "independent": false
+    "independent": false,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -590,7 +642,10 @@
      "pullback",
      "laggard_in_strong_sector"
     ],
-    "independent": false
+    "independent": false,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    },
    {
     "date": "2026-10-07",
@@ -615,7 +670,10 @@
     "setup_list": [
      "rs_leader"
     ],
-    "independent": false
+    "independent": false,
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility"
    }
   ],
   "independent_resolved": 0
@@ -1957,10 +2015,150 @@
    "evidence": "INSUFFICIENT (n=0 < 20): no conclusions"
   },
   "rejections": {
-   "n": 0
+   "total": 3,
+   "resolved": 0,
+   "overall": {
+    "n": 0
+   },
+   "by_reason": {}
   },
-  "rejection_records": [],
-  "opportunity_cost": [],
+  "rejection_records": [
+   {
+    "id": 1,
+    "decided": "2026-10-07 15:07",
+    "ticker": "MRVL",
+    "direction": "LONG",
+    "instrument": "stock",
+    "entry": 287.01,
+    "stop": 265.38,
+    "target": 330.26,
+    "quantity": 13,
+    "risk_usd": 281.18999999999994,
+    "expected_return": 0.15069161353262953,
+    "reward_risk": 1.99953767914933,
+    "catalyst": "Investor day + S&P 500 inclusion (event #1)",
+    "thesis": "AI custom-silicon leader: FY2028 revenue target raised to ~$20B and S&P 500 inclusion. Breakout entry only if the 287-292 zone traded.",
+    "reason": "Technical confirmation missing",
+    "alternative": "NVDA (trade #1)",
+    "strategy": "Breakout",
+    "scorecard_id": null,
+    "event_id": 1.0,
+    "notes": "Recorded from the 2026-10-07 report (decision documented at 15:07 ET, before the outcome). Opened 280.99, never traded 287-292: breakout failed.",
+    "system_version": "1.1",
+    "regime_trend": "SIDEWAYS",
+    "regime_vol": "LOW VOLATILITY",
+    "regime_risk": "MIXED",
+    "regime_rule": "BULL",
+    "regime_source": "2026-10-07 15:16 ET",
+    "process_verdict": "",
+    "lesson": "",
+    "sim_status": "waiting",
+    "status": "waiting",
+    "hypothetical_r": null,
+    "hypothetical_pnl": null
+   },
+   {
+    "id": 2,
+    "decided": "2026-10-07 15:07",
+    "ticker": "CRM",
+    "direction": "LONG",
+    "instrument": "stock",
+    "entry": 224.99,
+    "stop": 211.83,
+    "target": 264.42,
+    "quantity": 20,
+    "risk_usd": 263.19999999999993,
+    "expected_return": 0.17525223343259702,
+    "reward_risk": 2.996200607902737,
+    "catalyst": "None specific (setup-driven)",
+    "thesis": "Pullback in the strongest sector (software / AI apps) and lagging its sector ETF; forward P/E ~14.",
+    "reason": "Technical confirmation missing",
+    "alternative": "NVDA (trade #1); CRM kept on the watchlist",
+    "strategy": "Pullback",
+    "scorecard_id": null,
+    "event_id": null,
+    "notes": "Recorded from the 2026-10-07 report. Last 225.74 vs 20-day average 238.32: WAIT until it reclaims the average.",
+    "system_version": "1.1",
+    "regime_trend": "SIDEWAYS",
+    "regime_vol": "LOW VOLATILITY",
+    "regime_risk": "MIXED",
+    "regime_rule": "BULL",
+    "regime_source": "2026-10-07 15:16 ET",
+    "process_verdict": "",
+    "lesson": "",
+    "sim_status": "waiting",
+    "status": "waiting",
+    "hypothetical_r": null,
+    "hypothetical_pnl": null
+   },
+   {
+    "id": 3,
+    "decided": "2026-10-07 04:26",
+    "ticker": "NVDA",
+    "direction": "LONG",
+    "instrument": "option",
+    "entry": 239.24,
+    "stop": 230.52,
+    "target": 256.69,
+    "quantity": 1,
+    "risk_usd": 8.719999999999999,
+    "expected_return": 0.07293930780805881,
+    "reward_risk": 2.0011467889908245,
+    "catalyst": "SpaceX ~$40B Nvidia chip financing (event #2)",
+    "thesis": "Same NVDA thesis as trade #1, expressed as the Nov 13 245/250 bull call spread (debit ~1.91).",
+    "reason": "Poor risk/reward",
+    "alternative": "NVDA stock (trade #1): ~1.9:1 vs ~1.0x for the spread at target",
+    "strategy": "Options spread",
+    "scorecard_id": null,
+    "event_id": 2.0,
+    "notes": "Recorded from the 2026-10-07 report. Entry/stop/target are UNDERLYING levels; option quotes were STALE pre-market (OI showed 0).",
+    "system_version": "1.1",
+    "regime_trend": "SIDEWAYS",
+    "regime_vol": "LOW VOLATILITY",
+    "regime_risk": "MIXED",
+    "regime_rule": "BULL",
+    "regime_source": "2026-10-07 15:16 ET",
+    "process_verdict": "",
+    "lesson": "",
+    "sim_status": null,
+    "status": "not simulated (option structures need historical chains)",
+    "hypothetical_r": null,
+    "hypothetical_pnl": null
+   }
+  ],
+  "opportunity_cost": [
+   {
+    "date": "2026-10-07",
+    "selected": [
+     {
+      "label": "#1 NVDA",
+      "r": null,
+      "status": "waiting",
+      "actual_r": null
+     }
+    ],
+    "alternatives": [
+     {
+      "label": "R1 MRVL (Technical confirmation missing)",
+      "r": NaN,
+      "status": "waiting"
+     },
+     {
+      "label": "R2 CRM (Technical confirmation missing)",
+      "r": NaN,
+      "status": "waiting"
+     },
+     {
+      "label": "R3 NVDA (Poor risk/reward)",
+      "r": NaN,
+      "status": "not simulated (option structures need historical chains)"
+     }
+    ],
+    "all_resolved": false,
+    "best": "R1 MRVL (Technical confirmation missing)",
+    "selection_optimal": null
+   }
+  ],
   "benchmarks": {
    "1": {
     "window": "2026-10-07 \u2192 2026-10-07",
@@ -1983,6 +2181,7 @@
   },
   "priority_companies": [
    "AVGO",
+   "CRM",
    "DAL",
    "MPC",
    "MRVL",
@@ -2319,6 +2518,60 @@
      "rs_3m_vs_spy": 0.4604281130750223,
      "volume_vs_50d": 0.5901069120693224,
      "source": "Yahoo Finance daily bars"
+    }
+   },
+   "CRM": {
+    "fundamentals": {
+     "revenueGrowth": 0.108,
+     "earningsGrowth": 1.189,
+     "grossMargins": 0.77282,
+     "operatingMargins": 0.21375,
+     "freeCashflow": 17731874816,
+     "totalCash": 11402999808,
+     "totalDebt": 42375999488,
+     "debtToEquity": 110.417,
+     "trailingPE": 20.545288,
+     "forwardPE": 14.016865,
+     "pegRatio": 0.82,
+     "priceToSalesTrailing12Months": 4.2062197,
+     "recommendationMean": 1.75,
+     "numberOfAnalystOpinions": 54,
+     "targetMeanPrice": 283.36075,
+     "heldPercentInstitutions": 0.87351,
+     "heldPercentInsiders": 0.02977,
+     "shortPercentOfFloat": 0.0454,
+     "shortRatio": 1.97,
+     "marketCap": 184812879872,
+     "beta": 1.256,
+     "next_earnings": "2026-12-02",
+     "eps_estimate": 3.4463
+    },
+    "fundamentals_date": "2026-10-07",
+    "fundamentals_source": "Yahoo Finance (yfinance), retrieved 2026-10-07 18:29 ET",
+    "technical": {
+     "as_of": "2026-10-07",
+     "price": 224.55999755859375,
+     "trend": "uptrend",
+     "vs_20d": -0.05394519360757677,
+     "vs_50d": 0.006978425179928083,
+     "vs_200d": 0.12714623459023144,
+     "support_20d_low": 221.17999267578125,
+     "support_55d_low": 154.87751572533796,
+     "resistance_20d_high": 261.87927269153323,
+     "resistance_52w_high": 267.7988593124239,
+     "rsi14": 43.943608196204444,
+     "atr_pct": 0.037866253291202474,
+     "rs_3m_vs_spy": 0.33558555806746626,
+     "volume_vs_50d": 0.37837485034444285,
+     "source": "Yahoo Finance daily bars"
+    },
+    "iv_history": {
+     "points": 1,
+     "last": {
+      "date": "2026-10-07",
+      "ticker": "CRM",
+      "atm_iv_30d": 0.3972072469692568
+     }
     }
    }
   },
@@ -2682,7 +2935,86 @@
     "evidence": "PRELIMINARY (n=46): hypotheses only"
    }
   ],
-  "experiments": [],
+  "experiments": [
+   {
+    "id": 1,
+    "name": "Breakdown shorts have negative expectancy",
+    "created": "2026-10-07 18:29",
+    "hypothesis": "Screener 'breakdown' short signals lose money on average.",
+    "reason": "Backtest (biased): breakdown n=47 independent signals, avg -0.44R, 95% CI [-0.79, -0.09] = PRELIMINARY. Needs forward confirmation.",
+    "dataset": "forward",
+    "baseline_filter": "direction=LONG",
+    "alternative_filter": "setup_list=breakdown",
+    "metric": "R multiple",
+    "min_n_per_arm": 30,
+    "status": "running",
+    "decision": "",
+    "decision_evidence": "",
+    "notes": "",
+    "system_version": "1.1",
+    "baseline": {
+     "n": 0
+    },
+    "alternative": {
+     "n": 0
+    },
+    "difference_mean_r": null,
+    "difference_ci95": null,
+    "suggestion": "Continue testing: 0 baseline / 0 alternative observations, need \u2265 30 each"
+   },
+   {
+    "id": 2,
+    "name": "rs_leader works better in Risk-On regimes",
+    "created": "2026-10-07 18:29",
+    "hypothesis": "rs_leader signals have higher average R when the composite risk regime is Risk-On than when it is Mixed or Risk-Off.",
+    "reason": "Backtest (biased): rs_leader x Risk-On n=482 avg +0.26R (BACKTEST-SUPPORTED) vs rs_leader x Mixed n=211 avg +0.01R.",
+    "dataset": "forward",
+    "baseline_filter": "setup_list=rs_leader;risk=Mixed,Risk-Off",
+    "alternative_filter": "setup_list=rs_leader;risk=Risk-On",
+    "metric": "R multiple",
+    "min_n_per_arm": 30,
+    "status": "running",
+    "decision": "",
+    "decision_evidence": "",
+    "notes": "",
+    "system_version": "1.1",
+    "baseline": {
+     "n": 0
+    },
+    "alternative": {
+     "n": 0
+    },
+    "difference_mean_r": null,
+    "difference_ci95": null,
+    "suggestion": "Continue testing: 0 baseline / 0 alternative observations, need \u2265 30 each"
+   },
+   {
+    "id": 3,
+    "name": "Decision scorecard predicts outcomes",
+    "created": "2026-10-07 18:29",
+    "hypothesis": "Paper trades with an overall scorecard \u2265 6 have higher average R than trades scoring < 6.",
+    "reason": "V1.1 scorecard weights are judgment-based; the score may only influence ranking once it is shown to predict results.",
+    "dataset": "trades",
+    "baseline_filter": "score<6",
+    "alternative_filter": "score>=6",
+    "metric": "R multiple",
+    "min_n_per_arm": 20,
+    "status": "running",
+    "decision": "",
+    "decision_evidence": "",
+    "notes": "",
+    "system_version": "1.1",
+    "baseline": {
+     "n": 0
+    },
+    "alternative": {
+     "n": 0
+    },
+    "difference_mean_r": null,
+    "difference_ci95": null,
+    "suggestion": "Continue testing: 0 baseline / 0 alternative observations, need \u2265 20 each"
+   }
+  ],
   "scorecards": {
    "scorecards": 0,
    "with_outcomes": 0,
@@ -3211,7 +3543,19 @@
    }
   },
   "errors": {
-   "n": 0
+   "n": 2,
+   "by_type": {
+    "Execution deviated from plan": 1,
+    "Ignored contradictory evidence": 1
+   },
+   "by_status": {
+    "OBSERVATION": 2
+   },
+   "by_severity": {
+    "low": 2
+   },
+   "repeated_types": {},
+   "note": "A type repeating \u2265 3 times is a candidate HYPOTHESIS about the process, not yet a rule change."
   },
   "events_measured": 5
  }
