@@ -7,3 +7,5 @@ PyYAML>=6.0
 feedparser>=6.0
 tabulate>=0.9
 pytest>=8
+streamlit>=1.50,<2
+plotly>=5.20,<7
