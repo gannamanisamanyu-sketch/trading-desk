@@ -1,0 +1,9 @@
+pandas>=2.2,<3
+numpy>=1.26,<3
+scipy>=1.11
+yfinance>=0.2.50
+requests>=2.31
+PyYAML>=6.0
+feedparser>=6.0
+tabulate>=0.9
+pytest>=8

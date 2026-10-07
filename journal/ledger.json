@@ -1,0 +1,29 @@
+{
+  "starting_cash": 30000,
+  "created": "2026-10-07",
+  "trades": [
+    {
+      "id": 1,
+      "opened": "2026-10-07 15:07",
+      "ticker": "NVDA",
+      "instrument": "stock",
+      "direction": "LONG",
+      "quantity": 19,
+      "entry_price": 236.47,
+      "stop": 230.52,
+      "target": 256.69,
+      "cost": 4492.93,
+      "risk": 113.04999999999978,
+      "expected_return": 0.08550767539222734,
+      "reason": "Leader in strongest sector (semis +10% vs SPY 1m); fwd P/E ~15; entry 15:07 ET after FOMC minutes proved a non-event (SPY/10Y/VIX flat since 2pm). Exit before Nov 17 earnings.",
+      "catalyst": "SpaceX seeking ~$40B (Apollo-led) to buy Nvidia chips (Reuters/FT, Oct 6) - stock moved +0.1%",
+      "setup": "news_mismatch",
+      "regime": "NEUTRAL",
+      "confidence": "medium",
+      "option": {},
+      "notes": "",
+      "status": "open",
+      "last_mark": 236.47
+    }
+  ]
+}

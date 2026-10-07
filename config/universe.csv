@@ -1,0 +1,210 @@
+ticker,name,sector,sector_etf
+AAPL,Apple,Technology,XLK
+MSFT,Microsoft,Technology,XLK
+NVDA,Nvidia,Semiconductors,SMH
+AVGO,Broadcom,Semiconductors,SMH
+AMD,Advanced Micro Devices,Semiconductors,SMH
+INTC,Intel,Semiconductors,SMH
+QCOM,Qualcomm,Semiconductors,SMH
+TXN,Texas Instruments,Semiconductors,SMH
+MU,Micron,Semiconductors,SMH
+AMAT,Applied Materials,Semiconductors,SMH
+LRCX,Lam Research,Semiconductors,SMH
+KLAC,KLA,Semiconductors,SMH
+MRVL,Marvell,Semiconductors,SMH
+TSM,Taiwan Semiconductor,Semiconductors,SMH
+ASML,ASML,Semiconductors,SMH
+ARM,Arm Holdings,Semiconductors,SMH
+SMCI,Super Micro Computer,Technology,XLK
+ANET,Arista Networks,Technology,XLK
+CSCO,Cisco,Technology,XLK
+IBM,IBM,Technology,XLK
+ORCL,Oracle,Software / AI apps,IGV
+ADBE,Adobe,Software / AI apps,IGV
+CRM,Salesforce,Software / AI apps,IGV
+NOW,ServiceNow,Software / AI apps,IGV
+INTU,Intuit,Software / AI apps,IGV
+PLTR,Palantir,Software / AI apps,IGV
+SNOW,Snowflake,Software / AI apps,IGV
+CRWD,CrowdStrike,Software / AI apps,IGV
+PANW,Palo Alto Networks,Software / AI apps,IGV
+DDOG,Datadog,Software / AI apps,IGV
+SHOP,Shopify,Software / AI apps,IGV
+ACN,Accenture,Technology,XLK
+DELL,Dell Technologies,Technology,XLK
+HPE,Hewlett Packard Enterprise,Technology,XLK
+GOOGL,Alphabet,Communication services,XLC
+META,Meta Platforms,Communication services,XLC
+NFLX,Netflix,Communication services,XLC
+DIS,Walt Disney,Communication services,XLC
+CMCSA,Comcast,Communication services,XLC
+T,AT&T,Communication services,XLC
+VZ,Verizon,Communication services,XLC
+TMUS,T-Mobile US,Communication services,XLC
+RDDT,Reddit,Communication services,XLC
+SPOT,Spotify,Communication services,XLC
+AMZN,Amazon,Consumer discretionary,XLY
+TSLA,Tesla,Consumer discretionary,XLY
+HD,Home Depot,Consumer discretionary,XLY
+LOW,Lowe's,Consumer discretionary,XLY
+MCD,McDonald's,Consumer discretionary,XLY
+SBUX,Starbucks,Consumer discretionary,XLY
+NKE,Nike,Consumer discretionary,XLY
+CMG,Chipotle,Consumer discretionary,XLY
+BKNG,Booking Holdings,Consumer discretionary,XLY
+ABNB,Airbnb,Consumer discretionary,XLY
+UBER,Uber,Consumer discretionary,XLY
+TJX,TJX Companies,Consumer discretionary,XLY
+LULU,Lululemon,Consumer discretionary,XLY
+F,Ford,Consumer discretionary,XLY
+GM,General Motors,Consumer discretionary,XLY
+RIVN,Rivian,Consumer discretionary,XLY
+MAR,Marriott,Consumer discretionary,XLY
+CCL,Carnival,Consumer discretionary,XLY
+DECK,Deckers Outdoor,Consumer discretionary,XLY
+ROST,Ross Stores,Consumer discretionary,XLY
+DHI,D.R. Horton,Homebuilders,XHB
+LEN,Lennar,Homebuilders,XHB
+WMT,Walmart,Consumer staples,XLP
+COST,Costco,Consumer staples,XLP
+PG,Procter & Gamble,Consumer staples,XLP
+KO,Coca-Cola,Consumer staples,XLP
+PEP,PepsiCo,Consumer staples,XLP
+PM,Philip Morris,Consumer staples,XLP
+MO,Altria,Consumer staples,XLP
+MDLZ,Mondelez,Consumer staples,XLP
+CL,Colgate-Palmolive,Consumer staples,XLP
+TGT,Target,Consumer staples,XLP
+DG,Dollar General,Consumer staples,XLP
+KHC,Kraft Heinz,Consumer staples,XLP
+CELH,Celsius Holdings,Consumer staples,XLP
+JPM,JPMorgan Chase,Financials,XLF
+BAC,Bank of America,Financials,XLF
+WFC,Wells Fargo,Financials,XLF
+C,Citigroup,Financials,XLF
+GS,Goldman Sachs,Financials,XLF
+MS,Morgan Stanley,Financials,XLF
+SCHW,Charles Schwab,Financials,XLF
+BLK,BlackRock,Financials,XLF
+BX,Blackstone,Financials,XLF
+KKR,KKR,Financials,XLF
+AXP,American Express,Financials,XLF
+V,Visa,Financials,XLF
+MA,Mastercard,Financials,XLF
+PYPL,PayPal,Financials,XLF
+XYZ,Block,Financials,XLF
+COIN,Coinbase,Financials,XLF
+HOOD,Robinhood,Financials,XLF
+SOFI,SoFi Technologies,Financials,XLF
+BRK-B,Berkshire Hathaway,Financials,XLF
+USB,U.S. Bancorp,Regional banks,KRE
+PNC,PNC Financial,Regional banks,KRE
+TFC,Truist Financial,Regional banks,KRE
+CB,Chubb,Financials,XLF
+PGR,Progressive,Financials,XLF
+UNH,UnitedHealth,Healthcare,XLV
+LLY,Eli Lilly,Healthcare,XLV
+JNJ,Johnson & Johnson,Healthcare,XLV
+PFE,Pfizer,Healthcare,XLV
+MRK,Merck,Healthcare,XLV
+ABBV,AbbVie,Healthcare,XLV
+BMY,Bristol-Myers Squibb,Healthcare,XLV
+TMO,Thermo Fisher,Healthcare,XLV
+DHR,Danaher,Healthcare,XLV
+ABT,Abbott Laboratories,Healthcare,XLV
+ISRG,Intuitive Surgical,Healthcare,XLV
+MDT,Medtronic,Healthcare,XLV
+SYK,Stryker,Healthcare,XLV
+CVS,CVS Health,Healthcare,XLV
+ELV,Elevance Health,Healthcare,XLV
+CI,Cigna,Healthcare,XLV
+HCA,HCA Healthcare,Healthcare,XLV
+DXCM,Dexcom,Healthcare,XLV
+NVO,Novo Nordisk,Healthcare,XLV
+AMGN,Amgen,Biotech,XBI
+GILD,Gilead Sciences,Biotech,XBI
+VRTX,Vertex Pharmaceuticals,Biotech,XBI
+REGN,Regeneron,Biotech,XBI
+MRNA,Moderna,Biotech,XBI
+BIIB,Biogen,Biotech,XBI
+XOM,Exxon Mobil,Energy,XLE
+CVX,Chevron,Energy,XLE
+COP,ConocoPhillips,Energy,XLE
+EOG,EOG Resources,Energy,XLE
+OXY,Occidental Petroleum,Energy,XLE
+SLB,Schlumberger,Energy,XLE
+HAL,Halliburton,Energy,XLE
+MPC,Marathon Petroleum,Energy,XLE
+PSX,Phillips 66,Energy,XLE
+VLO,Valero,Energy,XLE
+DVN,Devon Energy,Energy,XLE
+FANG,Diamondback Energy,Energy,XLE
+KMI,Kinder Morgan,Energy,XLE
+WMB,Williams Companies,Energy,XLE
+CAT,Caterpillar,Industrials,XLI
+DE,Deere,Industrials,XLI
+HON,Honeywell,Industrials,XLI
+GE,GE Aerospace,Industrials,XLI
+GEV,GE Vernova,Industrials,XLI
+ETN,Eaton,Industrials,XLI
+VRT,Vertiv,Industrials,XLI
+PWR,Quanta Services,Industrials,XLI
+UNP,Union Pacific,Industrials,XLI
+UPS,United Parcel Service,Industrials,XLI
+FDX,FedEx,Industrials,XLI
+MMM,3M,Industrials,XLI
+WM,Waste Management,Industrials,XLI
+DAL,Delta Air Lines,Industrials,XLI
+UAL,United Airlines,Industrials,XLI
+URI,United Rentals,Industrials,XLI
+BA,Boeing,Defense / aerospace,ITA
+LMT,Lockheed Martin,Defense / aerospace,ITA
+RTX,RTX,Defense / aerospace,ITA
+NOC,Northrop Grumman,Defense / aerospace,ITA
+GD,General Dynamics,Defense / aerospace,ITA
+LHX,L3Harris,Defense / aerospace,ITA
+HWM,Howmet Aerospace,Defense / aerospace,ITA
+AXON,Axon Enterprise,Defense / aerospace,ITA
+LIN,Linde,Materials,XLB
+FCX,Freeport-McMoRan,Materials,XLB
+NEM,Newmont,Materials,XLB
+NUE,Nucor,Materials,XLB
+APD,Air Products,Materials,XLB
+SHW,Sherwin-Williams,Materials,XLB
+DOW,Dow Inc.,Materials,XLB
+ALB,Albemarle,Materials,XLB
+MP,MP Materials,Materials,XLB
+NEE,NextEra Energy,Utilities,XLU
+DUK,Duke Energy,Utilities,XLU
+SO,Southern Company,Utilities,XLU
+D,Dominion Energy,Utilities,XLU
+AEP,American Electric Power,Utilities,XLU
+VST,Vistra,Utilities,XLU
+CEG,Constellation Energy,Utilities,XLU
+NRG,NRG Energy,Utilities,XLU
+PLD,Prologis,Real estate,XLRE
+AMT,American Tower,Real estate,XLRE
+EQIX,Equinix,Real estate,XLRE
+DLR,Digital Realty,Real estate,XLRE
+SPG,Simon Property Group,Real estate,XLRE
+O,Realty Income,Real estate,XLRE
+WELL,Welltower,Real estate,XLRE
+PSA,Public Storage,Real estate,XLRE
+BABA,Alibaba,Consumer discretionary,XLY
+PDD,PDD Holdings,Consumer discretionary,XLY
+MELI,MercadoLibre,Consumer discretionary,XLY
+MSTR,Strategy (MicroStrategy),Software / AI apps,IGV
+SPY,SPDR S&P 500 ETF,ETF,SPY
+QQQ,Invesco QQQ,ETF,QQQ
+IWM,iShares Russell 2000,ETF,IWM
+DIA,SPDR Dow Jones,ETF,DIA
+SMH,VanEck Semiconductor,ETF,SMH
+XLE,Energy Select Sector,ETF,XLE
+XLF,Financial Select Sector,ETF,XLF
+XBI,SPDR Biotech,ETF,XBI
+GLD,SPDR Gold,ETF,GLD
+SLV,iShares Silver,ETF,SLV
+USO,United States Oil Fund,ETF,USO
+TLT,iShares 20+ Year Treasury,ETF,TLT
+HYG,iShares High Yield Corporate,ETF,HYG
+IBIT,iShares Bitcoin Trust,ETF,IBIT

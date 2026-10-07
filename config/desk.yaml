@@ -1,0 +1,106 @@
+# =====================================================================
+# Trading Desk configuration
+# PAPER TRADING / RESEARCH ONLY. No brokerage connection exists anywhere.
+# =====================================================================
+
+account:
+  starting_cash: 30000
+
+# Hard risk limits: the risk engine refuses any idea that breaks one of these.
+risk:
+  max_risk_per_trade: 0.01        # 1% of equity may be lost if the stop (or max loss) is hit
+  max_total_risk: 0.05            # sum of open risk across all positions <= 5%
+  max_options_exposure: 0.15      # premium/debit at risk in options <= 15% of equity
+  max_single_stock: 0.15          # any one position <= 15% of equity (market value)
+  # Long options and debit spreads are DEFINED-RISK: their risk is the full premium/debit.
+  # (A stop on the option price does not protect against overnight gaps.)
+  options_risk_basis: "max_loss"
+
+data:
+  sec_user_agent: "trading-desk personal research admin@example.com"   # put your own name + email here
+  history_period: "1y"
+  benchmark: "SPY"
+  stale_quote_minutes: 30         # quotes older than this are labeled STALE in reports
+
+screening:
+  min_price: 10
+  min_dollar_volume: 50000000     # $50M/day average traded value
+  atr_stop_multiple: 1.5          # default stop = entry - 1.5 x ATR(14)
+  min_reward_risk: 2.0            # ideas below 2:1 reward/risk are not ranked
+  top_n: 10
+
+options:
+  min_open_interest: 100
+  max_spread_pct: 0.15            # bid/ask spread <= 15% of mid
+  min_days: 14                    # avoid very short-dated contracts unless explicitly requested
+  max_days: 120
+  risk_free_rate: 0.04            # overwritten by the live 3-month T-bill when available
+
+news:
+  max_age_hours: 36
+  google_news_topics:
+    markets: "stock market"
+    fed: "Federal Reserve OR Powell OR FOMC"
+    inflation: "inflation CPI OR PPI OR PCE"
+    jobs: "jobs report OR payrolls OR jobless claims"
+    earnings: "earnings guidance stock"
+    mna: "merger acquisition deal stock"
+    analysts: "analyst upgrade OR downgrade stock"
+    tariffs_trade: "tariffs OR trade policy OR export controls"
+    china: "China US trade OR Taiwan OR chips export"
+    geopolitics: "geopolitical oil OR Middle East OR Russia Ukraine OR sanctions"
+    energy: "oil prices OPEC"
+    semis_ai: "semiconductor OR AI chips stock"
+    regulation: "SEC OR FTC OR antitrust OR regulation stocks"
+    fiscal: "Congress budget OR tax bill OR government spending"
+  rss:
+    cnbc_top: "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114"
+    cnbc_economy: "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258"
+    cnbc_earnings: "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839135"
+    cnbc_politics: "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000113"
+    cnbc_world: "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362"
+    marketwatch_top: "https://feeds.content.dowjones.io/public/rss/mw_topstories"
+    marketwatch_pulse: "https://feeds.content.dowjones.io/public/rss/mw_marketpulse"
+    fed_press: "https://www.federalreserve.gov/feeds/press_all.xml"
+    fed_speeches: "https://www.federalreserve.gov/feeds/speeches.xml"
+  sec:
+    eight_k: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=8-K&count=100&output=atom"
+    form4: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=4&count=100&output=atom"
+
+# Cross-asset dashboard (Yahoo Finance symbols)
+cross_asset:
+  "S&P 500": "^GSPC"
+  "Nasdaq": "^IXIC"
+  "Dow": "^DJI"
+  "Russell 2000": "^RUT"
+  "VIX": "^VIX"
+  "VIX 3-month": "^VIX3M"
+  "10Y Treasury yield": "^TNX"
+  "5Y Treasury yield": "^FVX"
+  "3M T-bill yield": "^IRX"
+  "Dollar index": "DX-Y.NYB"
+  "WTI crude oil": "CL=F"
+  "Gold": "GC=F"
+  "Copper": "HG=F"
+  "Bitcoin": "BTC-USD"
+  "High-yield bonds (HYG)": "HYG"
+  "20Y+ Treasuries (TLT)": "TLT"
+
+sector_etfs:
+  Technology: XLK
+  Semiconductors: SMH
+  Software / AI apps: IGV
+  Financials: XLF
+  Regional banks: KRE
+  Energy: XLE
+  Healthcare: XLV
+  Biotech: XBI
+  Industrials: XLI
+  Defense / aerospace: ITA
+  Consumer discretionary: XLY
+  Consumer staples: XLP
+  Utilities: XLU
+  Real estate: XLRE
+  Materials: XLB
+  Communication services: XLC
+  Homebuilders: XHB

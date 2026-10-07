@@ -1,0 +1,47 @@
+# Automated desk runs (cloud). PAPER TRADING / RESEARCH ONLY: no brokerage access exists.
+#  - 12:00 UTC (8:00 am EDT / 7:00 am EST) weekdays: full morning scan (also marks the paper portfolio)
+#  - 20:30 UTC (4:30 pm EDT / 3:30 pm EST) weekdays: close-of-day paper update (stops, targets, equity)
+# The full "What's the trade today?" analysis still happens in a Claude session (see CLAUDE.md).
+name: Trading desk
+
+on:
+  schedule:
+    - cron: "0 12 * * 1-5"
+    - cron: "30 20 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "scan or update"
+        default: "scan"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: desk
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Morning scan
+        if: github.event.schedule == '0 12 * * 1-5' || (github.event_name == 'workflow_dispatch' && inputs.job == 'scan')
+        run: python desk.py scan
+      - name: Close-of-day paper update
+        if: github.event.schedule == '30 20 * * 1-5' || (github.event_name == 'workflow_dispatch' && inputs.job == 'update')
+        run: python desk.py paper update
+      - name: Commit results
+        run: |
+          git config user.name "trading-desk-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports journal data/iv_history.csv 2>/dev/null || true
+          if git diff --cached --quiet; then echo "No changes"; else
+            git commit -m "Desk run $(date -u +%Y-%m-%dT%H:%MZ)" && git pull --rebase && git push; fi
