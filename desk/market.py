@@ -17,18 +17,53 @@ from desk.common import DATA, config, stamp, universe
 log = logging.getLogger(__name__)
 
 
-def download_daily(tickers: List[str], period: str = "1y") -> Dict[str, pd.DataFrame]:
-    """Adjusted daily OHLCV as {field: DataFrame(date x ticker)}."""
-    raw = yf.download(tickers, period=period, auto_adjust=True, progress=False, group_by="column", threads=True)
-    if raw.empty:
-        raise RuntimeError("No market data returned (network problem?)")
+def _batch(tickers: List[str], period: str) -> pd.DataFrame:
+    return yf.download(tickers, period=period, auto_adjust=True, progress=False, group_by="column", threads=True)
+
+
+def download_daily(tickers: List[str], period: str = "1y", chunk: int = 60, retries: int = 3) -> Dict[str, pd.DataFrame]:
+    """Adjusted daily OHLCV as {field: DataFrame(date x ticker)}.
+
+    Downloads in chunks, then retries any ticker that came back empty one at a time
+    with a pause: Yahoo rate-limits shared cloud IPs (e.g. GitHub Actions) under load.
+    """
+    import time
+
+    frames = []
+    for i in range(0, len(tickers), chunk):
+        raw = _batch(tickers[i:i + chunk], period)
+        if not raw.empty:
+            frames.append(raw)
+        time.sleep(1)
+    if not frames:
+        raise RuntimeError("No market data returned (network problem or rate limit)")
+    raw = pd.concat(frames, axis=1)
+    for attempt in range(retries):
+        close = raw["Close"] if "Close" in raw else pd.DataFrame()
+        missing = [t for t in tickers if t not in close or close[t].dropna().empty]
+        if not missing:
+            break
+        log.warning("retrying %d tickers after empty download: %s", len(missing), missing[:10])
+        time.sleep(5 * (attempt + 1))
+        for t in missing:
+            one = _batch([t], period)
+            if not one.empty:
+                raw = raw.drop(columns=[c for c in raw.columns if c[1] == t], errors="ignore")
+                if not isinstance(one.columns, pd.MultiIndex):
+                    one.columns = pd.MultiIndex.from_product([one.columns, [t]])
+                raw = pd.concat([raw, one], axis=1)
+            time.sleep(1)
     out = {}
     for f in ("Open", "High", "Low", "Close", "Volume"):
         df = raw[f]
         if isinstance(df, pd.Series):
             df = df.to_frame(tickers[0])
+        df = df.loc[:, ~df.columns.duplicated()]
         df.index = pd.to_datetime(df.index).tz_localize(None)
-        out[f.lower()] = df
+        out[f.lower()] = df.sort_index()
+    still = [t for t in tickers if t not in out["close"] or out["close"][t].dropna().empty]
+    if still:
+        log.warning("no data after retries for: %s", still)
     return out
 
 

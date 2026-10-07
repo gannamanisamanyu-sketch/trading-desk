@@ -88,6 +88,8 @@ def sector_rotation(data: Dict[str, pd.DataFrame]) -> pd.DataFrame:
         if etf not in c:
             continue
         s = c[etf].dropna()
+        if len(s) < 70:      # not enough history (e.g. download failed): skip rather than crash
+            continue
         rs = s / spy.reindex(s.index)
         r1 = float(rs.iloc[-1] / rs.iloc[-22] - 1)
         r3 = float(rs.iloc[-1] / rs.iloc[-64] - 1)
