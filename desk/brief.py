@@ -167,7 +167,11 @@ def _write(packet, cross, eco, sectors, headlines, eightk, buys, reddit, st_tren
           f"Equity **${a['equity']:,.2f}** ({pct(a['total_return'], 2)}) · cash ${a['cash']:,.2f} · open risk ${a['open_risk']:,.0f} "
           f"({a['open_risk'] / a['equity']:.1%}) · options exposure ${a['options_exposure']:,.0f}",
           *(f"- {e}" for e in packet["paper_events"]), ""]
-    (REPORTS / f"{day}_scan.md").write_text("\n".join(L))
+    out = REPORTS / f"{day}_scan.md"
+    if out.exists():   # never overwrite the morning scan that the day's report cites
+        out = REPORTS / f"{day}_scan_{now_ny().strftime('%H%M')}.md"
+    out.write_text("\n".join(L))
+    packet["scan_file"] = str(out.relative_to(REPORTS.parent))
     js = {**packet, "setups": sized.to_dict("records") if len(sized) else [],
           "sectors": sectors.to_dict("records") if len(sectors) else []}
     (DATA / "briefs" / f"{day}.json").write_text(json.dumps(js, indent=2, default=str))

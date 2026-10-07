@@ -39,7 +39,7 @@ def cmd_scan(a):
     if len(s):
         print(s[["ticker", "direction", "setups", "entry", "stop", "target", "reward_risk", "shares", "risk_$", "score"]]
               .head(10).round(2).to_string(index=False))
-    print("\nPacket: reports/" + out["generated"][:10] + "_scan.md")
+    print("\nPacket:", out.get("scan_file", "reports/" + out["generated"][:10] + "_scan.md"))
 
 
 def cmd_options(a):
