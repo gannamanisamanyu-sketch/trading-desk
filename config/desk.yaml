@@ -104,3 +104,7 @@ sector_etfs:
   Materials: XLB
   Communication services: XLC
   Homebuilders: XHB
+
+# Obsidian mirror (local Mac only; skipped automatically where the folder doesn't exist, e.g. GitHub Actions)
+obsidian:
+  folder: "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Samanyu/brain 2/01 Projects/Trading Desk"

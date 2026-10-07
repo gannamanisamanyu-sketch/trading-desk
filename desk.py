@@ -9,6 +9,7 @@
     python desk.py paper add-stock  NVDA LONG 10 185.20 178 205 --setup breakout --reason "..." --catalyst "..."
     python desk.py paper add-option NVDA LONG 1 --from-last-options --reason "..." --catalyst "..."
     python desk.py paper close 3 --price 4.10 --reason "manual"
+    python desk.py obsidian                     # mirror trades, scans, news and stats into the Obsidian vault
 """
 from __future__ import annotations
 
@@ -177,6 +178,14 @@ def cmd_paper(a):
         print(f"Closed #{a.id}: P&L ${t['pnl']:,.2f} ({t['return_pct']:.1%})")
 
 
+def cmd_obsidian(a):
+    from desk import obsidian
+
+    r = obsidian.sync()
+    if r.get("skipped"):
+        print("Obsidian sync skipped:", r["skipped"])
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("-v", "--verbose", action="store_true")
@@ -195,10 +204,15 @@ def main():
     p.add_argument("--catalyst", default=""); p.add_argument("--setup", default="discretionary")
     p.add_argument("--regime", default=""); p.add_argument("--confidence", default="medium")
     p.add_argument("--from-last-options", action="store_true")
+    sub.add_parser("obsidian")
     a = ap.parse_args()
     logging.basicConfig(level=logging.INFO if a.verbose else logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
     {"scan": cmd_scan, "options": cmd_options, "size": cmd_size, "news": cmd_news, "quote": cmd_quote,
-     "paper": cmd_paper}[a.cmd](a)
+     "paper": cmd_paper, "obsidian": cmd_obsidian}[a.cmd](a)
+    # keep the Obsidian vault current after anything that changes scans or the ledger
+    if a.cmd == "scan" or (a.cmd == "paper" and a.action in ("update", "add-stock", "add-option", "close")):
+        from desk import obsidian
+        obsidian.safe_sync()
 
 
 if __name__ == "__main__":

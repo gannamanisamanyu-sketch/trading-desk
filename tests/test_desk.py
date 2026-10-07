@@ -125,3 +125,18 @@ def test_short_stock_pnl(tmp_ledger):
     assert acct["unrealized_pnl"] == pytest.approx(100)    # (50 - 45) x 20
     paper.close_trade(book, book["trades"][0], 40.0, "target")
     assert book["trades"][0]["pnl"] == pytest.approx(200)
+
+
+def test_obsidian_sync_preserves_manual_notes(tmp_path, monkeypatch):
+    from desk import obsidian
+
+    folder = tmp_path / "Trading Desk"
+    monkeypatch.setenv("TRADING_DESK_VAULT", str(folder))
+    first = obsidian.sync(quiet=True)
+    assert (folder / "Portfolio.md").exists() and (folder / "Desk Memory.md").exists()
+    mem = folder / "Desk Memory.md"
+    mem.write_text(mem.read_text() + "\n- my own lesson\n")
+    obsidian.sync(quiet=True)
+    assert "my own lesson" in mem.read_text()
+    assert mem.read_text().count(obsidian.START) == 1
+    assert first["changed"]

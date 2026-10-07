@@ -18,6 +18,18 @@ but stay disciplined: **if there is no edge, the answer is HOLD CASH.**
    or clear technical edge. Social-media buzz is never a reason on its own.
 5. **Separate fact from inference.** Label inferences ("likely", "my read") and give a confidence (low/medium/high).
 
+## Memory: Obsidian (read first, write last)
+The desk mirrors itself into Samanyu's Obsidian vault: `brain 2/01 Projects/Trading Desk/`
+(`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Samanyu/`).
+- **Start of every desk session:** read `Desk Memory.md` (lessons, watchlist, open theses, performance) and the
+  latest `Desk Log/<day> Desk.md`. Apply the lessons; don't repeat a logged mistake.
+- **End of every session:** add dated, evidence-based entries to `Desk Memory.md` (new lessons, watchlist
+  changes, thesis updates; remove stale watchlist items). When a trade closes, write its `## Review` section in
+  `Trades/Trade NNN TICKER.md`: what happened vs. the plan, whether the thesis was right, what to do differently.
+  Write only outside the `desk:auto` markers. Never invent lessons from fewer trades than the evidence supports.
+- Auto-generated content (portfolio, trade facts, desk logs, headlines, raw scans) syncs on its own after `scan`
+  and `paper` commands, when the Trading Desk app opens, and on a weekday schedule; `desk.py obsidian` forces it.
+
 ## Sync (this repo is shared with a GitHub Action)
 A GitHub Action runs the scan at ~8:00 ET and a paper update at ~16:30 ET on weekdays and commits the results.
 **Always start a session with `git pull --rebase`** and, after changing reports or the ledger, finish with
