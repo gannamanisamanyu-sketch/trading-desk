@@ -1,16 +1,21 @@
 {
- "generated": "2026-10-07 17:02 ET",
+ "generated": "2026-10-07 18:21 ET",
  "data_through": "2026-10-07",
  "system_version": "1.0",
  "version_check": {
-  "ok": true,
+  "ok": false,
   "version": "1.0",
-  "diffs": [],
-  "problem": ""
+  "diffs": [
+   "scorecard.default_weights: None \u2192 {'catalyst': 1.0, 'fundamentals': 1.0, 'technical': 1.0, 'regime': 1.0, 'sector': 1.0, 'options': 0.5, 'liquidity': 1.0, 'risk_reward': 1.5, 'timing': 1.0, 'contradictory': 1.0}",
+   "scorecard.gate: None \u2192 {'risk_reward': 3, 'liquidity': 3}",
+   "scorecard.gate_cap: None \u2192 4",
+   "scorecard.strategy_weights: None \u2192 {'News-driven': {'catalyst': 2.0, 'timing': 1.5}, 'Catalyst': {'catalyst': 2.0, 'timing': 1.5}, 'Earnings': {'catalyst': 2.0, 'fundamentals': 1.5, 'options': 1.5}, 'Breakout': {'technical': 2.0, 'sector': 1.5}, 'Pullback': {'technical': 2.0, 'regime': 1.5}, 'Momentum': {'technical': 1.5, 'sector': 1.5, 'regime': 1.5}, 'Mean reversion': {'technical': 1.5, 'regime': 1.5}, 'Sector rotation': {'sector': 2.0, 'regime': 1.5}, 'Macro': {'regime': 2.0, 'catalyst': 1.5}, 'Political': {'catalyst': 1.5, 'regime': 1.5}, 'Geopolitical': {'catalyst': 1.5, 'regime': 1.5}, 'Options directional': {'options': 2.0, 'liquidity': 1.5}, 'Options spread': {'options': 2.0, 'liquidity': 1.5}, 'Volatility': {'options': 2.0, 'regime': 1.5}}"
+  ],
+  "problem": "UNDOCUMENTED PARAMETER CHANGE since this version was recorded"
  },
  "trades": {
   "1": {
-   "underlying_last": 236.9199981689453
+   "underlying_last": 237.47000122070312
   }
  },
  "performance": {
@@ -41,24 +46,24 @@
  "events": {
   "AI": {
    "n": 2,
-   "avg_spy_1d": -0.002624913520670513,
-   "avg_abs_spy_1d": 0.002624913520670513,
+   "avg_spy_1d": -0.0024003081645026514,
+   "avg_abs_spy_1d": 0.0024003081645026514,
    "avg_spy_5d": null,
    "expectation_hit_rate": null,
    "evidence": "INSUFFICIENT (n=2 < 20): no conclusions"
   },
   "Fed": {
    "n": 1,
-   "avg_spy_1d": -0.002624913520670513,
-   "avg_abs_spy_1d": 0.002624913520670513,
+   "avg_spy_1d": -0.0024003081645026514,
+   "avg_abs_spy_1d": 0.0024003081645026514,
    "avg_spy_5d": null,
    "expectation_hit_rate": null,
    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
   },
   "Geopolitics": {
    "n": 1,
-   "avg_spy_1d": -0.002624913520670513,
-   "avg_abs_spy_1d": 0.002624913520670513,
+   "avg_spy_1d": -0.0024003081645026514,
+   "avg_abs_spy_1d": 0.0024003081645026514,
    "avg_spy_5d": null,
    "expectation_hit_rate": null,
    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
@@ -101,14 +106,15 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 225.24000549316406,
-    "mark_r": 0.030946541099059317,
     "days": 1.0,
+    "mark_r": -0.05070899746588148,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "pullback",
      "laggard_in_strong_sector"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -126,13 +132,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 280.9949951171875,
-    "mark_r": 0.1344865040146018,
     "days": 1.0,
+    "mark_r": 0.23599095170626436,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "breakout"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -150,13 +157,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 70.11000061035156,
-    "mark_r": 0.5228178208586888,
     "days": 1.0,
+    "mark_r": 0.3928562475711578,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -174,13 +182,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 276.8999938964844,
-    "mark_r": -0.8188506014617272,
     "days": 1.0,
+    "mark_r": -0.7660425221009777,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -198,13 +207,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 413.4100036621094,
-    "mark_r": -0.4065138642494153,
     "days": 1.0,
+    "mark_r": -0.4037072533197998,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -222,13 +232,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 530.7249755859375,
-    "mark_r": -0.003927708076035809,
     "days": 1.0,
+    "mark_r": -0.0507743783173558,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -246,13 +257,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 634.3920288085938,
-    "mark_r": 0.29896746572885996,
     "days": 1.0,
+    "mark_r": 0.5478664609070547,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -270,13 +282,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 435.5799865722656,
-    "mark_r": 0.22853854334355125,
     "days": 1.0,
+    "mark_r": 0.2583150294642298,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -294,13 +307,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 423.239990234375,
-    "mark_r": -0.0007319304584267077,
     "days": 1.0,
+    "mark_r": 0.031490888929653515,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -318,13 +332,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 563.27001953125,
-    "mark_r": 0.5524752240374732,
     "days": 1.0,
+    "mark_r": 0.4886326034818031,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -342,13 +357,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 333.4200134277344,
-    "mark_r": 0.03070159793535352,
     "days": 1.0,
+    "mark_r": -0.031250378541500444,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "laggard_in_strong_sector"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -366,13 +382,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 271.8399963378906,
-    "mark_r": -0.007386526434705683,
     "days": 1.0,
+    "mark_r": -0.014775102405048077,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -390,13 +407,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 139.5,
-    "mark_r": -0.09656868728936897,
     "days": 1.0,
+    "mark_r": -0.15980440027573548,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "laggard_in_strong_sector"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -414,13 +432,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 237.6750030517578,
-    "mark_r": -0.1055212523811593,
     "days": 1.0,
+    "mark_r": -0.028651536494358833,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "laggard_in_strong_sector"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -438,13 +457,14 @@
     "system_version": 1.0,
     "status": "open",
     "entry": 662.4000244140625,
-    "mark_r": -0.025091187341775553,
     "days": 1.0,
+    "mark_r": -0.010278917911687007,
     "regime_trend": "SIDEWAYS",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": true
    },
    {
     "date": "2026-10-07",
@@ -462,13 +482,14 @@
     "system_version": 1.0,
     "status": "waiting",
     "entry": null,
-    "mark_r": null,
     "days": null,
+    "mark_r": null,
     "regime_trend": "BULL",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": false
    },
    {
     "date": "2026-10-07",
@@ -486,13 +507,14 @@
     "system_version": 1.0,
     "status": "waiting",
     "entry": null,
-    "mark_r": null,
     "days": null,
+    "mark_r": null,
     "regime_trend": "BULL",
     "month": "2026-10",
     "setup_list": [
      "pullback"
-    ]
+    ],
+    "independent": false
    },
    {
     "date": "2026-10-07",
@@ -510,13 +532,14 @@
     "system_version": 1.0,
     "status": "waiting",
     "entry": null,
-    "mark_r": null,
     "days": null,
+    "mark_r": null,
     "regime_trend": "BULL",
     "month": "2026-10",
     "setup_list": [
      "laggard_in_strong_sector"
-    ]
+    ],
+    "independent": false
    },
    {
     "date": "2026-10-07",
@@ -534,13 +557,14 @@
     "system_version": 1.0,
     "status": "waiting",
     "entry": null,
-    "mark_r": null,
     "days": null,
+    "mark_r": null,
     "regime_trend": "BULL",
     "month": "2026-10",
     "setup_list": [
      "pullback"
-    ]
+    ],
+    "independent": false
    },
    {
     "date": "2026-10-07",
@@ -558,14 +582,15 @@
     "system_version": 1.0,
     "status": "waiting",
     "entry": null,
-    "mark_r": null,
     "days": null,
+    "mark_r": null,
     "regime_trend": "BULL",
     "month": "2026-10",
     "setup_list": [
      "pullback",
      "laggard_in_strong_sector"
-    ]
+    ],
+    "independent": false
    },
    {
     "date": "2026-10-07",
@@ -583,15 +608,17 @@
     "system_version": 1.0,
     "status": "waiting",
     "entry": null,
-    "mark_r": null,
     "days": null,
+    "mark_r": null,
     "regime_trend": "BULL",
     "month": "2026-10",
     "setup_list": [
      "rs_leader"
-    ]
+    ],
+    "independent": false
    }
-  ]
+  ],
+  "independent_resolved": 0
  },
  "regimes": {
   "days_logged": 1,
@@ -624,5 +651,2568 @@
     "evidence": "INSUFFICIENT (n=0 < 20): no conclusions (overlapping days are not independent)"
    }
   }
+ },
+ "backtest": {
+  "period": "2024-12-17 \u2192 2026-10-07",
+  "signals": 5516,
+  "independent_resolved": 1035,
+  "overall": {
+   "n": 1035,
+   "win_rate": 0.37681159420289856,
+   "avg_r": 0.09041216571449373,
+   "median_r": -1.0,
+   "std_r": 1.543376846507095,
+   "ci95_mean_r": [
+    -0.0037244442470035083,
+    0.18454877567599098
+   ],
+   "risk_adjusted": 0.058580745149255486,
+   "avg_win_r": 1.8500666265852557,
+   "avg_loss_r": -0.9735649501608507,
+   "profit_factor": 1.1490193199952585,
+   "distinct_tickers": 180,
+   "regimes_covered": 6,
+   "months_covered": 22,
+   "avg_r_ex_best": 0.07691550975169098,
+   "top_ticker_share": 0.02318840579710145,
+   "robust": true,
+   "evidence": "NOT PROVEN (n=1035): CI includes 0 or robustness checks failed"
+  },
+  "by_setup": {
+   "breakdown": {
+    "n": 47,
+    "win_rate": 0.19148936170212766,
+    "avg_r": -0.44123096886170876,
+    "median_r": -1.0,
+    "std_r": 1.1864635170245916,
+    "ci95_mean_r": [
+     -0.7895897078736713,
+     -0.09287222984974625
+    ],
+    "risk_adjusted": -0.3718875148965608,
+    "avg_win_r": 1.8670464157519424,
+    "avg_loss_r": -0.9879282441649422,
+    "profit_factor": 0.44759850357805475,
+    "distinct_tickers": 44,
+    "regimes_covered": 2,
+    "months_covered": 3,
+    "avg_r_ex_best": -0.5262776087662273,
+    "top_ticker_share": 0.0425531914893617,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=47): hypotheses only"
+   },
+   "breakout": {
+    "n": 24,
+    "win_rate": 0.2916666666666667,
+    "avg_r": -0.006046755358288571,
+    "median_r": -1.0,
+    "std_r": 1.7372985186206267,
+    "ci95_mean_r": [
+     -0.7396435815345921,
+     0.7275500708180149
+    ],
+    "risk_adjusted": -0.0034805505752054343,
+    "avg_win_r": 2.280188503379691,
+    "avg_loss_r": -0.9474377442503978,
+    "profit_factor": 0.9909898081940035,
+    "distinct_tickers": 19,
+    "regimes_covered": 2,
+    "months_covered": 4,
+    "avg_r_ex_best": -0.26907967663059373,
+    "top_ticker_share": 0.125,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=24): hypotheses only"
+   },
+   "laggard_in_strong_sector": {
+    "n": 73,
+    "win_rate": 0.3698630136986301,
+    "avg_r": 0.012771262499331774,
+    "median_r": -1.0,
+    "std_r": 1.3643228665760787,
+    "ci95_mean_r": [
+     -0.305548814218053,
+     0.3310913392167165
+    ],
+    "risk_adjusted": 0.009360879900358696,
+    "avg_win_r": 1.6777155685665253,
+    "avg_loss_r": -0.9644786562792381,
+    "profit_factor": 1.0210138795526538,
+    "distinct_tickers": 44,
+    "regimes_covered": 2,
+    "months_covered": 3,
+    "avg_r_ex_best": -0.04076473723612788,
+    "top_ticker_share": 0.0684931506849315,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=73): CI includes 0 or robustness checks failed"
+   },
+   "oversold_uptrend": {
+    "n": 20,
+    "win_rate": 0.55,
+    "avg_r": 1.072685819185345,
+    "median_r": 0.8261948365688289,
+    "std_r": 2.26660354559604,
+    "ci95_mean_r": [
+     0.011882706203929283,
+     2.1334889321667605
+    ],
+    "risk_adjusted": 0.47325692279514414,
+    "avg_win_r": 2.768519671246082,
+    "avg_loss_r": -1.0,
+    "profit_factor": 3.383746264856322,
+    "distinct_tickers": 18,
+    "regimes_covered": 2,
+    "months_covered": 3,
+    "avg_r_ex_best": 0.8094439063279913,
+    "top_ticker_share": 0.1,
+    "robust": true,
+    "evidence": "PRELIMINARY (n=20): hypotheses only"
+   },
+   "pullback": {
+    "n": 95,
+    "win_rate": 0.45263157894736844,
+    "avg_r": 0.19999165293536025,
+    "median_r": -1.0,
+    "std_r": 1.4280350618143953,
+    "ci95_mean_r": [
+     -0.09091395056185608,
+     0.4908972564325766
+    ],
+    "risk_adjusted": 0.1400467385452428,
+    "avg_win_r": 1.6284606785455344,
+    "avg_loss_r": -0.9812423490115146,
+    "profit_factor": 1.3723538494926015,
+    "distinct_tickers": 76,
+    "regimes_covered": 2,
+    "months_covered": 4,
+    "avg_r_ex_best": 0.16310388121234137,
+    "top_ticker_share": 0.031578947368421054,
+    "robust": true,
+    "evidence": "NOT PROVEN (n=95): CI includes 0 or robustness checks failed"
+   },
+   "rs_leader": {
+    "n": 791,
+    "win_rate": 0.37926675094816686,
+    "avg_r": 0.10413848912531729,
+    "median_r": -1.0,
+    "std_r": 1.5676381922348124,
+    "ci95_mean_r": [
+     -0.0052751752193688495,
+     0.21355215347000342
+    ],
+    "risk_adjusted": 0.06643018117392145,
+    "avg_win_r": 1.8676153416130212,
+    "avg_loss_r": -0.9733422761421189,
+    "profit_factor": 1.1723616635158953,
+    "distinct_tickers": 143,
+    "regimes_covered": 6,
+    "months_covered": 22,
+    "avg_r_ex_best": 0.0864906208441436,
+    "top_ticker_share": 0.02781289506953224,
+    "robust": true,
+    "evidence": "NOT PROVEN (n=791): CI includes 0 or robustness checks failed"
+   }
+  },
+  "by_trend": {
+   "Bear": {
+    "n": 36,
+    "win_rate": 0.2777777777777778,
+    "avg_r": 0.04884133008403578,
+    "median_r": -1.0,
+    "std_r": 2.6716383800590884,
+    "ci95_mean_r": [
+     -0.8551110460452737,
+     0.9527937062133452
+    ],
+    "risk_adjusted": 0.01828141504800345,
+    "avg_win_r": 2.6985318033779566,
+    "avg_loss_r": -0.9702703904136261,
+    "profit_factor": 1.0696985682626108,
+    "distinct_tickers": 26,
+    "regimes_covered": 1,
+    "months_covered": 5,
+    "avg_r_ex_best": -0.35107618709220656,
+    "top_ticker_share": 0.08333333333333333,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=36): hypotheses only"
+   },
+   "Bull": {
+    "n": 229,
+    "win_rate": 0.44541484716157204,
+    "avg_r": 0.27260403943033157,
+    "median_r": -1.0,
+    "std_r": 1.5556746105755872,
+    "ci95_mean_r": [
+     0.07004084659757268,
+     0.47516723226309043
+    ],
+    "risk_adjusted": 0.17523204247028898,
+    "avg_win_r": 1.8309147181437833,
+    "avg_loss_r": -0.9789525686702357,
+    "profit_factor": 1.5021140779497324,
+    "distinct_tickers": 130,
+    "regimes_covered": 1,
+    "months_covered": 15,
+    "avg_r_ex_best": 0.24715808274592482,
+    "top_ticker_share": 0.026200873362445413,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=229): CI includes 0 or robustness checks failed"
+   },
+   "Choppy": {
+    "n": 9,
+    "win_rate": 0.1111111111111111,
+    "avg_r": -0.35242014044758063,
+    "median_r": -1.0,
+    "std_r": 1.690183323484262,
+    "ci95_mean_r": [
+     -1.6516100515168568,
+     0.9467697706216955
+    ],
+    "risk_adjusted": -0.20851000926992766,
+    "avg_win_r": 4.110006404414237,
+    "avg_loss_r": -0.9102234585553077,
+    "profit_factor": 0.5644227202924398,
+    "distinct_tickers": 8,
+    "regimes_covered": 1,
+    "months_covered": 2,
+    "avg_r_ex_best": -0.9102234585553077,
+    "top_ticker_share": 0.2222222222222222,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=9 < 20): no conclusions"
+   },
+   "Neutral": {
+    "n": 40,
+    "win_rate": 0.3,
+    "avg_r": -0.1958498693389378,
+    "median_r": -1.0,
+    "std_r": 1.18778572745356,
+    "ci95_mean_r": [
+     -0.5757221740595879,
+     0.18402243538171234
+    ],
+    "risk_adjusted": -0.1648865319831814,
+    "avg_win_r": 1.5336130551639202,
+    "avg_loss_r": -0.9370482655544484,
+    "profit_factor": 0.7014182322171998,
+    "distinct_tickers": 35,
+    "regimes_covered": 1,
+    "months_covered": 5,
+    "avg_r_ex_best": -0.2622587029309228,
+    "top_ticker_share": 0.075,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=40): hypotheses only"
+   },
+   "Strong Bear": {
+    "n": 43,
+    "win_rate": 0.16279069767441862,
+    "avg_r": -0.5682247569044239,
+    "median_r": -1.0,
+    "std_r": 0.9771069706615251,
+    "ci95_mean_r": [
+     -0.8689338968956795,
+     -0.26751561691316833
+    ],
+    "risk_adjusted": -0.5815379216051667,
+    "avg_win_r": 1.485365890649385,
+    "avg_loss_r": -0.9675340494843311,
+    "profit_factor": 0.29851264206978634,
+    "distinct_tickers": 29,
+    "regimes_covered": 1,
+    "months_covered": 3,
+    "avg_r_ex_best": -0.6379286498499125,
+    "top_ticker_share": 0.09302325581395349,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=43): hypotheses only"
+   },
+   "Strong Bull": {
+    "n": 678,
+    "win_rate": 0.3805309734513274,
+    "avg_r": 0.09562156222183742,
+    "median_r": -1.0,
+    "std_r": 1.4944708316612187,
+    "ci95_mean_r": [
+     -0.01707166213854097,
+     0.2083147865822158
+    ],
+    "risk_adjusted": 0.06398355872596505,
+    "avg_win_r": 1.8406063596235551,
+    "avg_loss_r": -0.9762976704677894,
+    "profit_factor": 1.1581080509988653,
+    "distinct_tickers": 157,
+    "regimes_covered": 1,
+    "months_covered": 17,
+    "avg_r_ex_best": 0.0836762821954062,
+    "top_ticker_share": 0.030973451327433628,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=678): CI includes 0 or robustness checks failed"
+   }
+  },
+  "by_risk": {
+   "Mixed": {
+    "n": 309,
+    "win_rate": 0.36893203883495146,
+    "avg_r": 0.12471911044500017,
+    "median_r": -1.0,
+    "std_r": 1.7210987834790035,
+    "ci95_mean_r": [
+     -0.06793778682330434,
+     0.31737600771330465
+    ],
+    "risk_adjusted": 0.0724648181976486,
+    "avg_win_r": 2.00967739838253,
+    "avg_loss_r": -0.9772565040415557,
+    "profit_factor": 1.2022312671743434,
+    "distinct_tickers": 143,
+    "regimes_covered": 6,
+    "months_covered": 20,
+    "avg_r_ex_best": 0.07952029446835239,
+    "top_ticker_share": 0.025889967637540454,
+    "robust": true,
+    "evidence": "NOT PROVEN (n=309): CI includes 0 or robustness checks failed"
+   },
+   "Risk-Off": {
+    "n": 98,
+    "win_rate": 0.19387755102040816,
+    "avg_r": -0.4503937643610644,
+    "median_r": -1.0,
+    "std_r": 1.1687393961323866,
+    "ci95_mean_r": [
+     -0.684711190933321,
+     -0.21607633778880775
+    ],
+    "risk_adjusted": -0.38536714502096486,
+    "avg_win_r": 1.7763732486021855,
+    "avg_loss_r": -0.9859453244408334,
+    "profit_factor": 0.4333191694983546,
+    "distinct_tickers": 58,
+    "regimes_covered": 6,
+    "months_covered": 6,
+    "avg_r_ex_best": -0.4974081990907066,
+    "top_ticker_share": 0.04081632653061224,
+    "robust": false,
+    "evidence": "ESTABLISHED NEGATIVE (n=98, 95% CI of mean R below 0)"
+   },
+   "Risk-On": {
+    "n": 628,
+    "win_rate": 0.40923566878980894,
+    "avg_r": 0.15792511989550997,
+    "median_r": -1.0,
+    "std_r": 1.4869250218456138,
+    "ci95_mean_r": [
+     0.041406190476746804,
+     0.27444404931427313
+    ],
+    "risk_adjusted": 0.1062092019270002,
+    "avg_win_r": 1.7847146662614775,
+    "avg_loss_r": -0.9689883933553085,
+    "profit_factor": 1.2758788292779704,
+    "distinct_tickers": 160,
+    "regimes_covered": 4,
+    "months_covered": 19,
+    "avg_r_ex_best": 0.14512663341987958,
+    "top_ticker_share": 0.028662420382165606,
+    "robust": true,
+    "evidence": "ESTABLISHED POSITIVE (n=628, 95% CI of mean R above 0, robustness checks passed)"
+   }
+  },
+  "by_volatility": {
+   "High Volatility": {
+    "n": 179,
+    "win_rate": 0.3687150837988827,
+    "avg_r": 0.053817150802494655,
+    "median_r": -1.0,
+    "std_r": 1.718159565224967,
+    "ci95_mean_r": [
+     -0.19960693975424953,
+     0.30724124135923886
+    ],
+    "risk_adjusted": 0.031322556933440646,
+    "avg_win_r": 1.8130196339048934,
+    "avg_loss_r": -0.9736816446378445,
+    "profit_factor": 1.087554466497757,
+    "distinct_tickers": 108,
+    "regimes_covered": 6,
+    "months_covered": 9,
+    "avg_r_ex_best": -0.02479036200902231,
+    "top_ticker_share": 0.0223463687150838,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=179): CI includes 0 or robustness checks failed"
+   },
+   "Low Volatility": {
+    "n": 55,
+    "win_rate": 0.4727272727272727,
+    "avg_r": 0.34195856493578,
+    "median_r": -1.0,
+    "std_r": 1.4881177171817113,
+    "ci95_mean_r": [
+     -0.06033600616485191,
+     0.7442531360364119
+    ],
+    "risk_adjusted": 0.22979268440093711,
+    "avg_win_r": 1.8387585027487654,
+    "avg_loss_r": -1.0,
+    "profit_factor": 1.6485421059126864,
+    "distinct_tickers": 41,
+    "regimes_covered": 2,
+    "months_covered": 8,
+    "avg_r_ex_best": 0.2852500583847096,
+    "top_ticker_share": 0.05454545454545454,
+    "robust": true,
+    "evidence": "NOT PROVEN (n=55): CI includes 0 or robustness checks failed"
+   },
+   "Normal Volatility": {
+    "n": 801,
+    "win_rate": 0.37203495630461925,
+    "avg_r": 0.08131785324517672,
+    "median_r": -1.0,
+    "std_r": 1.505889611568709,
+    "ci95_mean_r": [
+     -0.0231259117631282,
+     0.18576161825348164
+    ],
+    "risk_adjusted": 0.05399987663137315,
+    "avg_win_r": 1.8592582800639554,
+    "avg_loss_r": -0.9720146461424896,
+    "profit_factor": 1.1332225147015687,
+    "distinct_tickers": 167,
+    "regimes_covered": 5,
+    "months_covered": 22,
+    "avg_r_ex_best": 0.07119128038658849,
+    "top_ticker_share": 0.024968789013732832,
+    "robust": true,
+    "evidence": "NOT PROVEN (n=801): CI includes 0 or robustness checks failed"
+   }
+  },
+  "by_direction": {
+   "LONG": {
+    "n": 988,
+    "win_rate": 0.3856275303643725,
+    "avg_r": 0.11570288163056816,
+    "median_r": -1.0,
+    "std_r": 1.5542634333304348,
+    "ci95_mean_r": [
+     0.01866816496486702,
+     0.21273759829626931
+    ],
+    "risk_adjusted": 0.07444225936824819,
+    "avg_win_r": 1.8496655292033652,
+    "avg_loss_r": -0.9726657653632305,
+    "profit_factor": 1.1936193681299578,
+    "distinct_tickers": 172,
+    "regimes_covered": 6,
+    "months_covered": 22,
+    "avg_r_ex_best": 0.10158915159042434,
+    "top_ticker_share": 0.024291497975708502,
+    "robust": true,
+    "evidence": "ESTABLISHED POSITIVE (n=988, 95% CI of mean R above 0, robustness checks passed)"
+   },
+   "SHORT": {
+    "n": 47,
+    "win_rate": 0.19148936170212766,
+    "avg_r": -0.44123096886170876,
+    "median_r": -1.0,
+    "std_r": 1.1864635170245916,
+    "ci95_mean_r": [
+     -0.7895897078736713,
+     -0.09287222984974625
+    ],
+    "risk_adjusted": -0.3718875148965608,
+    "avg_win_r": 1.8670464157519424,
+    "avg_loss_r": -0.9879282441649422,
+    "profit_factor": 0.44759850357805475,
+    "distinct_tickers": 44,
+    "regimes_covered": 2,
+    "months_covered": 3,
+    "avg_r_ex_best": -0.5262776087662273,
+    "top_ticker_share": 0.0425531914893617,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=47): hypotheses only"
+   }
+  },
+  "by_sector": {
+   "Biotech": {
+    "n": 36,
+    "win_rate": 0.3611111111111111,
+    "avg_r": -0.07162566278139246,
+    "median_r": -1.0,
+    "std_r": 1.3145951781003358,
+    "ci95_mean_r": [
+     -0.5164206783649196,
+     0.3731693528021347
+    ],
+    "risk_adjusted": -0.05448495778365442,
+    "avg_win_r": 1.5708827799899903,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.887890266950864,
+    "distinct_tickers": 6,
+    "regimes_covered": 5,
+    "months_covered": 13,
+    "avg_r_ex_best": -0.15673699758685708,
+    "top_ticker_share": 0.2222222222222222,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=36): hypotheses only"
+   },
+   "Communication services": {
+    "n": 57,
+    "win_rate": 0.40350877192982454,
+    "avg_r": 0.3844770852666239,
+    "median_r": -1.0,
+    "std_r": 1.9470061642028578,
+    "ci95_mean_r": [
+     -0.13213318763654586,
+     0.9010873581697936
+    ],
+    "risk_adjusted": 0.19747091320793855,
+    "avg_win_r": 2.3364115051288565,
+    "avg_loss_r": -0.9359491399342982,
+    "profit_factor": 1.6886747343399189,
+    "distinct_tickers": 9,
+    "regimes_covered": 6,
+    "months_covered": 16,
+    "avg_r_ex_best": 0.24522531643003193,
+    "top_ticker_share": 0.22807017543859648,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=57): CI includes 0 or robustness checks failed"
+   },
+   "Consumer discretionary": {
+    "n": 85,
+    "win_rate": 0.29411764705882354,
+    "avg_r": -0.16313589397876468,
+    "median_r": -1.0,
+    "std_r": 1.339471248825814,
+    "ci95_mean_r": [
+     -0.4520531486641627,
+     0.1257813607066333
+    ],
+    "risk_adjusted": -0.12179126212807499,
+    "avg_win_r": 1.7814751972597762,
+    "avg_loss_r": -0.9733905153281567,
+    "profit_factor": 0.7625730069306562,
+    "distinct_tickers": 21,
+    "regimes_covered": 6,
+    "months_covered": 17,
+    "avg_r_ex_best": -0.21111802656723125,
+    "top_ticker_share": 0.12941176470588237,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=85): CI includes 0 or robustness checks failed"
+   },
+   "Consumer staples": {
+    "n": 37,
+    "win_rate": 0.5135135135135135,
+    "avg_r": 0.3373881122861001,
+    "median_r": 0.13906080166938228,
+    "std_r": 1.4402221111390971,
+    "ci95_mean_r": [
+     -0.14280584714131145,
+     0.8175820717135116
+    ],
+    "risk_adjusted": 0.234261166855197,
+    "avg_win_r": 1.5314413914165836,
+    "avg_loss_r": -0.9230014601294102,
+    "profit_factor": 1.751374768671394,
+    "distinct_tickers": 10,
+    "regimes_covered": 6,
+    "months_covered": 15,
+    "avg_r_ex_best": 0.23259315972698522,
+    "top_ticker_share": 0.1891891891891892,
+    "robust": true,
+    "evidence": "PRELIMINARY (n=37): hypotheses only"
+   },
+   "Defense / aerospace": {
+    "n": 38,
+    "win_rate": 0.2631578947368421,
+    "avg_r": -0.289573375330471,
+    "median_r": -1.0,
+    "std_r": 1.2554592450363733,
+    "ci95_mean_r": [
+     -0.7022325605681498,
+     0.12308580990720774
+    ],
+    "risk_adjusted": -0.23065135445482457,
+    "avg_win_r": 1.6996211737442102,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.6070075620515036,
+    "distinct_tickers": 8,
+    "regimes_covered": 5,
+    "months_covered": 15,
+    "avg_r_ex_best": -0.38124978886238253,
+    "top_ticker_share": 0.3157894736842105,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=38): hypotheses only"
+   },
+   "Energy": {
+    "n": 84,
+    "win_rate": 0.40476190476190477,
+    "avg_r": 0.2746350080735408,
+    "median_r": -1.0,
+    "std_r": 2.084691685927906,
+    "ci95_mean_r": [
+     -0.17777082146247442,
+     0.7270408376095561
+    ],
+    "risk_adjusted": 0.13173890888872591,
+    "avg_win_r": 2.140707555971713,
+    "avg_loss_r": -0.9942943244972166,
+    "profit_factor": 1.4640344435203905,
+    "distinct_tickers": 13,
+    "regimes_covered": 5,
+    "months_covered": 13,
+    "avg_r_ex_best": 0.10871549695090252,
+    "top_ticker_share": 0.16666666666666666,
+    "robust": true,
+    "evidence": "NOT PROVEN (n=84): CI includes 0 or robustness checks failed"
+   },
+   "Financials": {
+    "n": 71,
+    "win_rate": 0.352112676056338,
+    "avg_r": 0.0610497113573582,
+    "median_r": -1.0,
+    "std_r": 1.473388784981617,
+    "ci95_mean_r": [
+     -0.28769572421386974,
+     0.40979514692858615
+    ],
+    "risk_adjusted": 0.04143489619280623,
+    "avg_win_r": 1.9344944181372954,
+    "avg_loss_r": -0.9571267597186948,
+    "profit_factor": 1.0984497626418244,
+    "distinct_tickers": 20,
+    "regimes_covered": 6,
+    "months_covered": 18,
+    "avg_r_ex_best": 0.009529818735332896,
+    "top_ticker_share": 0.19718309859154928,
+    "robust": true,
+    "evidence": "NOT PROVEN (n=71): CI includes 0 or robustness checks failed"
+   },
+   "Healthcare": {
+    "n": 65,
+    "win_rate": 0.36923076923076925,
+    "avg_r": 0.009746639615676738,
+    "median_r": -1.0,
+    "std_r": 1.4367664823254633,
+    "ci95_mean_r": [
+     -0.34626666306954623,
+     0.3657599423008997
+    ],
+    "risk_adjusted": 0.006783732593692899,
+    "avg_win_r": 1.7139914784455563,
+    "avg_loss_r": -0.987860095309131,
+    "profit_factor": 1.0156418805739633,
+    "distinct_tickers": 18,
+    "regimes_covered": 5,
+    "months_covered": 16,
+    "avg_r_ex_best": -0.04433410768323688,
+    "top_ticker_share": 0.15384615384615385,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=65): CI includes 0 or robustness checks failed"
+   },
+   "Industrials": {
+    "n": 118,
+    "win_rate": 0.3305084745762712,
+    "avg_r": -0.04503914207298718,
+    "median_r": -1.0,
+    "std_r": 1.380051764609194,
+    "ci95_mean_r": [
+     -0.296643250753369,
+     0.20656496660739462
+    ],
+    "risk_adjusted": -0.03263583528386086,
+    "avg_win_r": 1.8166980063504337,
+    "avg_loss_r": -0.9641245697756884,
+    "profit_factor": 0.9302230672703311,
+    "distinct_tickers": 16,
+    "regimes_covered": 5,
+    "months_covered": 21,
+    "avg_r_ex_best": -0.07679363497166512,
+    "top_ticker_share": 0.1440677966101695,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=118): CI includes 0 or robustness checks failed"
+   },
+   "Materials": {
+    "n": 61,
+    "win_rate": 0.3770491803278688,
+    "avg_r": 0.3460030507968986,
+    "median_r": -1.0,
+    "std_r": 1.9350597311064777,
+    "ci95_mean_r": [
+     -0.1495887581999702,
+     0.8415948597937674
+    ],
+    "risk_adjusted": 0.17880742657956722,
+    "avg_win_r": 2.517036274542462,
+    "avg_loss_r": -0.9680433741017321,
+    "profit_factor": 1.5737614293149145,
+    "distinct_tickers": 9,
+    "regimes_covered": 5,
+    "months_covered": 19,
+    "avg_r_ex_best": 0.2505317322522625,
+    "top_ticker_share": 0.21311475409836064,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=61): CI includes 0 or robustness checks failed"
+   },
+   "Real estate": {
+    "n": 21,
+    "win_rate": 0.3333333333333333,
+    "avg_r": -0.13160179033187677,
+    "median_r": -1.0,
+    "std_r": 1.271058222158069,
+    "ci95_mean_r": [
+     -0.7101805563491868,
+     0.44697697568543315
+    ],
+    "risk_adjusted": -0.10353718503030993,
+    "avg_win_r": 1.6051946290043697,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.8025973145021849,
+    "distinct_tickers": 6,
+    "regimes_covered": 5,
+    "months_covered": 8,
+    "avg_r_ex_best": -0.23864661230721448,
+    "top_ticker_share": 0.3333333333333333,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=21): hypotheses only"
+   },
+   "Regional banks": {
+    "n": 9,
+    "win_rate": 0.4444444444444444,
+    "avg_r": 0.771365706442161,
+    "median_r": -1.0,
+    "std_r": 2.210921110926888,
+    "ci95_mean_r": [
+     -0.9280987016937029,
+     2.4708301145780247
+    ],
+    "risk_adjusted": 0.34888884213457083,
+    "avg_win_r": 2.9855728394948624,
+    "avg_loss_r": -1.0,
+    "profit_factor": 2.3884582715958897,
+    "distinct_tickers": 3,
+    "regimes_covered": 2,
+    "months_covered": 4,
+    "avg_r_ex_best": 0.3233469105445077,
+    "top_ticker_share": 0.4444444444444444,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=9 < 20): no conclusions"
+   },
+   "Semiconductors": {
+    "n": 181,
+    "win_rate": 0.43646408839779005,
+    "avg_r": 0.15597272673041698,
+    "median_r": -1.0,
+    "std_r": 1.437645372668937,
+    "ci95_mean_r": [
+     -0.05488541469457381,
+     0.3668308681554078
+    ],
+    "risk_adjusted": 0.10849179477471499,
+    "avg_win_r": 1.6391083473612784,
+    "avg_loss_r": -0.992730351993485,
+    "profit_factor": 1.2788019245827607,
+    "distinct_tickers": 14,
+    "regimes_covered": 4,
+    "months_covered": 17,
+    "avg_r_ex_best": 0.12326307280167081,
+    "top_ticker_share": 0.13259668508287292,
+    "robust": true,
+    "evidence": "NOT PROVEN (n=181): CI includes 0 or robustness checks failed"
+   },
+   "Software / AI apps": {
+    "n": 83,
+    "win_rate": 0.3373493975903614,
+    "avg_r": -0.07596452630203072,
+    "median_r": -1.0,
+    "std_r": 1.362641885284978,
+    "ci95_mean_r": [
+     -0.3735056658735215,
+     0.2215766132694601
+    ],
+    "risk_adjusted": -0.055747975401580864,
+    "avg_win_r": 1.704269516626079,
+    "avg_loss_r": -0.9822654936108866,
+    "profit_factor": 0.8832928807929763,
+    "distinct_tickers": 12,
+    "regimes_covered": 3,
+    "months_covered": 16,
+    "avg_r_ex_best": -0.11545899950266612,
+    "top_ticker_share": 0.1927710843373494,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=83): CI includes 0 or robustness checks failed"
+   },
+   "Technology": {
+    "n": 59,
+    "win_rate": 0.4576271186440678,
+    "avg_r": 0.3465296510641314,
+    "median_r": -0.5177389857377132,
+    "std_r": 1.4866985474672514,
+    "ci95_mean_r": [
+     -0.04090610055460331,
+     0.7339654026828661
+    ],
+    "risk_adjusted": 0.23308669511682878,
+    "avg_win_r": 1.829241989023301,
+    "avg_loss_r": -0.9045088840889179,
+    "profit_factor": 1.706365692353646,
+    "distinct_tickers": 8,
+    "regimes_covered": 5,
+    "months_covered": 15,
+    "avg_r_ex_best": 0.2815549307227279,
+    "top_ticker_share": 0.23728813559322035,
+    "robust": false,
+    "evidence": "NOT PROVEN (n=59): CI includes 0 or robustness checks failed"
+   },
+   "Utilities": {
+    "n": 30,
+    "win_rate": 0.3333333333333333,
+    "avg_r": -0.12506598372990355,
+    "median_r": -1.0,
+    "std_r": 1.2895472290360572,
+    "ci95_mean_r": [
+     -0.6065908326913705,
+     0.35645886523156345
+    ],
+    "risk_adjusted": -0.096984415082952,
+    "avg_win_r": 1.5934002731546657,
+    "avg_loss_r": -0.9842991121721882,
+    "profit_factor": 0.8094085697376534,
+    "distinct_tickers": 7,
+    "regimes_covered": 4,
+    "months_covered": 13,
+    "avg_r_ex_best": -0.21073511236907588,
+    "top_ticker_share": 0.3,
+    "robust": false,
+    "evidence": "PRELIMINARY (n=30): hypotheses only"
+   }
+  },
+  "setup_by_trend": {
+   "breakdown": {
+    "Bull": {
+     "n": 15,
+     "win_rate": 0.2,
+     "avg_r": -0.4055053301948232,
+     "median_r": -1.0,
+     "std_r": 1.332950783009087,
+     "ci95_mean_r": [
+      -1.1436688696396933,
+      0.3326582092500468
+     ],
+     "risk_adjusted": -0.30421628117387045,
+     "avg_win_r": 1.972473349025884,
+     "avg_loss_r": -1.0,
+     "profit_factor": 0.493118337256471,
+     "distinct_tickers": 15,
+     "regimes_covered": 1,
+     "months_covered": 1,
+     "avg_r_ex_best": -0.6823924585477495,
+     "top_ticker_share": 0.06666666666666667,
+     "robust": false,
+     "evidence": "INSUFFICIENT (n=15 < 20): no conclusions"
+    },
+    "Strong Bull": {
+     "n": 32,
+     "win_rate": 0.1875,
+     "avg_r": -0.4579773619868115,
+     "median_r": -1.0,
+     "std_r": 1.1338099223547757,
+     "ci95_mean_r": [
+      -0.8667594306617714,
+      -0.04919529331185163
+     ],
+     "risk_adjusted": -0.4039278127286557,
+     "avg_win_r": 1.814332949114972,
+     "avg_loss_r": -0.9823566645487616,
+     "profit_factor": 0.4262120206807527,
+     "distinct_tickers": 31,
+     "regimes_covered": 1,
+     "months_covered": 3,
+     "avg_r_ex_best": -0.5489194761088929,
+     "top_ticker_share": 0.0625,
+     "robust": false,
+     "evidence": "PRELIMINARY (n=32): hypotheses only"
+    }
+   },
+   "breakout": {
+    "Bull": {
+     "n": 3,
+     "win_rate": 0.0,
+     "avg_r": -1.0,
+     "median_r": -1.0,
+     "std_r": 0.0,
+     "ci95_mean_r": [
+      null,
+      null
+     ],
+     "risk_adjusted": null,
+     "avg_win_r": null,
+     "avg_loss_r": -1.0,
+     "profit_factor": 0.0,
+     "distinct_tickers": 3,
+     "regimes_covered": 1,
+     "months_covered": 2,
+     "avg_r_ex_best": -1.0,
+     "top_ticker_share": 0.3333333333333333,
+     "robust": false,
+     "evidence": "INSUFFICIENT (n=3 < 20): no conclusions"
+    },
+    "Strong Bull": {
+     "n": 21,
+     "win_rate": 0.3333333333333333,
+     "avg_r": 0.13594656530481306,
+     "median_r": -1.0,
+     "std_r": 1.81702377476823,
+     "ci95_mean_r": [
+      -0.6911527406928144,
+      0.9630458713024406
+     ],
+     "risk_adjusted": 0.07481826445675081,
+     "avg_win_r": 2.280188503379691,
+     "avg_loss_r": -0.9361744037326261,
+     "profit_factor": 1.2178224988251865,
+     "distinct_tickers": 16,
+     "regimes_covered": 1,
+     "months_covered": 3,
+     "avg_r_ex_best": -0.15944162812518278,
+     "top_ticker_share": 0.14285714285714285,
+     "robust": false,
+     "evidence": "PRELIMINARY (n=21): hypotheses only"
+    }
+   },
+   "laggard_in_strong_sector": {
+    "Bull": {
+     "n": 5,
+     "win_rate": 0.6,
+     "avg_r": 1.35117444610063,
+     "median_r": 2.395117251511716,
+     "std_r": 2.2238325888639534,
+     "ci95_mean_r": [
+      -1.4100784175240135,
+      4.112427309725273
+     ],
+     "risk_adjusted": 0.607588202847085,
+     "avg_win_r": 2.9186240768343836,
+     "avg_loss_r": -1.0,
+     "profit_factor": 4.377936115251575,
+     "distinct_tickers": 5,
+     "regimes_covered": 1,
+     "months_covered": 1,
+     "avg_r_ex_best": 0.7221272467626809,
+     "top_ticker_share": 0.2,
+     "robust": false,
+     "evidence": "INSUFFICIENT (n=5 < 20): no conclusions"
+    },
+    "Strong Bull": {
+     "n": 68,
+     "win_rate": 0.35294117647058826,
+     "avg_r": -0.08564073629488131,
+     "median_r": -1.0,
+     "std_r": 1.249610208251184,
+     "ci95_mean_r": [
+      -0.38811084516712324,
+      0.2168293725773606
+     ],
+     "risk_adjusted": -0.06853396021366903,
+     "avg_win_r": 1.5226020050330427,
+     "avg_loss_r": -0.9628640497464762,
+     "profit_factor": 0.8625414821356687,
+     "distinct_tickers": 44,
+     "regimes_covered": 1,
+     "months_covered": 3,
+     "avg_r_ex_best": -0.12917284359721792,
+     "top_ticker_share": 0.07352941176470588,
+     "robust": false,
+     "evidence": "NOT PROVEN (n=68): CI includes 0 or robustness checks failed"
+    }
+   },
+   "oversold_uptrend": {
+    "Bull": {
+     "n": 14,
+     "win_rate": 0.7142857142857143,
+     "avg_r": 1.8511541973816956,
+     "median_r": 1.8508944865933592,
+     "std_r": 2.276327407992367,
+     "ci95_mean_r": [
+      0.5368418818134475,
+      3.1654665129499437
+     ],
+     "risk_adjusted": 0.8132196585087652,
+     "avg_win_r": 2.991615876334374,
+     "avg_loss_r": -1.0,
+     "profit_factor": 7.4790396908359345,
+     "distinct_tickers": 13,
+     "regimes_covered": 1,
+     "months_covered": 2,
+     "avg_r_ex_best": 1.5262981999898981,
+     "top_ticker_share": 0.14285714285714285,
+     "robust": false,
+     "evidence": "INSUFFICIENT (n=14 < 20): no conclusions"
+    },
+    "Strong Bull": {
+     "n": 6,
+     "win_rate": 0.16666666666666666,
+     "avg_r": -0.7437403966061398,
+     "median_r": -1.0,
+     "std_r": 0.627705270002946,
+     "ci95_mean_r": [
+      -1.4024766782977631,
+      -0.08500411491451643
+     ],
+     "risk_adjusted": -1.1848560656542668,
+     "avg_win_r": 0.5375576203631616,
+     "avg_loss_r": -1.0,
+     "profit_factor": 0.10751152407263231,
+     "distinct_tickers": 6,
+     "regimes_covered": 1,
+     "months_covered": 2,
+     "avg_r_ex_best": -1.0,
+     "top_ticker_share": 0.16666666666666666,
+     "robust": false,
+     "evidence": "INSUFFICIENT (n=6 < 20): no conclusions"
+    }
+   },
+   "pullback": {
+    "Bull": {
+     "n": 46,
+     "win_rate": 0.3695652173913043,
+     "avg_r": 0.028295126588147014,
+     "median_r": -1.0,
+     "std_r": 1.4700276610804972,
+     "ci95_mean_r": [
+      -0.40824920276435894,
+      0.464839455940653
+     ],
+     "risk_adjusted": 0.019248023242875292,
+     "avg_win_r": 1.7250692924502073,
+     "avg_loss_r": -0.9663655913309918,
+     "profit_factor": 1.046444042850394,
+     "distinct_tickers": 44,
+     "regimes_covered": 1,
+     "months_covered": 2,
+     "avg_r_ex_best": -0.05257480826320815,
+     "top_ticker_share": 0.043478260869565216,
+     "robust": false,
+     "evidence": "PRELIMINARY (n=46): hypotheses only"
+    },
+    "Strong Bull": {
+     "n": 49,
+     "win_rate": 0.5306122448979592,
+     "avg_r": 0.3611761470572339,
+     "median_r": 0.5696626690092547,
+     "std_r": 1.3830781014766855,
+     "ci95_mean_r": [
+      -0.03609026770533158,
+      0.7584425618197994
+     ],
+     "risk_adjusted": 0.2611393721523124,
+     "avg_win_r": 1.5652935079155559,
+     "avg_loss_r": -1.0,
+     "profit_factor": 1.7694622263393243,
+     "distinct_tickers": 41,
+     "regimes_covered": 1,
+     "months_covered": 3,
+     "avg_r_ex_best": 0.2976347995579798,
+     "top_ticker_share": 0.04081632653061224,
+     "robust": false,
+     "evidence": "PRELIMINARY (n=49): hypotheses only"
+    }
+   },
+   "rs_leader": {
+    "Bear": {
+     "n": 36,
+     "win_rate": 0.2777777777777778,
+     "avg_r": 0.04884133008403578,
+     "median_r": -1.0,
+     "std_r": 2.6716383800590884,
+     "ci95_mean_r": [
+      -0.8551110460452737,
+      0.9527937062133452
+     ],
+     "risk_adjusted": 0.01828141504800345,
+     "avg_win_r": 2.6985318033779566,
+     "avg_loss_r": -0.9702703904136261,
+     "profit_factor": 1.0696985682626108,
+     "distinct_tickers": 26,
+     "regimes_covered": 1,
+     "months_covered": 5,
+     "avg_r_ex_best": -0.35107618709220656,
+     "top_ticker_share": 0.08333333333333333,
+     "robust": false,
+     "evidence": "PRELIMINARY (n=36): hypotheses only"
+    },
+    "Bull": {
+     "n": 149,
+     "win_rate": 0.47651006711409394,
+     "avg_r": 0.28789297412455067,
+     "median_r": -1.0,
+     "std_r": 1.4396911745843202,
+     "ci95_mean_r": [
+      0.054820991862315926,
+      0.5209649563867854
+     ],
+     "risk_adjusted": 0.19996856215200012,
+     "avg_win_r": 1.678851087564496,
+     "avg_loss_r": -0.9782355650323228,
+     "profit_factor": 1.5621850390105518,
+     "distinct_tickers": 80,
+     "regimes_covered": 1,
+     "months_covered": 15,
+     "avg_r_ex_best": 0.2604594570698873,
+     "top_ticker_share": 0.040268456375838924,
+     "robust": false,
+     "evidence": "NOT PROVEN (n=149): CI includes 0 or robustness checks failed"
+    },
+    "Choppy": {
+     "n": 9,
+     "win_rate": 0.1111111111111111,
+     "avg_r": -0.35242014044758063,
+     "median_r": -1.0,
+     "std_r": 1.690183323484262,
+     "ci95_mean_r": [
+      -1.6516100515168568,
+      0.9467697706216955
+     ],
+     "risk_adjusted": -0.20851000926992766,
+     "avg_win_r": 4.110006404414237,
+     "avg_loss_r": -0.9102234585553077,
+     "profit_factor": 0.5644227202924398,
+     "distinct_tickers": 8,
+     "regimes_covered": 1,
+     "months_covered": 2,
+     "avg_r_ex_best": -0.9102234585553077,
+     "top_ticker_share": 0.2222222222222222,
+     "robust": false,
+     "evidence": "INSUFFICIENT (n=9 < 20): no conclusions"
+    },
+    "Neutral": {
+     "n": 40,
+     "win_rate": 0.3,
+     "avg_r": -0.1958498693389378,
+     "median_r": -1.0,
+     "std_r": 1.18778572745356,
+     "ci95_mean_r": [
+      -0.5757221740595879,
+      0.18402243538171234
+     ],
+     "risk_adjusted": -0.1648865319831814,
+     "avg_win_r": 1.5336130551639202,
+     "avg_loss_r": -0.9370482655544484,
+     "profit_factor": 0.7014182322171998,
+     "distinct_tickers": 35,
+     "regimes_covered": 1,
+     "months_covered": 5,
+     "avg_r_ex_best": -0.2622587029309228,
+     "top_ticker_share": 0.075,
+     "robust": false,
+     "evidence": "PRELIMINARY (n=40): hypotheses only"
+    },
+    "Strong Bear": {
+     "n": 43,
+     "win_rate": 0.16279069767441862,
+     "avg_r": -0.5682247569044239,
+     "median_r": -1.0,
+     "std_r": 0.9771069706615251,
+     "ci95_mean_r": [
+      -0.8689338968956795,
+      -0.26751561691316833
+     ],
+     "risk_adjusted": -0.5815379216051667,
+     "avg_win_r": 1.485365890649385,
+     "avg_loss_r": -0.9675340494843311,
+     "profit_factor": 0.29851264206978634,
+     "distinct_tickers": 29,
+     "regimes_covered": 1,
+     "months_covered": 3,
+     "avg_r_ex_best": -0.6379286498499125,
+     "top_ticker_share": 0.09302325581395349,
+     "robust": false,
+     "evidence": "PRELIMINARY (n=43): hypotheses only"
+    },
+    "Strong Bull": {
+     "n": 514,
+     "win_rate": 0.38715953307393,
+     "avg_r": 0.14233199310314903,
+     "median_r": -1.0,
+     "std_r": 1.5522458065539502,
+     "ci95_mean_r": [
+      0.007822522623714578,
+      0.2768414635825835
+     ],
+     "risk_adjusted": 0.09169423586276708,
+     "avg_win_r": 1.915527301166435,
+     "avg_loss_r": -0.9778771062765141,
+     "profit_factor": 1.2375039393456195,
+     "distinct_tickers": 110,
+     "regimes_covered": 1,
+     "months_covered": 17,
+     "avg_r_ex_best": 0.12665900256316343,
+     "top_ticker_share": 0.03696498054474708,
+     "robust": false,
+     "evidence": "NOT PROVEN (n=514): CI includes 0 or robustness checks failed"
+    }
+   }
+  },
+  "biases": "survivorship (today's universe), no costs/slippage, no earnings filter, current screener code; overlapping signals removed (one live signal per ticker/direction at a time)"
+ },
+ "regime_now": {
+  "date": "2026-10-07",
+  "spy_trend": 2.0,
+  "qqq_trend": 2.0,
+  "iwm_trend": 1.0,
+  "spy": 777.21997,
+  "spy_drawdown": -0.0024,
+  "spy_1m": 0.01722,
+  "rv20": 0.10298,
+  "breadth_50d": 0.39487,
+  "vix": 15.08,
+  "vix_term": 0.85102,
+  "tnx": 5.277,
+  "tnx_1m_bp": 47.09997,
+  "dxy_1m": 0.0345,
+  "oil_1m": -0.0445,
+  "gold_1m": -0.06819,
+  "iwm_vs_spy_1m": -0.07235,
+  "fed_funds": 3.88,
+  "two_year": 4.79,
+  "curve_10y2y": 0.48,
+  "hy_spread": 3.03,
+  "hy_1m": 0.35,
+  "fed_proxy_2y_minus_ff": 0.91,
+  "leaders": "SMH,XLK,IGV",
+  "laggards": "ITA,XBI,XLRE",
+  "trend_points": 4.25,
+  "trend": "Bull",
+  "risk_points": -1,
+  "risk": "Mixed",
+  "volatility": "Normal Volatility",
+  "fed_signal": "hikes priced"
+ },
+ "regime_counts": {
+  "trend": {
+   "Strong Bull": 351,
+   "Bull": 117,
+   "Strong Bear": 30,
+   "Neutral": 26,
+   "Bear": 23,
+   "Choppy": 6
+  },
+  "risk": {
+   "Risk-On": 316,
+   "Mixed": 179,
+   "Risk-Off": 58
+  },
+  "volatility": {
+   "Normal Volatility": 408,
+   "High Volatility": 103,
+   "Low Volatility": 42
+  }
+ },
+ "intelligence": {
+  "calibration": {
+   "buckets": [
+    {
+     "bucket": "50-59%",
+     "n": 0,
+     "hit_rate": null,
+     "ci95": null,
+     "expected": 0.55,
+     "flag": "needs \u2265 10 predictions in this bucket"
+    },
+    {
+     "bucket": "60-69%",
+     "n": 0,
+     "hit_rate": null,
+     "ci95": null,
+     "expected": 0.65,
+     "flag": "needs \u2265 10 predictions in this bucket"
+    },
+    {
+     "bucket": "70-79%",
+     "n": 0,
+     "hit_rate": null,
+     "ci95": null,
+     "expected": 0.75,
+     "flag": "needs \u2265 10 predictions in this bucket"
+    },
+    {
+     "bucket": "80-89%",
+     "n": 0,
+     "hit_rate": null,
+     "ci95": null,
+     "expected": 0.85,
+     "flag": "needs \u2265 10 predictions in this bucket"
+    },
+    {
+     "bucket": "90-100%",
+     "n": 0,
+     "hit_rate": null,
+     "ci95": null,
+     "expected": 0.95,
+     "flag": "needs \u2265 10 predictions in this bucket"
+    }
+   ],
+   "high_vs_low": null,
+   "accuracy": {
+    "directional": null,
+    "magnitude_met": null,
+    "timing": {}
+   },
+   "scored": 0,
+   "evidence": "INSUFFICIENT (n=0 < 20): no conclusions"
+  },
+  "rejections": {
+   "n": 0
+  },
+  "rejection_records": [],
+  "opportunity_cost": [],
+  "benchmarks": {
+   "1": {
+    "window": "2026-10-07 \u2192 2026-10-07",
+    "trade_return": 0.004228871403151091,
+    "status": "open",
+    "underlying_return": 0.004228871403151091,
+    "S&P 500 (SPY)": {
+     "return": 0.0,
+     "excess": 0.004228871403151091
+    },
+    "Nasdaq-100 (QQQ)": {
+     "return": 0.0,
+     "excess": 0.004228871403151091
+    },
+    "Sector/industry (SMH)": {
+     "return": 0.0,
+     "excess": 0.004228871403151091
+    }
+   }
+  },
+  "priority_companies": [
+   "AVGO",
+   "DAL",
+   "MPC",
+   "MRVL",
+   "NVDA",
+   "UAL",
+   "VLO"
+  ],
+  "company_snapshots": {
+   "AVGO": {
+    "fundamentals": {
+     "revenueGrowth": 0.855,
+     "earningsGrowth": 2.153,
+     "grossMargins": 0.75515,
+     "operatingMargins": 0.54307,
+     "freeCashflow": 30596499456,
+     "totalCash": 23975000064,
+     "totalDebt": 59419000832,
+     "debtToEquity": 59.604,
+     "trailingPE": 48.08557,
+     "forwardPE": 19.413918,
+     "pegRatio": 0.36,
+     "priceToSalesTrailing12Months": 20.17103,
+     "recommendationMean": 1.26,
+     "numberOfAnalystOpinions": 47,
+     "targetMeanPrice": 531.3149,
+     "heldPercentInstitutions": 0.79802,
+     "heldPercentInsiders": 0.01941,
+     "shortPercentOfFloat": 0.0111,
+     "shortRatio": 2.01,
+     "marketCap": 1797319426048,
+     "beta": 1.476,
+     "next_earnings": "2026-12-09",
+     "eps_estimate": 3.82763
+    },
+    "fundamentals_date": "2026-10-07",
+    "fundamentals_source": "Yahoo Finance (yfinance), retrieved 2026-10-07 18:21 ET",
+    "technical": {
+     "as_of": "2026-10-07",
+     "price": 376.510009765625,
+     "trend": "uptrend",
+     "vs_20d": 0.0603519396945269,
+     "vs_50d": 0.01187842129053851,
+     "vs_200d": 0.02623637071098428,
+     "support_20d_low": 335.1996267813441,
+     "support_55d_low": 335.1996267813441,
+     "resistance_20d_high": 380.8399963378906,
+     "resistance_52w_high": 493.3195088404053,
+     "rsi14": 59.300543996330894,
+     "atr_pct": 0.029251632023110898,
+     "rs_3m_vs_spy": -0.09273856172428363,
+     "volume_vs_50d": 0.7311692583458335,
+     "source": "Yahoo Finance daily bars"
+    }
+   },
+   "DAL": {
+    "fundamentals": {
+     "revenueGrowth": 0.187,
+     "earningsGrowth": -0.254,
+     "grossMargins": 0.187,
+     "operatingMargins": 0.07921,
+     "freeCashflow": 2817374976,
+     "totalCash": 4664999936,
+     "totalDebt": 21084000256,
+     "debtToEquity": 96.649,
+     "trailingPE": 13.759536,
+     "forwardPE": 10.517523,
+     "pegRatio": 0.21,
+     "priceToSalesTrailing12Months": 0.79902446,
+     "recommendationMean": 1.32,
+     "numberOfAnalystOpinions": 24,
+     "targetMeanPrice": 101.85417,
+     "heldPercentInstitutions": 0.80673,
+     "heldPercentInsiders": 0.091759995,
+     "shortPercentOfFloat": 0.0401,
+     "shortRatio": 5.07,
+     "marketCap": 54562983936,
+     "beta": 1.336,
+     "next_earnings": "2026-10-09",
+     "eps_estimate": 1.881
+    },
+    "fundamentals_date": "2026-10-07",
+    "fundamentals_source": "Yahoo Finance (yfinance), retrieved 2026-10-07 18:21 ET",
+    "technical": {
+     "as_of": "2026-10-07",
+     "price": 82.97000122070312,
+     "trend": "mixed",
+     "vs_20d": 0.011878634827811707,
+     "vs_50d": -0.010570436761629165,
+     "vs_200d": 0.09545560291405031,
+     "support_20d_low": 76.88999938964844,
+     "support_55d_low": 75.98999786376953,
+     "resistance_20d_high": 86.16999816894531,
+     "resistance_52w_high": 95.44433663676071,
+     "rsi14": 50.979532865643414,
+     "atr_pct": 0.028574474467905203,
+     "rs_3m_vs_spy": -0.10058445580486408,
+     "volume_vs_50d": 1.0899152083291481,
+     "source": "Yahoo Finance daily bars"
+    }
+   },
+   "MPC": {
+    "fundamentals": {
+     "revenueGrowth": 0.537,
+     "earningsGrowth": 3.48,
+     "grossMargins": 0.12819,
+     "operatingMargins": 0.13561,
+     "freeCashflow": 9249375232,
+     "totalCash": 7768000000,
+     "totalDebt": 34292000768,
+     "debtToEquity": 133.328,
+     "trailingPE": 15.313713,
+     "forwardPE": 8.725339,
+     "pegRatio": 1.0,
+     "priceToSalesTrailing12Months": 0.83759487,
+     "recommendationMean": 2.36842,
+     "numberOfAnalystOpinions": 18,
+     "targetMeanPrice": 385.55557,
+     "heldPercentInstitutions": 0.79490995,
+     "heldPercentInsiders": 0.0033000002,
+     "shortPercentOfFloat": 0.0319,
+     "shortRatio": 3.14,
+     "marketCap": 129111900160,
+     "beta": 0.541,
+     "next_earnings": "2026-11-03",
+     "eps_estimate": 23.32486
+    },
+    "fundamentals_date": "2026-10-07",
+    "fundamentals_source": "Yahoo Finance (yfinance), retrieved 2026-10-07 18:21 ET",
+    "technical": {
+     "as_of": "2026-10-07",
+     "price": 442.260009765625,
+     "trend": "uptrend",
+     "vs_20d": 0.08546312006359513,
+     "vs_50d": 0.18634696474230905,
+     "vs_200d": 0.671796143992232,
+     "support_20d_low": 378.79998779296875,
+     "support_55d_low": 289.5671234425591,
+     "resistance_20d_high": 444.989990234375,
+     "resistance_52w_high": 444.989990234375,
+     "rsi14": 74.6938741221337,
+     "atr_pct": 0.033723948473267686,
+     "rs_3m_vs_spy": 0.5102468487870264,
+     "volume_vs_50d": 0.7241548439742687,
+     "source": "Yahoo Finance daily bars"
+    }
+   },
+   "MRVL": {
+    "fundamentals": {
+     "revenueGrowth": 0.365,
+     "earningsGrowth": 0.5,
+     "grossMargins": 0.52216,
+     "operatingMargins": 0.16679001,
+     "freeCashflow": 2408049920,
+     "totalCash": 3932800000,
+     "totalDebt": 5286099968,
+     "debtToEquity": 28.525,
+     "trailingPE": 93.64474,
+     "forwardPE": 42.178814,
+     "pegRatio": 0.91,
+     "priceToSalesTrailing12Months": 27.072498,
+     "recommendationMean": 1.43478,
+     "numberOfAnalystOpinions": 43,
+     "targetMeanPrice": 293.87738,
+     "heldPercentInstitutions": 0.81799006,
+     "heldPercentInsiders": 0.00494,
+     "shortPercentOfFloat": 0.0418,
+     "shortRatio": 1.31,
+     "marketCap": 255843237888,
+     "beta": 2.26,
+     "next_earnings": "2026-12-01",
+     "eps_estimate": 1.09978
+    },
+    "fundamentals_date": "2026-10-07",
+    "fundamentals_source": "Yahoo Finance (yfinance), retrieved 2026-10-07 18:21 ET",
+    "technical": {
+     "as_of": "2026-10-07",
+     "price": 284.67999267578125,
+     "trend": "uptrend",
+     "vs_20d": 0.12023166968804011,
+     "vs_50d": 0.22480832234392856,
+     "vs_200d": 0.6762441602185456,
+     "support_20d_low": 213.6300048828125,
+     "support_55d_low": 162.89999389648438,
+     "resistance_20d_high": 301.2699890136719,
+     "resistance_52w_high": 329.79864574979393,
+     "rsi14": 68.17064610238094,
+     "atr_pct": 0.04967055463038991,
+     "rs_3m_vs_spy": 0.1292882396225583,
+     "volume_vs_50d": 1.0761964217430635,
+     "source": "Yahoo Finance daily bars"
+    }
+   },
+   "NVDA": {
+    "fundamentals": {
+     "revenueGrowth": 1.059,
+     "earningsGrowth": 1.278,
+     "grossMargins": 0.74674004,
+     "operatingMargins": 0.66236997,
+     "freeCashflow": 41809874944,
+     "totalCash": 62469001216,
+     "totalDebt": 38860001280,
+     "debtToEquity": 16.971,
+     "trailingPE": 30.021492,
+     "forwardPE": 14.921518,
+     "pegRatio": 0.29,
+     "priceToSalesTrailing12Months": 18.926586,
+     "recommendationMean": 1.29508,
+     "numberOfAnalystOpinions": 59,
+     "targetMeanPrice": 328.71695,
+     "heldPercentInstitutions": 0.71405,
+     "heldPercentInsiders": 0.04007,
+     "shortPercentOfFloat": 0.0127,
+     "shortRatio": 2.29,
+     "marketCap": 5734188187648,
+     "beta": 2.216,
+     "next_earnings": "2026-11-17",
+     "eps_estimate": 2.47325
+    },
+    "fundamentals_date": "2026-10-07",
+    "fundamentals_source": "Yahoo Finance (yfinance), retrieved 2026-10-07 18:21 ET",
+    "technical": {
+     "as_of": "2026-10-07",
+     "price": 237.47000122070312,
+     "trend": "uptrend",
+     "vs_20d": 0.05271557721674358,
+     "vs_50d": 0.0772667806548859,
+     "vs_200d": 0.17939358851268716,
+     "support_20d_low": 208.92999267578125,
+     "support_55d_low": 189.79762268066406,
+     "resistance_20d_high": 243.3699951171875,
+     "resistance_52w_high": 243.3699951171875,
+     "rsi14": 64.40706136755301,
+     "atr_pct": 0.023604176381026916,
+     "rs_3m_vs_spy": 0.13109383335803226,
+     "volume_vs_50d": 0.6696458634331613,
+     "source": "Yahoo Finance daily bars"
+    },
+    "iv_history": {
+     "points": 1,
+     "last": {
+      "date": "2026-10-07",
+      "ticker": "NVDA",
+      "atm_iv_30d": 0.3027216475971581
+     }
+    }
+   },
+   "UAL": {
+    "fundamentals": {
+     "revenueGrowth": 0.16,
+     "earningsGrowth": -0.172,
+     "grossMargins": 0.31816,
+     "operatingMargins": 0.05534,
+     "freeCashflow": 910124992,
+     "totalCash": 16636999680,
+     "totalDebt": 33667999744,
+     "debtToEquity": 201.641,
+     "trailingPE": 10.315542,
+     "forwardPE": 7.5655293,
+     "pegRatio": 6.5,
+     "priceToSalesTrailing12Months": 0.5684937,
+     "recommendationMean": 1.32,
+     "numberOfAnalystOpinions": 23,
+     "targetMeanPrice": 153.69565,
+     "heldPercentInstitutions": 0.90732,
+     "heldPercentInsiders": 0.0058600004,
+     "shortPercentOfFloat": 0.056599997,
+     "shortRatio": 5.38,
+     "marketCap": 35759394816,
+     "beta": 1.304,
+     "next_earnings": "2026-10-20",
+     "eps_estimate": 2.71942
+    },
+    "fundamentals_date": "2026-10-07",
+    "fundamentals_source": "Yahoo Finance (yfinance), retrieved 2026-10-07 18:21 ET",
+    "technical": {
+     "as_of": "2026-10-07",
+     "price": 110.16999816894531,
+     "trend": "mixed",
+     "vs_20d": -0.0037888195955364523,
+     "vs_50d": -0.04403331099037411,
+     "vs_200d": 0.00976168629644003,
+     "support_20d_low": 104.58999633789062,
+     "support_55d_low": 104.1500015258789,
+     "resistance_20d_high": 118.26000213623047,
+     "resistance_52w_high": 138.77000427246094,
+     "rsi14": 46.71406219992837,
+     "atr_pct": 0.03535067554334694,
+     "rs_3m_vs_spy": -0.1763653247662016,
+     "volume_vs_50d": 1.5041245971763597,
+     "source": "Yahoo Finance daily bars"
+    }
+   },
+   "VLO": {
+    "fundamentals": {
+     "revenueGrowth": 0.517,
+     "earningsGrowth": 4.535,
+     "grossMargins": 0.16118999,
+     "operatingMargins": 0.12269,
+     "freeCashflow": 8416374784,
+     "totalCash": 7873999872,
+     "totalDebt": 11349000192,
+     "debtToEquity": 40.148,
+     "trailingPE": 17.685572,
+     "forwardPE": 10.229724,
+     "pegRatio": 2.06,
+     "priceToSalesTrailing12Months": 0.92207235,
+     "recommendationMean": 2.4,
+     "numberOfAnalystOpinions": 19,
+     "targetMeanPrice": 374.73685,
+     "heldPercentInstitutions": 0.87087995,
+     "heldPercentInsiders": 0.00421,
+     "shortPercentOfFloat": 0.039100002,
+     "shortRatio": 3.69,
+     "marketCap": 122110033920,
+     "beta": 0.592,
+     "next_earnings": "2026-10-22",
+     "eps_estimate": 19.76574
+    },
+    "fundamentals_date": "2026-10-07",
+    "fundamentals_source": "Yahoo Finance (yfinance), retrieved 2026-10-07 18:21 ET",
+    "technical": {
+     "as_of": "2026-10-07",
+     "price": 424.1000061035156,
+     "trend": "uptrend",
+     "vs_20d": 0.06778726283655323,
+     "vs_50d": 0.1710164616516907,
+     "vs_200d": 0.6138259695227006,
+     "support_20d_low": 364.9599914550781,
+     "support_55d_low": 291.4599914550781,
+     "resistance_20d_high": 428.989990234375,
+     "resistance_52w_high": 428.989990234375,
+     "rsi14": 71.6951257580658,
+     "atr_pct": 0.03563473721501967,
+     "rs_3m_vs_spy": 0.4604281130750223,
+     "volume_vs_50d": 0.5901069120693224,
+     "source": "Yahoo Finance daily bars"
+    }
+   }
+  },
+  "patterns": [
+   {
+    "pattern": "rs_leader \u00d7 Risk-On",
+    "dimension": "setup_list \u00d7 risk",
+    "source": "backtest",
+    "status": "BACKTEST-SUPPORTED (needs forward confirmation before it counts)",
+    "n": 482,
+    "win_rate": 0.43568464730290457,
+    "avg_r": 0.2579566478385044,
+    "ci95_low": 0.11938398963209584,
+    "avg_win_r": 1.8467431670171863,
+    "avg_loss_r": -0.9686800029979776,
+    "expected_value_r": 0.2579566478385044,
+    "tickers": 118,
+    "months": 19,
+    "best_securities": [
+     "SPOT +3.21R (n=4)",
+     "FCX +1.72R (n=5)",
+     "PM +1.39R (n=3)"
+    ],
+    "worst_securities": [
+     "UAL -1.00R (n=4)",
+     "TSLA -1.00R (n=3)",
+     "CVS -1.00R (n=3)"
+    ],
+    "failure_conditions": {
+     "Risk-Off": -0.45
+    },
+    "evidence": "ESTABLISHED POSITIVE (n=482, 95% CI of mean R above 0, robustness checks passed)"
+   },
+   {
+    "pattern": "rs_leader \u00d7 Strong Bull",
+    "dimension": "setup_list \u00d7 trend",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 514,
+    "win_rate": 0.38715953307393,
+    "avg_r": 0.14233199310314903,
+    "ci95_low": 0.007822522623714578,
+    "avg_win_r": 1.915527301166435,
+    "avg_loss_r": -0.9778771062765141,
+    "expected_value_r": 0.14233199310314903,
+    "tickers": 110,
+    "months": 17,
+    "best_securities": [
+     "SPOT +3.68R (n=3)",
+     "PSX +2.49R (n=3)",
+     "NEM +1.94R (n=5)"
+    ],
+    "worst_securities": [
+     "NRG -1.00R (n=3)",
+     "TSLA -1.00R (n=4)",
+     "AMZN -1.00R (n=3)"
+    ],
+    "failure_conditions": {
+     "Choppy": -0.352,
+     "Neutral": -0.196,
+     "Strong Bear": -0.568
+    },
+    "evidence": "NOT PROVEN (n=514): CI includes 0 or robustness checks failed"
+   },
+   {
+    "pattern": "rs_leader \u00d7 Normal Volatility",
+    "dimension": "setup_list \u00d7 volatility",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 596,
+    "win_rate": 0.37919463087248323,
+    "avg_r": 0.10286003595134227,
+    "ci95_low": -0.019583397636259117,
+    "avg_win_r": 1.8636708547287788,
+    "avg_loss_r": -0.9726622479505513,
+    "expected_value_r": 0.10286003595134227,
+    "tickers": 123,
+    "months": 22,
+    "best_securities": [
+     "SPOT +3.21R (n=4)",
+     "PSX +2.49R (n=3)",
+     "PM +1.29R (n=4)"
+    ],
+    "worst_securities": [
+     "EQIX -1.00R (n=3)",
+     "AMZN -1.00R (n=3)",
+     "TSLA -1.00R (n=4)"
+    ],
+    "failure_conditions": {},
+    "evidence": "NOT PROVEN (n=596): CI includes 0 or robustness checks failed"
+   },
+   {
+    "pattern": "rs_leader \u00d7 Bull",
+    "dimension": "setup_list \u00d7 trend",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 149,
+    "win_rate": 0.47651006711409394,
+    "avg_r": 0.28789297412455067,
+    "ci95_low": 0.054820991862315926,
+    "avg_win_r": 1.678851087564496,
+    "avg_loss_r": -0.9782355650323228,
+    "expected_value_r": 0.28789297412455067,
+    "tickers": 80,
+    "months": 15,
+    "best_securities": [
+     "GEV +1.83R (n=6)",
+     "MRNA +1.74R (n=3)",
+     "AVGO +1.41R (n=4)"
+    ],
+    "worst_securities": [
+     "DE -0.76R (n=3)",
+     "NEM -0.56R (n=5)",
+     "VLO -0.32R (n=4)"
+    ],
+    "failure_conditions": {
+     "Choppy": -0.352,
+     "Neutral": -0.196,
+     "Strong Bear": -0.568
+    },
+    "evidence": "NOT PROVEN (n=149): CI includes 0 or robustness checks failed"
+   },
+   {
+    "pattern": "pullback \u00d7 Normal Volatility",
+    "dimension": "setup_list \u00d7 volatility",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 76,
+    "win_rate": 0.4473684210526316,
+    "avg_r": 0.2528381513521011,
+    "ci95_low": -0.08406635464764783,
+    "avg_win_r": 1.7717735779811306,
+    "avg_loss_r": -0.9767762416333038,
+    "expected_value_r": 0.2528381513521011,
+    "tickers": 62,
+    "months": 4,
+    "best_securities": [
+     "HWM +1.18R (n=3)"
+    ],
+    "worst_securities": [
+     "HWM +1.18R (n=3)"
+    ],
+    "failure_conditions": {
+     "High Volatility": -0.011
+    },
+    "evidence": "NOT PROVEN (n=76): CI includes 0 or robustness checks failed"
+   },
+   {
+    "pattern": "rs_leader \u00d7 Low Volatility",
+    "dimension": "setup_list \u00d7 volatility",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 55,
+    "win_rate": 0.4727272727272727,
+    "avg_r": 0.34195856493578,
+    "ci95_low": -0.06033600616485191,
+    "avg_win_r": 1.8387585027487654,
+    "avg_loss_r": -1.0,
+    "expected_value_r": 0.34195856493578,
+    "tickers": 41,
+    "months": 8,
+    "best_securities": [
+     "MU +1.49R (n=3)",
+     "LRCX +1.15R (n=3)",
+     "AMAT +1.07R (n=3)"
+    ],
+    "worst_securities": [
+     "C -0.12R (n=3)",
+     "AMAT +1.07R (n=3)",
+     "LRCX +1.15R (n=3)"
+    ],
+    "failure_conditions": {},
+    "evidence": "NOT PROVEN (n=55): CI includes 0 or robustness checks failed"
+   },
+   {
+    "pattern": "pullback \u00d7 Strong Bull",
+    "dimension": "setup_list \u00d7 trend",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 49,
+    "win_rate": 0.5306122448979592,
+    "avg_r": 0.3611761470572339,
+    "ci95_low": -0.03609026770533158,
+    "avg_win_r": 1.5652935079155559,
+    "avg_loss_r": -1.0,
+    "expected_value_r": 0.3611761470572339,
+    "tickers": 41,
+    "months": 3,
+    "best_securities": [],
+    "worst_securities": [],
+    "failure_conditions": {},
+    "evidence": "PRELIMINARY (n=49): hypotheses only"
+   },
+   {
+    "pattern": "pullback \u00d7 Mixed",
+    "dimension": "setup_list \u00d7 risk",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 59,
+    "win_rate": 0.4406779661016949,
+    "avg_r": 0.24075553971250754,
+    "ci95_low": -0.1570501089739144,
+    "avg_win_r": 1.778045345832181,
+    "avg_loss_r": -0.9704424893514776,
+    "expected_value_r": 0.24075553971250754,
+    "tickers": 54,
+    "months": 3,
+    "best_securities": [],
+    "worst_securities": [],
+    "failure_conditions": {},
+    "evidence": "NOT PROVEN (n=59): CI includes 0 or robustness checks failed"
+   },
+   {
+    "pattern": "pullback \u00d7 Risk-On",
+    "dimension": "setup_list \u00d7 risk",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 36,
+    "win_rate": 0.4722222222222222,
+    "avg_r": 0.13318417182836875,
+    "ci95_low": -0.29588366879559713,
+    "avg_win_r": 1.3996841285777224,
+    "avg_loss_r": -1.0,
+    "expected_value_r": 0.13318417182836875,
+    "tickers": 33,
+    "months": 3,
+    "best_securities": [],
+    "worst_securities": [],
+    "failure_conditions": {},
+    "evidence": "PRELIMINARY (n=36): hypotheses only"
+   },
+   {
+    "pattern": "breakout \u00d7 Strong Bull",
+    "dimension": "setup_list \u00d7 trend",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 21,
+    "win_rate": 0.3333333333333333,
+    "avg_r": 0.13594656530481306,
+    "ci95_low": -0.6911527406928144,
+    "avg_win_r": 2.280188503379691,
+    "avg_loss_r": -0.9361744037326261,
+    "expected_value_r": 0.13594656530481306,
+    "tickers": 16,
+    "months": 3,
+    "best_securities": [
+     "ARM -0.29R (n=3)"
+    ],
+    "worst_securities": [
+     "ARM -0.29R (n=3)"
+    ],
+    "failure_conditions": {
+     "Bull": -1.0
+    },
+    "evidence": "PRELIMINARY (n=21): hypotheses only"
+   },
+   {
+    "pattern": "rs_leader \u00d7 High Volatility",
+    "dimension": "setup_list \u00d7 volatility",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 140,
+    "win_rate": 0.34285714285714286,
+    "avg_r": 0.01615173142612917,
+    "ci95_low": -0.28090109534722485,
+    "avg_win_r": 1.9018180884111355,
+    "avg_loss_r": -0.9676741939573524,
+    "expected_value_r": 0.01615173142612917,
+    "tickers": 79,
+    "months": 9,
+    "best_securities": [
+     "OXY +3.45R (n=4)",
+     "GEV +1.86R (n=4)",
+     "KO +1.15R (n=3)"
+    ],
+    "worst_securities": [
+     "VZ -1.00R (n=4)",
+     "GILD -1.00R (n=3)",
+     "PGR -0.79R (n=4)"
+    ],
+    "failure_conditions": {},
+    "evidence": "NOT PROVEN (n=140): CI includes 0 or robustness checks failed"
+   },
+   {
+    "pattern": "rs_leader \u00d7 Mixed",
+    "dimension": "setup_list \u00d7 risk",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 211,
+    "win_rate": 0.33649289099526064,
+    "avg_r": 0.010317675579863128,
+    "ci95_low": -0.22144145659004094,
+    "avg_win_r": 1.95376684065994,
+    "avg_loss_r": -0.9752886867107472,
+    "expected_value_r": 0.010317675579863128,
+    "tickers": 99,
+    "months": 20,
+    "best_securities": [
+     "OXY +4.02R (n=3)",
+     "GEV +2.46R (n=3)",
+     "LRCX +1.27R (n=4)"
+    ],
+    "worst_securities": [
+     "HCA -1.00R (n=3)",
+     "MU -1.00R (n=4)",
+     "AXON -1.00R (n=3)"
+    ],
+    "failure_conditions": {
+     "Risk-Off": -0.45
+    },
+    "evidence": "NOT PROVEN (n=211): CI includes 0 or robustness checks failed"
+   },
+   {
+    "pattern": "rs_leader \u00d7 Bear",
+    "dimension": "setup_list \u00d7 trend",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 36,
+    "win_rate": 0.2777777777777778,
+    "avg_r": 0.04884133008403578,
+    "ci95_low": -0.8551110460452737,
+    "avg_win_r": 2.6985318033779566,
+    "avg_loss_r": -0.9702703904136261,
+    "expected_value_r": 0.04884133008403578,
+    "tickers": 26,
+    "months": 5,
+    "best_securities": [
+     "OXY +4.02R (n=3)",
+     "XOM -0.12R (n=3)",
+     "HWM -0.20R (n=3)"
+    ],
+    "worst_securities": [
+     "HWM -0.20R (n=3)",
+     "XOM -0.12R (n=3)",
+     "OXY +4.02R (n=3)"
+    ],
+    "failure_conditions": {
+     "Choppy": -0.352,
+     "Neutral": -0.196,
+     "Strong Bear": -0.568
+    },
+    "evidence": "PRELIMINARY (n=36): hypotheses only"
+   },
+   {
+    "pattern": "pullback \u00d7 Bull",
+    "dimension": "setup_list \u00d7 trend",
+    "source": "backtest",
+    "status": "CANDIDATE (positive but not proven)",
+    "n": 46,
+    "win_rate": 0.3695652173913043,
+    "avg_r": 0.028295126588147014,
+    "ci95_low": -0.40824920276435894,
+    "avg_win_r": 1.7250692924502073,
+    "avg_loss_r": -0.9663655913309918,
+    "expected_value_r": 0.028295126588147014,
+    "tickers": 44,
+    "months": 2,
+    "best_securities": [],
+    "worst_securities": [],
+    "failure_conditions": {},
+    "evidence": "PRELIMINARY (n=46): hypotheses only"
+   }
+  ],
+  "experiments": [],
+  "scorecards": {
+   "scorecards": 0,
+   "with_outcomes": 0,
+   "evidence": "INSUFFICIENT (n=0 < 20): no conclusions"
+  },
+  "similar_conditions": {
+   "today": {
+    "date": "2026-10-07",
+    "trend": "Bull",
+    "risk": "Mixed",
+    "volatility": "Normal Volatility",
+    "vix": 15.08,
+    "breadth_50d": 0.39487,
+    "tnx": 5.277,
+    "hy_spread": 3.03,
+    "dxy_1m": 0.0345,
+    "leaders": "SMH,XLK,IGV",
+    "fed_signal": "hikes priced"
+   },
+   "similar_days": [
+    {
+     "date": "2025-01-03",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.3221548988322045
+    },
+    {
+     "date": "2025-01-06",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.346410469947556
+    },
+    {
+     "date": "2024-12-26",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.3942964668200437
+    },
+    {
+     "date": "2024-12-24",
+     "trend": "Strong Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.4716219961826833
+    },
+    {
+     "date": "2024-12-27",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.485914579802722
+    },
+    {
+     "date": "2025-01-08",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.6228863935680344
+    },
+    {
+     "date": "2024-12-23",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.699237853403339
+    },
+    {
+     "date": "2025-01-15",
+     "trend": "Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 3.717512060483691
+    },
+    {
+     "date": "2026-05-19",
+     "trend": "Strong Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.71810177621483
+    },
+    {
+     "date": "2025-01-07",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.7607156246184674
+    },
+    {
+     "date": "2024-12-31",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.799102686676952
+    },
+    {
+     "date": "2025-01-14",
+     "trend": "Neutral",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.8223626275564704
+    },
+    {
+     "date": "2026-05-21",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 3.861569223310596
+    },
+    {
+     "date": "2026-05-20",
+     "trend": "Strong Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.8739580462825316
+    },
+    {
+     "date": "2026-06-08",
+     "trend": "Strong Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.925352334230675
+    },
+    {
+     "date": "2026-05-15",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 3.9306458949237117
+    },
+    {
+     "date": "2024-12-30",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.931725665522182
+    },
+    {
+     "date": "2025-01-17",
+     "trend": "Strong Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.9434288574336924
+    },
+    {
+     "date": "2025-01-02",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 3.963334615051425
+    },
+    {
+     "date": "2025-01-13",
+     "trend": "Neutral",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 4.044683797942858
+    },
+    {
+     "date": "2024-12-20",
+     "trend": "Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 4.113649364253777
+    },
+    {
+     "date": "2026-05-22",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 4.116507381792581
+    },
+    {
+     "date": "2025-01-10",
+     "trend": "Neutral",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 4.16513473487307
+    },
+    {
+     "date": "2026-06-09",
+     "trend": "Strong Bull",
+     "risk": "Mixed",
+     "volatility": "Normal Volatility",
+     "distance": 4.20049067827128
+    },
+    {
+     "date": "2026-07-21",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 4.2116830516089
+    },
+    {
+     "date": "2026-07-16",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 4.220720656860102
+    },
+    {
+     "date": "2026-07-14",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 4.229833600952905
+    },
+    {
+     "date": "2026-05-26",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 4.292731520069285
+    },
+    {
+     "date": "2026-07-15",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 4.294001899813058
+    },
+    {
+     "date": "2026-05-27",
+     "trend": "Strong Bull",
+     "risk": "Risk-On",
+     "volatility": "Normal Volatility",
+     "distance": 4.328272974049647
+    }
+   ],
+   "backtest_on_similar_days": {
+    "overall": {
+     "n": 116,
+     "win_rate": 0.4396551724137931,
+     "avg_r": 0.31727039982953087,
+     "median_r": -1.0,
+     "std_r": 1.6217564937648443,
+     "ci95_mean_r": [
+      0.019007708924720867,
+      0.6155330907343408
+     ],
+     "risk_adjusted": 0.1956338088050445,
+     "avg_win_r": 1.961571592987615,
+     "avg_loss_r": -0.9728736132637353,
+     "profit_factor": 1.5819930039210168,
+     "distinct_tickers": 82,
+     "regimes_covered": 3,
+     "months_covered": 5,
+     "avg_r_ex_best": 0.2672094279717436,
+     "top_ticker_share": 0.02586206896551724,
+     "robust": true,
+     "evidence": "ESTABLISHED POSITIVE (n=116, 95% CI of mean R above 0, robustness checks passed)"
+    },
+    "by_setup": {
+     "breakdown": {
+      "n": 10,
+      "win_rate": 0.2,
+      "avg_r": -0.21678573574561427,
+      "median_r": -1.0,
+      "std_r": 1.6717484254323876,
+      "ci95_mean_r": [
+       -1.4126825169242574,
+       0.979111045433029
+      ],
+      "risk_adjusted": -0.12967605199899856,
+      "avg_win_r": 2.9160713212719287,
+      "avg_loss_r": -1.0,
+      "profit_factor": 0.7290178303179822,
+      "distinct_tickers": 9,
+      "regimes_covered": 2,
+      "months_covered": 2,
+      "avg_r_ex_best": -0.6265302026891432,
+      "top_ticker_share": 0.2,
+      "robust": false,
+      "evidence": "INSUFFICIENT (n=10 < 20): no conclusions"
+     },
+     "breakout": {
+      "n": 9,
+      "win_rate": 0.3333333333333333,
+      "avg_r": -0.12982075299278023,
+      "median_r": -1.0,
+      "std_r": 1.3233597001945403,
+      "ci95_mean_r": [
+       -1.1470450666631653,
+       0.887403560677605
+      ],
+      "risk_adjusted": -0.09809937009091024,
+      "avg_win_r": 1.6105377410216593,
+      "avg_loss_r": -1.0,
+      "profit_factor": 0.8052688705108296,
+      "distinct_tickers": 9,
+      "regimes_covered": 2,
+      "months_covered": 3,
+      "avg_r_ex_best": -0.3951790898158229,
+      "top_ticker_share": 0.1111111111111111,
+      "robust": false,
+      "evidence": "INSUFFICIENT (n=9 < 20): no conclusions"
+     },
+     "laggard_in_strong_sector": {
+      "n": 9,
+      "win_rate": 0.5555555555555556,
+      "avg_r": 0.8072191565632684,
+      "median_r": 1.0676351805139523,
+      "std_r": 1.8612561274367836,
+      "ci95_mean_r": [
+       -0.6234689522845033,
+       2.23790726541104
+      ],
+      "risk_adjusted": 0.43369590281748316,
+      "avg_win_r": 2.252994481813883,
+      "avg_loss_r": -1.0,
+      "profit_factor": 2.8162431022673537,
+      "distinct_tickers": 9,
+      "regimes_covered": 2,
+      "months_covered": 2,
+      "avg_r_ex_best": 0.4247011457021236,
+      "top_ticker_share": 0.1111111111111111,
+      "robust": false,
+      "evidence": "INSUFFICIENT (n=9 < 20): no conclusions"
+     },
+     "oversold_uptrend": {
+      "n": 3,
+      "win_rate": 1.0,
+      "avg_r": 4.5913814252621075,
+      "median_r": 3.867363243452427,
+      "std_r": 1.2843480177499953,
+      "ci95_mean_r": [
+       1.4008840793575619,
+       7.781878771166653
+      ],
+      "risk_adjusted": 3.574873291201546,
+      "avg_win_r": 4.5913814252621075,
+      "avg_loss_r": null,
+      "profit_factor": null,
+      "distinct_tickers": 3,
+      "regimes_covered": 1,
+      "months_covered": 2,
+      "avg_r_ex_best": 3.849931056155631,
+      "top_ticker_share": 0.3333333333333333,
+      "robust": false,
+      "evidence": "INSUFFICIENT (n=3 < 20): no conclusions"
+     },
+     "pullback": {
+      "n": 43,
+      "win_rate": 0.4186046511627907,
+      "avg_r": 0.1875704857830391,
+      "median_r": -1.0,
+      "std_r": 1.4934443340130275,
+      "ci95_mean_r": [
+       -0.27204383976191576,
+       0.6471848113279939
+      ],
+      "risk_adjusted": 0.12559590037013252,
+      "avg_win_r": 1.782785168737191,
+      "avg_loss_r": -0.9609840859439504,
+      "profit_factor": 1.3357196443372155,
+      "distinct_tickers": 39,
+      "regimes_covered": 2,
+      "months_covered": 3,
+      "avg_r_ex_best": 0.1047163974707512,
+      "top_ticker_share": 0.046511627906976744,
+      "robust": true,
+      "evidence": "PRELIMINARY (n=43): hypotheses only"
+     },
+     "rs_leader": {
+      "n": 47,
+      "win_rate": 0.5106382978723404,
+      "avg_r": 0.37890486481978974,
+      "median_r": 0.5954463069132756,
+      "std_r": 1.4263243587763486,
+      "ci95_mean_r": [
+       -0.03987965566123591,
+       0.7976893853008153
+      ],
+      "risk_adjusted": 0.26565126122143373,
+      "avg_win_r": 1.6675296400030897,
+      "avg_loss_r": -0.9657470745019145,
+      "profit_factor": 1.801746000210562,
+      "distinct_tickers": 32,
+      "regimes_covered": 3,
+      "months_covered": 5,
+      "avg_r_ex_best": 0.3169568859326959,
+      "top_ticker_share": 0.06382978723404255,
+      "robust": true,
+      "evidence": "PRELIMINARY (n=47): hypotheses only"
+     }
+    }
+   },
+   "backtest_same_regime_label": {
+    "label": "Bull / Mixed",
+    "by_setup": {
+     "breakdown": {
+      "n": 15,
+      "win_rate": 0.2,
+      "avg_r": -0.4055053301948232,
+      "median_r": -1.0,
+      "std_r": 1.332950783009087,
+      "ci95_mean_r": [
+       -1.1436688696396933,
+       0.3326582092500468
+      ],
+      "risk_adjusted": -0.30421628117387045,
+      "avg_win_r": 1.972473349025884,
+      "avg_loss_r": -1.0,
+      "profit_factor": 0.493118337256471,
+      "distinct_tickers": 15,
+      "regimes_covered": 1,
+      "months_covered": 1,
+      "avg_r_ex_best": -0.6823924585477495,
+      "top_ticker_share": 0.06666666666666667,
+      "robust": false,
+      "evidence": "INSUFFICIENT (n=15 < 20): no conclusions"
+     },
+     "breakout": {
+      "n": 3,
+      "win_rate": 0.0,
+      "avg_r": -1.0,
+      "median_r": -1.0,
+      "std_r": 0.0,
+      "ci95_mean_r": [
+       null,
+       null
+      ],
+      "risk_adjusted": null,
+      "avg_win_r": null,
+      "avg_loss_r": -1.0,
+      "profit_factor": 0.0,
+      "distinct_tickers": 3,
+      "regimes_covered": 1,
+      "months_covered": 2,
+      "avg_r_ex_best": -1.0,
+      "top_ticker_share": 0.3333333333333333,
+      "robust": false,
+      "evidence": "INSUFFICIENT (n=3 < 20): no conclusions"
+     },
+     "laggard_in_strong_sector": {
+      "n": 5,
+      "win_rate": 0.6,
+      "avg_r": 1.35117444610063,
+      "median_r": 2.395117251511716,
+      "std_r": 2.2238325888639534,
+      "ci95_mean_r": [
+       -1.4100784175240135,
+       4.112427309725273
+      ],
+      "risk_adjusted": 0.607588202847085,
+      "avg_win_r": 2.9186240768343836,
+      "avg_loss_r": -1.0,
+      "profit_factor": 4.377936115251575,
+      "distinct_tickers": 5,
+      "regimes_covered": 1,
+      "months_covered": 1,
+      "avg_r_ex_best": 0.7221272467626809,
+      "top_ticker_share": 0.2,
+      "robust": false,
+      "evidence": "INSUFFICIENT (n=5 < 20): no conclusions"
+     },
+     "oversold_uptrend": {
+      "n": 14,
+      "win_rate": 0.7142857142857143,
+      "avg_r": 1.8511541973816956,
+      "median_r": 1.8508944865933592,
+      "std_r": 2.276327407992367,
+      "ci95_mean_r": [
+       0.5368418818134475,
+       3.1654665129499437
+      ],
+      "risk_adjusted": 0.8132196585087652,
+      "avg_win_r": 2.991615876334374,
+      "avg_loss_r": -1.0,
+      "profit_factor": 7.4790396908359345,
+      "distinct_tickers": 13,
+      "regimes_covered": 1,
+      "months_covered": 2,
+      "avg_r_ex_best": 1.5262981999898981,
+      "top_ticker_share": 0.14285714285714285,
+      "robust": false,
+      "evidence": "INSUFFICIENT (n=14 < 20): no conclusions"
+     },
+     "pullback": {
+      "n": 46,
+      "win_rate": 0.3695652173913043,
+      "avg_r": 0.028295126588147014,
+      "median_r": -1.0,
+      "std_r": 1.4700276610804972,
+      "ci95_mean_r": [
+       -0.40824920276435894,
+       0.464839455940653
+      ],
+      "risk_adjusted": 0.019248023242875292,
+      "avg_win_r": 1.7250692924502073,
+      "avg_loss_r": -0.9663655913309918,
+      "profit_factor": 1.046444042850394,
+      "distinct_tickers": 44,
+      "regimes_covered": 1,
+      "months_covered": 2,
+      "avg_r_ex_best": -0.05257480826320815,
+      "top_ticker_share": 0.043478260869565216,
+      "robust": false,
+      "evidence": "PRELIMINARY (n=46): hypotheses only"
+     },
+     "rs_leader": {
+      "n": 70,
+      "win_rate": 0.38571428571428573,
+      "avg_r": 0.03434683519398082,
+      "median_r": -1.0,
+      "std_r": 1.434150905967653,
+      "ci95_mean_r": [
+       -0.3076143776876932,
+       0.37630804807565477
+      ],
+      "risk_adjusted": 0.0239492476356986,
+      "avg_win_r": 1.681639943095506,
+      "avg_loss_r": -1.0,
+      "profit_factor": 1.0559134526413643,
+      "distinct_tickers": 50,
+      "regimes_covered": 1,
+      "months_covered": 11,
+      "avg_r_ex_best": -0.02817065267588521,
+      "top_ticker_share": 0.04285714285714286,
+      "robust": false,
+      "evidence": "NOT PROVEN (n=70): CI includes 0 or robustness checks failed"
+     }
+    }
+   }
+  },
+  "errors": {
+   "n": 0
+  },
+  "events_measured": 5
  }
 }

@@ -27,21 +27,35 @@ Vault folder: `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Samanyu/b
    monthly reviews, due predictions, version warnings).
 2. `00 - System/`: Trading Constitution, Risk Rules, Strategy, Current System Version.
 3. The last 3-5 `01 - Daily Intelligence/` notes (decisions and self-critiques) and `09 - Strategy Research/Improvement Pipeline.md`.
-4. `.venv/bin/python desk.py context`: recent trades, winners and losers, strategy evidence, current regime and
-   history in it, past events by category, options learning, exposure, open predictions.
+4. `.venv/bin/python desk.py context --tickers <shortlist> --categories <today's event types>`: the V1.1 memory
+   review in priority order (composite regime + outcomes on the most similar past days, recent predictions and
+   calibration, similar events, similar trades, company files, recent mistakes, patterns, experiments, options,
+   exposure). Relevance-based: don't reread the whole vault.
 5. `desk.py recall TICKER` for every shortlisted name (prior trades, predictions, events, signals), plus
    `03 - Portfolio/Watchlist.md` and the `06 - Macro/News Reaction Database.md` entries similar to today's news.
 Use this history to adjust **confidence and ranking** only, and only when its evidence level is at least PRELIMINARY.
 It never overrides the hard rules.
 
-**While working:** log every meaningful call with `desk.py predict add` (it anchors the live price) and every
-material event with `desk.py event add` (expected impact now; the actual impact is measured automatically). Record
-paper trades with `--strategy`, `--catalyst-category` and `--horizon-days`.
+**While working (always BEFORE the outcome is known):**
+- `desk.py score add TICKER --catalyst N ... --contradictory N --strategy S` for every serious candidate (0-10 each;
+  strategy-weighted; a weak risk/reward or liquidity score caps the total).
+- `desk.py predict add` for every meaningful call: `--confidence-pct` (50-100), `--supporting`, `--contradicting`,
+  `--magnitude`, `--benchmark`. Non-price calls use `--kind event --statement "..." --due YYYY-MM-DD`; resolve them
+  later with `predict resolve --id N --outcome correct|incorrect --source "..."`.
+- `desk.py event add` for material events: `--what-happened` (FACT), `--market-expected`, `--interpretation`,
+  `--time HH:MM` (enables the 1-hour reaction), `--expected` (PREDICTION). Never mix fact, interpretation and prediction.
+- `desk.py reject add TICKER --entry --stop --target --reason "<vocabulary>" --thesis --alternative` for every serious
+  candidate NOT taken (the outcome is simulated; judge the rejection on process, not hindsight).
+- Paper trades with `--strategy --catalyst-category --horizon-days --scorecard N --event-ids 1,2 --prediction-ids 3`.
+- `desk.py regime` shows today's composite regime and the most similar past days.
 
 **End of day:** `desk.py paper update`, then `desk.py learn`, then:
 - write the self-critique in today's Daily Intelligence note (remove the `critique:pending` marker);
 - write the post-trade review for every trade in `02 - Trades/Completed/` that is marked `review:pending`;
 - add dated OBSERVATIONS to the Improvement Pipeline; `desk.py event update --id N --lesson ...` where a lesson is clear;
+- `desk.py error add` for each PROCESS failure found (not for losing trades); `desk.py predict update --id N --lesson`;
+  `desk.py reject update --id N --verdict "correct|incorrect on process: ..." --lesson` for resolved rejections;
+- possible improvements become `desk.py experiment add` (baseline vs alternative filters, min n per arm); never a rule change;
 - update the Watchlist.
 **Weekly / monthly:** fill in the notes in `10 - Performance/Weekly Reviews` and `Monthly Reviews`.
 

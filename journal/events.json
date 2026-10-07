@@ -29,23 +29,87 @@
       "reaction_day": "2026-10-07",
       "returns": {
         "SPY": {
-          "1d": -0.002624913520670513,
+          "1d": -0.0024003081645026514,
           "5d": null
         },
         "MRVL": {
-          "1d": -0.013640669007045858,
+          "1d": -0.008118243303592343,
           "5d": null
         },
         "AVGO": {
-          "1d": -0.007477176171066691,
+          "1d": 0.0018626758510384978,
           "5d": null
         },
         "SMH": {
-          "1d": -0.016126501513092917,
+          "1d": -0.01181023036067197,
           "5d": null
         }
       },
-      "spy_expectation_correct": null
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "MRVL": {
+          "1d": -0.008118243303592343,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "AVGO": {
+          "1d": 0.0018626758510384978,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "SMH": {
+          "1d": -0.01181023036067197,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": -0.0024003081645026514,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": -0.0025406007213888415,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": 0.06999969482421875,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": 0.7999897003173828,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": 0.004124503205274799,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.006149407834801113,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": -0.012132571895566935,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move -0.8% (0.2\u00d7 a typical day); 1-month follow-through pending"
     }
   },
   {
@@ -77,19 +141,77 @@
       "reaction_day": "2026-10-07",
       "returns": {
         "SPY": {
-          "1d": -0.002624913520670513,
+          "1d": -0.0024003081645026514,
           "5d": null
         },
         "NVDA": {
-          "1d": -0.009697405412762539,
+          "1d": -0.00739844604505957,
           "5d": null
         },
         "SMH": {
-          "1d": -0.016126501513092917,
+          "1d": -0.01181023036067197,
           "5d": null
         }
       },
-      "spy_expectation_correct": null
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "NVDA": {
+          "1d": -0.00739844604505957,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "SMH": {
+          "1d": -0.01181023036067197,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": -0.0024003081645026514,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": -0.0025406007213888415,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": 0.06999969482421875,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": 0.7999897003173828,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": 0.004124503205274799,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.006149407834801113,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": -0.012132571895566935,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move -0.7% (0.3\u00d7 a typical day); 1-month follow-through pending"
     }
   },
   {
@@ -123,27 +245,97 @@
       "reaction_day": "2026-10-07",
       "returns": {
         "SPY": {
-          "1d": -0.002624913520670513,
+          "1d": -0.0024003081645026514,
           "5d": null
         },
         "IWM": {
-          "1d": -0.012652635349213903,
+          "1d": -0.01293802579881942,
           "5d": null
         },
         "XLK": {
-          "1d": -0.004358877049814303,
+          "1d": -0.003019805001740372,
           "5d": null
         },
         "XLRE": {
-          "1d": -0.008783456798969524,
+          "1d": -0.012895347906900612,
           "5d": null
         },
         "XLU": {
-          "1d": 0.0009718395450835082,
+          "1d": -0.00024291354641081675,
           "5d": null
         }
       },
-      "spy_expectation_correct": null
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "IWM": {
+          "1d": -0.01293802579881942,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLK": {
+          "1d": -0.003019805001740372,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLRE": {
+          "1d": -0.012895347906900612,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLU": {
+          "1d": -0.00024291354641081675,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": -0.0024003081645026514,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": -0.0025406007213888415,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": 0.06999969482421875,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": 0.7999897003173828,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": 0.004124503205274799,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.006149407834801113,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": -0.012132571895566935,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move -1.3% (1.1\u00d7 a typical day); 1-month follow-through pending"
     }
   },
   {
@@ -178,31 +370,107 @@
       "reaction_day": "2026-10-07",
       "returns": {
         "SPY": {
-          "1d": -0.002624913520670513,
+          "1d": -0.0024003081645026514,
           "5d": null
         },
         "MPC": {
-          "1d": 0.02111667404972417,
+          "1d": 0.022897642588299627,
           "5d": null
         },
         "VLO": {
-          "1d": 0.009541529479396571,
+          "1d": 0.011640677612238637,
           "5d": null
         },
         "DAL": {
-          "1d": -0.010877404043451278,
+          "1d": -0.008247697958430278,
           "5d": null
         },
         "UAL": {
-          "1d": -0.02114065822025124,
+          "1d": -0.015196250432635838,
           "5d": null
         },
         "XLE": {
-          "1d": -0.0036078359566482643,
+          "1d": -0.006117637484681415,
           "5d": null
         }
       },
-      "spy_expectation_correct": null
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "MPC": {
+          "1d": 0.022897642588299627,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VLO": {
+          "1d": 0.011640677612238637,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "DAL": {
+          "1d": -0.008247697958430278,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "UAL": {
+          "1d": -0.015196250432635838,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLE": {
+          "1d": -0.006117637484681415,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": -0.0024003081645026514,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": -0.0025406007213888415,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": 0.06999969482421875,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": 0.7999897003173828,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": 0.004124503205274799,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.006149407834801113,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": -0.012132571895566935,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move +2.3% (1.0\u00d7 a typical day); 1-month follow-through pending"
     }
   },
   {
@@ -245,7 +513,65 @@
           "5d": null
         }
       },
-      "spy_expectation_correct": null
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "KRE": {
+          "1d": -0.004546096002257971,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLF": {
+          "1d": 0.0024127180928157355,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": 0.005497992684414754,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": 0.004575457394402571,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": -0.5100002288818359,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": -4.199981689453125,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": -0.0033277512379751295,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": 0.00011184318680901306,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": 0.007289331791870524,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move +0.5% (0.7\u00d7 a typical day); 1-month follow-through pending"
     }
   }
 ]

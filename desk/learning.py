@@ -302,51 +302,83 @@ def options_stats(tf: pd.DataFrame) -> Dict[str, object]:
 
 
 # ------------------------------------------------------------------ 4. screener forward test
+_ARR: Dict = {}
+
+
+def _arrays(P: Dict[str, pd.DataFrame], t: str):
+    key = (id(P), t)
+    if key not in _ARR:
+        c = P["close"][t].dropna()
+        _ARR[key] = (c.index, P["open"][t].reindex(c.index).to_numpy(float), P["high"][t].reindex(c.index).to_numpy(float),
+                     P["low"][t].reindex(c.index).to_numpy(float), c.to_numpy(float))
+    return _ARR[key]
+
+
+def simulate(P: Dict[str, pd.DataFrame], ticker: str, direction: str, stop: float, target: float, day: str,
+             same_day: bool) -> Dict[str, object]:
+    """Hypothetical trade used by the forward test, the backtest, rejected trades and opportunity cost (one method for all).
+
+    Entry at the open of `day` (same_day=True, i.e. decided before the open) or of the next session; stop checked before
+    target each day; exit at the close after TIMEOUT_DAYS sessions. Returns status, entry, exit, R and days."""
+    if ticker not in P["close"] or P["close"][ticker].dropna().empty:
+        return {"status": "no data"}
+    idx, o, h, l, c = _arrays(P, ticker)
+    d = pd.Timestamp(day)
+    i0 = idx.searchsorted(d, side="left" if same_day else "right")
+    if i0 >= len(idx):
+        return {"status": "waiting"}
+    long_ = direction == "LONG"
+    entry = o[i0]
+    risk = (entry - stop) if long_ else (stop - entry)
+    if not np.isfinite(entry) or risk <= 0:
+        return {"status": "void (opened beyond stop)", "entry": float(entry)}
+    end = min(i0 + TIMEOUT_DAYS, len(idx))
+    for k in range(i0, end):
+        if (l[k] <= stop) if long_ else (h[k] >= stop):
+            return _res(entry, stop, "stop", risk, long_, k - i0 + 1, idx[k])
+        if (h[k] >= target) if long_ else (l[k] <= target):
+            return _res(entry, target, "target", risk, long_, k - i0 + 1, idx[k])
+    last = c[end - 1]
+    if end - i0 < TIMEOUT_DAYS:
+        return {"status": "open", "entry": float(entry), "days": end - i0,
+                "mark_r": float(((last - entry) if long_ else (entry - last)) / risk)}
+    return _res(entry, last, "timeout", risk, long_, end - i0, idx[end - 1])
+
+
+def _res(entry, exit_px, why, risk, long_, n, d):
+    return {"status": "resolved", "entry": float(entry), "exit": float(exit_px), "exit_reason": why, "days": n,
+            "r": float(((exit_px - entry) if long_ else (entry - exit_px)) / risk), "exit_date": str(d.date())}
+
+
+def independent(df: pd.DataFrame) -> pd.Series:
+    """True for signals that don't overlap an earlier signal on the same ticker/direction that was still running.
+
+    Consecutive-day signals on one stock are the same trade, not new evidence; counting them all overstates the
+    sample size and narrows the confidence intervals."""
+    keep = pd.Series(False, index=df.index)
+    busy: Dict = {}
+    for i, r in df.sort_values("date").iterrows():
+        k = (r["ticker"], r["direction"])
+        if k in busy and (busy[k] is None or str(r["date"]) <= busy[k]):
+            continue
+        if r.get("status") in ("resolved", "open"):
+            keep[i] = True
+            busy[k] = r.get("exit_date") if r.get("status") == "resolved" else None
+    return keep
+
+
 def forward_test(P: Dict[str, pd.DataFrame]) -> pd.DataFrame:
     if not memory.SIGNALS.exists():
         return pd.DataFrame()
     sig = pd.read_csv(memory.SIGNALS)
-    o, h, l, c = P["open"], P["high"], P["low"], P["close"]
-    res = []
-    for s in sig.itertuples():
-        if s.ticker not in c:
-            continue
-        hhmm = str(s.generated)[11:16]          # scan time ET: before the open → enter at that day's open
-        first = _bar_after(c, s.ticker, s.date, inclusive=bool(hhmm) and hhmm < "09:30")
-        if first is None:
-            res.append({"status": "waiting"})
-            continue
-        idx = c[s.ticker].dropna().index
-        idx = idx[idx >= first][:TIMEOUT_DAYS]
-        long_ = s.direction == "LONG"
-        entry = float(o.loc[first, s.ticker])
-        risk = (entry - s.stop) if long_ else (s.stop - entry)
-        if not np.isfinite(entry) or risk <= 0:
-            res.append({"status": "void (opened beyond stop)", "entry": entry})
-            continue
-        exit_px, why, n = None, None, 0
-        for n, d in enumerate(idx, 1):
-            lo, hi = l.loc[d, s.ticker], h.loc[d, s.ticker]
-            if (lo <= s.stop) if long_ else (hi >= s.stop):
-                exit_px, why = s.stop, "stop"
-                break
-            if (hi >= s.target) if long_ else (lo <= s.target):
-                exit_px, why = s.target, "target"
-                break
-        if why is None:
-            last = float(c.loc[idx[-1], s.ticker])
-            if len(idx) < TIMEOUT_DAYS:
-                res.append({"status": "open", "entry": entry, "mark_r": ((last - entry) if long_ else (entry - last)) / risk,
-                            "days": len(idx)})
-                continue
-            exit_px, why = last, "timeout"
-        r = ((exit_px - entry) if long_ else (entry - exit_px)) / risk
-        res.append({"status": "resolved", "entry": entry, "exit": float(exit_px), "exit_reason": why, "r": float(r),
-                    "days": n, "exit_date": str(idx[n - 1].date()) if n else None})
+    res = [simulate(P, s.ticker, s.direction, s.stop, s.target, s.date,
+                    same_day=bool(str(s.generated)[11:16]) and str(s.generated)[11:16] < "09:30")   # pre-open scan
+           for s in sig.itertuples()]
     out = pd.concat([sig.reset_index(drop=True), pd.DataFrame(res)], axis=1)
     out["regime_trend"] = out["regime_rule"].map(memory.TREND_MAP)
     out["month"] = out["date"].astype(str).str[:7]
     out["setup_list"] = out["setups"].astype(str).str.split("+")
+    out["independent"] = independent(out) if len(out) else False
     return out
 
 
@@ -400,20 +432,40 @@ def run(quiet: bool = False) -> Dict[str, object]:
     sig = pd.read_csv(memory.SIGNALS) if memory.SIGNALS.exists() else pd.DataFrame(columns=["ticker", "date"])
     tickers = {"SPY"} | set(config()["sector_etfs"].values()) | set(sig["ticker"])
     tickers |= {(t.get("option") or {}).get("underlying") or t["ticker"] for t in book["trades"]}
-    tickers |= {p["ticker"] for p in ps} | {p["benchmark"] for p in ps if p.get("benchmark")}
+    tickers |= {p["ticker"] for p in ps if p.get("ticker")} | {p["benchmark"] for p in ps if p.get("benchmark")}
+    tickers |= {r["ticker"] for r in memory.rejections()} | {"QQQ", "IWM", "^VIX", "^TNX", "DX-Y.NYB", "CL=F", "GC=F"}
     for e in es:
         tickers |= set(e.get("tickers", [])) | set(e.get("sectors", []))
     dates = [t["opened"][:10] for t in book["trades"]] + [p["created"][:10] for p in ps] + [e["date"] for e in es] + \
             list(sig["date"].astype(str))
     since = min(dates + [str(now_ny().date())])
-    P = _prices(tickers, since)
+    from desk import backtest, intelligence, regimes
+
+    P = regimes.load_prices()                                   # 3y: market, sector ETFs, whole universe
+    extra = sorted(t for t in tickers if t and t not in P["close"])
+    if extra:
+        more = _prices(extra, since)
+        P = {f: pd.concat([P[f], more[f].reindex(columns=[c for c in more[f].columns if c not in P[f]])], axis=1)
+             for f in ("open", "high", "low", "close")} | {"volume": P["volume"]}
+    _ARR.clear()
+    hist = regimes.build(P)
+    backtest.generate(P)
+    bt = backtest.outcomes(P)
 
     ps = score_predictions(P)
     es = score_events(P)
     tf = trade_frame(book, P)
+    if len(tf):                                                  # composite regime on the entry day
+        reg = tf["opened"].str[:10].map(lambda d: regimes.on(d, hist))
+        tf["composite_trend"] = reg.map(lambda r: r.get("trend"))
+        tf["composite_risk"] = reg.map(lambda r: r.get("risk"))
+        tf["composite_vol"] = reg.map(lambda r: r.get("volatility"))
     closed = tf[tf["status"] == "closed"] if len(tf) else tf
     ft = forward_test(P)
-    resolved = ft[ft.get("status") == "resolved"] if len(ft) else ft
+    if len(ft) and len(hist):                                    # composite regime on each signal's day
+        ft = ft.join(hist.set_index("date")[["trend", "risk", "volatility"]], on="date")
+    resolved = ft[(ft["status"] == "resolved") & ft["independent"]] if len(ft) else ft
+    bres = bt[(bt["status"] == "resolved") & bt["independent"]] if len(bt) else bt
     out = {
         "generated": now_ny().strftime("%Y-%m-%d %H:%M ET"),
         "data_through": str(P["close"].index[-1].date()) if P else None,
@@ -439,10 +491,36 @@ def run(quiet: bool = False) -> Dict[str, object]:
                          "recent": ft.tail(40).replace({np.nan: None}).to_dict("records") if len(ft) else []},
         "regimes": regime_study(P) if P else {},
     }
+    out["performance"].update({f"by_{c}": group_perf(closed, c) for c in ("composite_trend", "composite_risk", "composite_vol")
+                               if len(closed) and c in closed})
+    out["forward_test"]["independent_resolved"] = int(len(resolved))
+    out["backtest"] = {
+        "period": f"{bt['date'].min()} → {bt['date'].max()}" if len(bt) else None, "signals": int(len(bt)),
+        "independent_resolved": int(len(bres)), "overall": perf(bres) if len(bres) else {"n": 0},
+        "by_setup": group_perf(bres, "setup_list"), "by_trend": group_perf(bres, "trend"),
+        "by_risk": group_perf(bres, "risk"), "by_volatility": group_perf(bres, "volatility"),
+        "by_direction": group_perf(bres, "direction"), "by_sector": group_perf(bres, "sector"),
+        "setup_by_trend": {str(k): group_perf(g, "trend") for k, g in (bres.explode("setup_list").groupby("setup_list") if len(bres) else [])},
+        "biases": "survivorship (today's universe), no costs/slippage, no earnings filter, current screener code; "
+                  "overlapping signals removed (one live signal per ticker/direction at a time)"}
+    out["regime_now"] = {k: v for k, v in (hist.iloc[-1].to_dict() if len(hist) else {}).items()}
+    out["regime_counts"] = {c: hist[c].value_counts().to_dict() for c in ("trend", "risk", "volatility")} if len(hist) else {}
+    watch = []
+    try:
+        from desk.obsidian import vault_dir
+        import re as _re
+        w = vault_dir()
+        if w and (w / "03 - Portfolio" / "Watchlist.md").exists():
+            watch = sorted(set(_re.findall(r"\[\[([A-Z.]{1,6})\]\]", (w / "03 - Portfolio" / "Watchlist.md").read_text())))
+    except Exception:
+        pass
+    out["intelligence"] = intelligence.run(P, book, tf, ft, bt, watch)
     JOURNAL.mkdir(exist_ok=True)
     LEARNING.write_text(json.dumps(out, indent=1, default=lambda v: None if v != v else str(v)))
     if not quiet:
         print(f"Learning updated ({out['generated']}, data through {out['data_through']})")
+        print(f"  regime today: {out['regime_now'].get('trend')} / {out['regime_now'].get('risk')} / {out['regime_now'].get('volatility')}"
+              f" · backtest {out['backtest']['independent_resolved']} independent signals")
         print(f"  trades closed {out['performance']['overall']['n']} · predictions scored {out['predictions']['scored']}"
               f"/{out['predictions']['total']} · events {len(es)} · signals {len(ft)} ({len(resolved)} resolved)")
         if not out["version_check"]["ok"]:

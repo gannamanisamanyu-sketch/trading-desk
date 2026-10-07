@@ -216,3 +216,64 @@ def test_obsidian_sync_preserves_manual_notes(tmp_path, monkeypatch):
     assert "my own note" in dash.read_text() and dash.read_text().count(obsidian.START) == 1
     assert "my observation" in pipe.read_text()
     assert first["changed"]
+
+
+def test_independent_signals_drop_overlaps():
+    import pandas as pd
+    from desk import learning
+
+    df = pd.DataFrame([
+        {"date": "2026-01-05", "ticker": "AAA", "direction": "LONG", "status": "resolved", "exit_date": "2026-01-09"},
+        {"date": "2026-01-06", "ticker": "AAA", "direction": "LONG", "status": "resolved", "exit_date": "2026-01-09"},  # overlap
+        {"date": "2026-01-12", "ticker": "AAA", "direction": "LONG", "status": "resolved", "exit_date": "2026-01-15"},  # new
+        {"date": "2026-01-06", "ticker": "BBB", "direction": "LONG", "status": "resolved", "exit_date": "2026-01-08"},
+    ])
+    assert list(learning.independent(df)) == [True, False, True, True]
+
+
+def test_rejection_is_simulated_like_everything_else(tmp_path, monkeypatch):
+    from desk import intelligence, learning, memory
+
+    _isolate(tmp_path, monkeypatch)
+    monkeypatch.setattr(memory, "REJECTIONS", tmp_path / "rejections.json")
+    memory._save(memory.REJECTIONS, [{"id": 1, "decided": "2026-01-05 15:00", "ticker": "AAA", "direction": "LONG",
+                                      "instrument": "stock", "entry": 100, "stop": 95, "target": 110, "quantity": 10,
+                                      "risk_usd": 50.0, "reason": "Weak catalyst"}])
+    learning._ARR.clear()
+    P = _bars("2026-01-05", "AAA", [100, 104, 111, 111], highs=[100, 105, 112, 112], lows=[99, 99, 103, 110],
+              opens=[100, 100, 104, 111])
+    rj = intelligence.rejection_outcomes(P)
+    r = rj.iloc[0]
+    assert r["status"] == "resolved" and r["sim_exit_reason"] == "target"
+    assert abs(r["hypothetical_r"] - 2.0) < 1e-9 and abs(r["hypothetical_pnl"] - 100.0) < 1e-9
+    assert "judge the PROCESS" in r["outcome_note"]
+
+
+def test_calibration_flags_overconfidence():
+    from desk import intelligence
+
+    ps = [{"status": "scored", "confidence_pct": 90, "correct": i < 4} for i in range(20)]   # 20% hit at 90%
+    cal = intelligence.calibration(ps)
+    b = next(x for x in cal["buckets"] if x["bucket"].startswith("90"))
+    assert b["n"] == 20 and b["flag"].startswith("OVERCONFIDENT")
+
+
+def test_scorecard_weights_and_gate(tmp_path, monkeypatch):
+    from desk import memory
+
+    monkeypatch.setattr(memory, "SCORECARDS", tmp_path / "scorecards.json")
+    base = {f: 8 for f in memory.SCORE_FACTORS}
+    c = memory.add_scorecard("AAA", "LONG", "Breakout", base)
+    assert c["overall"] == 8 and not c["gated_by"]
+    c2 = memory.add_scorecard("AAA", "LONG", "Breakout", {**base, "risk_reward": 2})
+    assert c2["gated_by"] == ["risk_reward"] and c2["overall"] <= 4
+
+
+def test_experiment_filters_and_suggestion():
+    import pandas as pd
+    from desk import intelligence
+
+    df = pd.DataFrame({"r": [1.0, -1.0] * 10 + [2.0, 1.5] * 10, "setup_list": [["a"]] * 20 + [["b"]] * 20,
+                       "risk": ["Mixed"] * 20 + ["Risk-On"] * 20})
+    assert len(intelligence._filter(df, "setup_list=b;risk=Risk-On")) == 20
+    assert len(intelligence._filter(df, "risk!=Risk-On")) == 20

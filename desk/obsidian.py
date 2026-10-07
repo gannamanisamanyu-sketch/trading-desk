@@ -628,8 +628,22 @@ def _trade_note(t: Dict, ex: Dict) -> (str, str):
         if opt:
             rows += [["Underlying exit", _m(ex.get("underlying_exit"))],
                      ["Stock on the same thesis (counterfactual)", _r(ex.get("stock_counterfactual_r"))]]
+    bm = ex.get("benchmarks") or {}
+    if bm:
+        brow = [["Trade (from entry)", _p(bm.get("trade_return")), ""], ["Underlying (sign-adjusted)", _p(bm.get("underlying_return")), ""]]
+        brow += [[k, _p(v.get("return")), _p(v.get("excess"))] for k, v in bm.items() if isinstance(v, dict) and "return" in v]
+        bench = "\n".join([f"**Benchmarks** ({bm.get('window')}; benchmarks from the entry-day close: did the trade add value?)",
+                           _table(["Measure", "Return", "Trade minus benchmark"], brow)] +
+                          ([f"Alternatives considered at entry: " + "; ".join(f"{a.get('structure')} {a.get('expiry')} {a.get('long_strike')}"
+                                                                            f"/{a.get('short_strike') or '-'} → {_p(a.get('return'))}"
+                                                                            for a in bm.get("alternatives") or [])] if bm.get("alternatives") else []))
+    else:
+        bench = ""
+    links = ex.get("event_links") or []
     body = "\n".join([f"# {_trade_name(t)}: {t['direction']} {t['ticker']}", "", status, "",
-                      _table(["Field", "Value"], rows), "",
+                      _table(["Field", "Value"], rows), "", bench, "",
+                      ("**Linked events:** " + ", ".join(f"[[{x}]]" for x in links)) if links else "",
+                      (f"**Scorecard:** S{t['scorecard_id']} ([[Decision Scorecards]])") if t.get("scorecard_id") else "",
                       "**Original thesis:** " + (t.get("reason") or "n/a"), "", "**Catalyst:** " + (t.get("catalyst") or "n/a"),
                       "", ("**Notes:** " + t["notes"].strip()) if t.get("notes", "").strip() else "",
                       f"Opened in [[{_di(t['opened'][:10])}]]" + (f" · closed in [[{_di(t['closed'][:10])}]]" if closed else "") +
@@ -721,7 +735,9 @@ def _event_rows(es: List[Dict]) -> List[List]:
         rx = e.get("reaction") or {}
         ret = rx.get("returns") or {}
         act = "; ".join(f"{k} {_p(v.get('1d'))} / {_p(v.get('5d'))}" for k, v in ret.items()) or rx.get("status", "pending")
-        rows.append([e["date"] + (" (after close)" if e.get("after_close") else ""), e["category"], e["title"], e["expected_impact"],
+        from desk.obsidian_intel import event_note
+        rows.append([e["date"] + (" (after close)" if e.get("after_close") else ""), e["category"], f"[[{event_note(e)}|{e['title']}]]",
+                     e["expected_impact"],
                      act, ", ".join(f"[[{t}]]" for t in e.get("tickers", [])), ", ".join(e.get("sectors", [])),
                      e.get("options_impact") or "", e.get("lesson") or "_lesson pending_"])
     return rows
@@ -945,7 +961,21 @@ def _dashboard(book: Dict, L: Dict, root: Path) -> str:
         for f in sorted((root / "10 - Performance" / sub).glob("*.md"))[:-1]:     # past periods only
             if mk in f.read_text(encoding="utf-8"):
                 todo.append(f"Review due: [[{f.stem}]]")
-    due = [p for p in memory.predictions() if p.get("status") != "scored" and p["due"] <= today]
+    I = L.get("intelligence") or {}
+    for r in I.get("rejection_records") or []:
+        if r.get("status") == "resolved" and not r.get("process_verdict"):
+            todo.append(f"Rejected trade R{r['id']} {r['ticker']} resolved ({_r(r.get('hypothetical_r'))}): judge the rejection on process "
+                        f"(`desk.py reject update --id {r['id']} --verdict ... --lesson ...`) in [[Rejected Trades]]")
+    for b in (I.get("calibration") or {}).get("buckets", []):
+        if b["flag"].startswith(("OVER", "UNDER")):
+            todo.append(f"Calibration problem in the {b['bucket']} bucket: {b['flag']} → [[Prediction Accuracy]]")
+    for x in I.get("experiments") or []:
+        if x["status"] == "running" and not x["suggestion"].startswith("Continue"):
+            todo.append(f"Experiment X{x['id']} has enough data for a decision: {x['suggestion']}")
+    for p_ in memory.predictions():
+        if p_.get("kind") == "event" and p_.get("status") != "scored" and p_["due"] <= today:
+            todo.append(f"Resolve event prediction P{p_['id']} with a source: `desk.py predict resolve --id {p_['id']} --outcome ... --source ...`")
+    due = [p for p in memory.predictions() if p.get("status") != "scored" and p["due"] <= today and p.get("kind", "price") == "price"]
     todo += [f"Prediction #{p['id']} due {p['due']}: run `desk.py learn`" for p in due]
     if not L or L.get("data_through", "") < str((pd.Timestamp(today) - pd.offsets.BDay(1)).date()):
         todo.append("Learning data is stale: run `desk.py learn`")
@@ -967,13 +997,21 @@ def _dashboard(book: Dict, L: Dict, root: Path) -> str:
         + (f" · accuracy {_pp(pr.get('accuracy'))} · {pr.get('evidence')}" if pr else "") + " → [[Prediction Accuracy]]",
         f"- Screener forward test: {F.get('signals', 0)} signals, {F.get('resolved', 0)} resolved → [[Setup Forward Test]]",
         f"- Events: {len(memory.events())} recorded → [[News Reaction Database]]",
-        f"- Options: {(L.get('options') or {}).get('closed_option_trades', 0)} closed option trades → [[Options Learning]]", "",
+        f"- Options: {(L.get('options') or {}).get('closed_option_trades', 0)} closed option trades → [[Options Learning]]",
+        f"- Rejected trades: {len(memory.rejections())} → [[Rejected Trades]] · analytical errors: {len(memory.errors())} → [[Error Database]]",
+        f"- Patterns: {len(I.get('patterns') or [])} groups near the evidence bar (none count until validated) → [[Pattern Database]]",
+        f"- Screener backtest: {(L.get('backtest') or {}).get('independent_resolved', 0)} independent signals → [[Screener Backtest]]",
+        f"- Scorecards: {len(memory.scorecards())} → [[Decision Scorecards]] · experiments: {len(memory.experiments())} running/closed",
+        f"- Composite regime today: {(L.get('regime_now') or {}).get('trend')} · {(L.get('regime_now') or {}).get('risk')} · "
+        f"{(L.get('regime_now') or {}).get('volatility')} → [[Regime Playbook]] (similar-conditions evidence)", "",
         "## 🧭 Map",
         "- **00 System:** [[Trading Constitution]] · [[Risk Rules]] · [[Strategy]] · [[Current System Version]] · [[System Changelog]] · [[Daily Workflow]]",
         "- **01** Daily Intelligence · **02** Trades (Active / Completed) · **03** [[Portfolio]] · [[Watchlist]] · **04** Companies",
         "- **05** [[Options Learning]] · [[Options Playbook]] · **06** [[News Reaction Database]] · [[Macro Events]] · [[Macro Log]]",
         "- **07** [[Political & Geopolitical Events]] · **08** [[Regime History]] · [[Regime Playbook]]",
-        "- **09** [[Improvement Pipeline]] · [[Setup Forward Test]] · [[Backtests]] · **10** [[Performance Dashboard]] · [[Prediction Accuracy]] · **11** System Versions"])
+        "- **09** [[Improvement Pipeline]] · [[Setup Forward Test]] · [[Backtests]] · [[Screener Backtest]] · [[Error Database]] · [[Pattern Database]] · Experiments",
+        "- **10** [[Performance Dashboard]] · [[Prediction Accuracy]] · [[Decision Scorecards]] · **02** [[Rejected Trades]] · **11** System Versions",
+        "- **Chain:** event (`06/07 …/Events`) → regime ([[Regime History]]) → sector (`04 - Companies/Sectors`) → company → trade → outcome → lesson"])
 
 
 # ------------------------------------------------------------------ main
@@ -1025,10 +1063,14 @@ def sync(quiet: bool = False) -> Dict[str, object]:
 
     # --- trades: Active/ while open, moved to Completed/ (with everything written in it) once closed
     ex = L.get("trades") or {}
+    from desk.obsidian_intel import event_note
+    evs = {e["id"]: e for e in memory.events()}
+    bms = (L.get("intelligence") or {}).get("benchmarks") or {}
     for t in book["trades"]:
         name = _trade_name(t) + ".md"
         act, done = T / "Active" / name, T / "Completed" / name
-        front, body = _trade_note(t, ex.get(str(t["id"]), {}))
+        front, body = _trade_note(t, {**ex.get(str(t["id"]), {}), "benchmarks": bms.get(str(t["id"])),
+                                      "event_links": [event_note(evs[i]) for i in (t.get("event_ids") or []) if i in evs]})
         if t["status"] == "closed":
             if act.exists() and not done.exists():
                 done.parent.mkdir(parents=True, exist_ok=True)
@@ -1071,8 +1113,11 @@ def sync(quiet: bool = False) -> Dict[str, object]:
 
     # --- companies
     sig = pd.read_csv(memory.SIGNALS) if memory.SIGNALS.exists() else pd.DataFrame(columns=["ticker"])
-    tick = {(t.get("option") or {}).get("underlying") or t["ticker"] for t in book["trades"]} | set(sig["ticker"])
-    tick |= {p["ticker"] for p in memory.predictions()} | {x for e in memory.events() for x in e.get("tickers", [])}
+    # V1.1: new company files only for priority names (traded, predicted, in events, rejected, watchlist, or ≥ 3 signal
+    # days); files that already exist keep updating (nothing is deleted).
+    tick = set((L.get("intelligence") or {}).get("priority_companies") or [])
+    tick |= {(t.get("option") or {}).get("underlying") or t["ticker"] for t in book["trades"]}
+    tick |= {f.stem for f in (root / "04 - Companies").glob("*.md")}
     from desk.common import universe
 
     uni = universe().set_index("ticker")
@@ -1118,6 +1163,9 @@ def sync(quiet: bool = False) -> Dict[str, object]:
     p = root / "10 - Performance" / "Monthly Reviews" / f"{mo} Monthly Review.md"
     mark(_upsert(p, _period_stats(book, mo + "-01", mo + "-31") + "\n\n## By system version\n" + _versions_auto(L),
                  front=_front({"type": "monthly-review", "month": mo, "tags": ["review/monthly"]}), head=f"# Monthly Review {mo}", tail=MONTHLY), p)
+
+    from desk import obsidian_intel
+    obsidian_intel.sync(root, book, L, mark)
 
     mark(_upsert(root / "Trading Dashboard.md", _dashboard(book, L, root),
                  head="---\ntype: dashboard\ntags: [trading]\n---\n# Trading Dashboard",

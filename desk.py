@@ -113,6 +113,19 @@ def cmd_options(a):
     ts = ch.get("term")
     if ts is not None and len(ts) and (ts["expiry"] == best["expiry"]).any():
         last["expected_move_pct"] = float(ts.loc[ts["expiry"] == best["expiry"], "expected_move_pct"].iloc[0])
+    last["alternatives"] = [{"structure": r["structure"], "expiry": r["expiry"], "dte": int(r["dte"]),
+                             "long_strike": r["long_strike"], "short_strike": None if pd.isna(r["short_strike"]) else r["short_strike"],
+                             "debit": float(r["debit"]), "contract": r["contract"],
+                             "short_contract": None if pd.isna(r["short_contract"]) else r["short_contract"],
+                             "rr_at_target": float(r["rr_at_target"])} for _, r in res.iloc[1:4].iterrows()]
+    (DATA / "options").mkdir(exist_ok=True)
+    snap = {"ticker": a.ticker.upper(), "retrieved": stamp(), "quote_quality": ch.get("quote_quality"), "spot": ch["spot"],
+            "atm_iv_30d": ch.get("atm_iv_30d"), "iv_rank": ch["iv_rank"].get("iv_rank"), "hv20": ch["hv20"], "hv60": ch["hv60"],
+            "expected_moves": [] if ts is None else ts.head(6).to_dict("records"),
+            "best_structure": {k: last.get(k) for k in ("structure", "expiry", "long_strike", "short_strike", "debit", "dte")},
+            "top_open_interest": ch["chain"].nlargest(5, "open_interest")[["expiry", "type", "strike", "open_interest", "volume"]].to_dict("records"),
+            "source": "Yahoo Finance option chain (delayed; STALE outside market hours)"}
+    (DATA / "options" / f"{a.ticker.upper()}.json").write_text(json.dumps(snap, indent=1, default=str))
     (DATA / "last_options.json").write_text(json.dumps(last, indent=2, default=str))
 
 
@@ -157,7 +170,9 @@ def _memory_fields(a, setup: str, option: bool = False, structure: str = "") -> 
     strat = memory.check_choice(a.strategy, memory.STRATEGIES, "strategy") or memory.SETUP_TO_STRATEGY.get(setup, "Catalyst")
     strategies = [strat] + ([("Options spread" if "spread" in structure.lower() else "Options directional")] if option else [])
     return {"strategies": strategies, "catalyst_category": memory.check_choice(a.catalyst_category, memory.CATALYSTS, "catalyst category"),
-            "horizon_days": a.horizon_days, "system_version": memory.current_version(), **memory.regime_tags(a.regime)}
+            "horizon_days": a.horizon_days, "system_version": memory.current_version(), **memory.regime_tags(a.regime),
+            "scorecard_id": a.scorecard, "event_ids": [int(x) for x in (a.event_ids or "").split(",") if x.strip()],
+            "prediction_ids": [int(x) for x in (a.prediction_ids or "").split(",") if x.strip()]}
 
 
 def cmd_paper(a):
@@ -199,7 +214,7 @@ def cmd_paper(a):
         opt["underlying"] = last["ticker"]
         opt.update({k: last.get(k) for k in ("dte", "long_delta", "net_delta", "iv", "iv_rank", "theta_day", "vega", "volume",
                                              "oi", "spread_pct", "quality", "pop", "breakeven", "otm_pct",
-                                             "expected_move_pct", "hv20", "priced")})
+                                             "expected_move_pct", "hv20", "priced", "alternatives")})
         extra = _memory_fields(a, a.setup, option=True, structure=last["structure"])
         extra.update({"underlying_entry": last.get("spot"), "horizon_days": a.horizon_days or last.get("horizon_days")})
         t = paper.add_trade(last["ticker"], "option", last["direction"], qty, last["debit"], last["stop"], last["target"],
@@ -218,9 +233,18 @@ def cmd_predict(a):
     from desk import learning, memory
 
     if a.action == "add":
-        p = memory.add_prediction(a.ticker, a.direction, a.days, a.confidence, a.reason, a.catalyst, a.benchmark or "",
-                                  a.magnitude, a.category or "", a.strategy or "", a.statement or "", a.regime or "")
-        print(f"Prediction #{p['id']} recorded: {p['statement']} · anchored at {p['start_price']:.2f} ({p['start_time']}) · due {p['due']}")
+        p = memory.add_prediction(a.ticker, a.direction or "", a.days, a.confidence, a.reason, a.catalyst, a.benchmark or "",
+                                  a.magnitude, a.category or "", a.strategy or "", a.statement or "", a.regime or "",
+                                  confidence_pct=a.confidence_pct, supporting=a.supporting or "", contradicting=a.contradicting or "",
+                                  event_id=a.event_id, kind=a.kind, due=a.due or "", asset=a.asset or "")
+        anchor = f"anchored at {p['start_price']:.2f} ({p['start_time']})" if p.get("start_price") else "event prediction (resolve with a source)"
+        print(f"Prediction #{p['id']} recorded ({p['confidence_pct']:.0f}% confidence): {p['statement']} · {anchor} · due {p['due']}")
+    elif a.action == "resolve":
+        p = memory.resolve_prediction(a.id, a.outcome == "correct", a.actual or "", a.source or "", a.actual_magnitude)
+        print(f"Prediction #{p['id']} resolved: {'correct' if p['correct'] else 'incorrect'}")
+    elif a.action == "update":
+        p = memory.update_prediction(a.id, lesson=a.lesson, contradicting=a.contradicting, supporting=a.supporting)
+        print(f"Prediction #{p['id']} updated")
     else:
         ps = memory.predictions()
         if a.action == "score":
@@ -234,15 +258,98 @@ def cmd_predict(a):
         print(df[cols].tail(30).to_string(index=False))
 
 
+def cmd_reject(a):
+    from desk import memory
+
+    if a.action == "add":
+        r = memory.add_rejection(a.ticker, a.direction, a.instrument, a.entry, a.stop, a.target, a.reason, a.thesis or "",
+                                 a.catalyst or "", a.quantity, a.alternative or "", a.strategy or "", a.scorecard, a.event_id,
+                                 a.notes or "", a.decided or "", a.regime or "")
+        print(f"Rejected trade R{r['id']} recorded: {r['direction']} {r['ticker']} · reason: {r['reason']} · "
+              f"R:R {r['reward_risk']:.1f} · hypothetical size {r['quantity']}")
+    elif a.action == "update":
+        r = memory.update_rejection(a.id, process_verdict=a.verdict, lesson=a.lesson)
+        print(f"R{r['id']} updated")
+    else:
+        df = pd.DataFrame(memory.rejections())
+        print(df[["id", "decided", "ticker", "direction", "reason", "alternative"]].to_string(index=False) if len(df) else "none")
+
+
+def cmd_error(a):
+    from desk import memory
+
+    if a.action == "add":
+        e = memory.add_error(a.subject, a.type, a.reasoning or "", a.happened or "", a.missed or "", a.root_cause or "",
+                             a.severity, a.lesson or "", a.correction or "", a.evidence or "", a.date or "", a.trade_id,
+                             a.prediction_id, a.event_id, a.source or "")
+        print(f"Error E{e['id']} recorded: {e['error_type']} ({e['severity']}) · status OBSERVATION")
+    elif a.action == "update":
+        e = memory.update_error(a.id, status=a.status, evidence=a.evidence, lesson=a.lesson, proposed_correction=a.correction)
+        print(f"E{e['id']} → {e['status']}")
+    else:
+        df = pd.DataFrame(memory.errors())
+        print(df[["id", "date", "subject", "error_type", "severity", "status"]].to_string(index=False) if len(df) else "none")
+
+
+def cmd_experiment(a):
+    from desk import memory
+
+    if a.action == "add":
+        x = memory.add_experiment(a.name, a.hypothesis, a.reason, a.dataset, a.baseline, a.alternative, a.min_n, a.notes or "")
+        print(f"Experiment X{x['id']} '{x['name']}' started on {x['dataset']}")
+    elif a.action == "update":
+        x = memory.update_experiment(a.id, decision=a.decision, decision_evidence=a.evidence, notes=a.notes)
+        print(f"X{x['id']} → {x.get('decision') or x['status']}")
+    else:
+        for x in memory.experiments():
+            print(f"X{x['id']} {x['name']} [{x['status']}] baseline: {x['baseline_filter']} vs alternative: {x['alternative_filter']}")
+
+
+def cmd_score(a):
+    from desk import memory
+
+    if a.action == "add":
+        scores = {f: getattr(a, f) for f in memory.SCORE_FACTORS}
+        c = memory.add_scorecard(a.ticker, a.direction, a.strategy or "", scores, a.notes or "")
+        print(f"Scorecard S{c['id']} for {c['ticker']}: overall {c['overall']}/10"
+              + (f" (capped by weak {', '.join(c['gated_by'])})" if c["gated_by"] else "")
+              + f" · weights for {c['strategy'] or 'default'}. Pass --scorecard {c['id']} when recording the trade or rejection.")
+    else:
+        for c in memory.scorecards():
+            print(f"S{c['id']} {c['created']} {c['ticker']} {c['direction']} {c['strategy']} → {c['overall']}")
+
+
+def cmd_regime(a):
+    from desk import regimes
+
+    h = regimes.history()
+    if h.empty:
+        print("No regime history yet: run desk.py learn")
+        return
+    r = h.iloc[-1]
+    print(f"{r['date']}: {r['trend']} · {r['risk']} · {r['volatility']} (trend pts {r['trend_points']}, risk pts {r['risk_points']})")
+    print(f"  SPY/QQQ/IWM trend {r['spy_trend']:+.0f}/{r['qqq_trend']:+.0f}/{r['iwm_trend']:+.0f} · breadth {r['breadth_50d']:.0%} · "
+          f"VIX {r['vix']:.1f} (term {r['vix_term']:.2f}) · 10Y {r['tnx']:.2f}% ({r['tnx_1m_bp']:+.0f}bp 1m) · curve {r['curve_10y2y']} · "
+          f"HY {r['hy_spread']} · DXY 1m {r['dxy_1m']:+.1%} · oil 1m {r['oil_1m']:+.1%} · gold 1m {r['gold_1m']:+.1%} · "
+          f"leaders {r['leaders']} · Fed: {r['fed_signal']}")
+    print("Most similar past days:")
+    print(regimes.similar_days(k=a.k)[["date", "trend", "risk", "volatility", "distance"]].to_string(index=False))
+
+
 def cmd_event(a):
     from desk import memory
 
     if a.action == "add":
         e = memory.add_event(a.title, a.date, a.category, a.expected, (a.tickers or "").split(","), (a.sectors or "").split(","),
-                             a.expected_spy or "", a.after_close, a.source or "", a.notes or "")
+                             a.expected_spy or "", a.after_close, a.source or "", a.notes or "", a.what_happened or "",
+                             a.market_expected or "", a.actual_vs_expected or "", a.time or "", a.reliability or "",
+                             a.interpretation or "", a.second_order or "")
         print(f"Event #{e['id']} recorded: {e['date']} [{e['category']}] {e['title']}")
     elif a.action == "update":
-        e = memory.update_event(a.id, lesson=a.lesson, options_impact=a.options_impact, notes=a.notes)
+        e = memory.update_event(a.id, lesson=a.lesson, options_impact=a.options_impact, notes=a.notes, time=a.time,
+                                what_happened=a.what_happened, market_expected=a.market_expected,
+                                actual_vs_expected=a.actual_vs_expected, interpretation=a.interpretation,
+                                second_order=a.second_order, reliability=a.reliability)
         print(json.dumps(e, indent=1, default=str))
     else:
         df = pd.DataFrame(memory.events())
@@ -305,55 +412,92 @@ def cmd_recall(a):
 
 
 def cmd_context(a):
-    """Pre-recommendation briefing from memory (the 12 checks in the playbook)."""
+    """Daily memory review: relevance-based retrieval in the playbook's priority order (not the whole vault)."""
     from desk import learning, memory, paper
 
     L = learning.load()
+    I = L.get("intelligence") or {}
     book = paper.load()
+    tickers = [t.strip().upper() for t in (a.tickers or "").split(",") if t.strip()]
+    cats = [c.strip() for c in (a.categories or "").split(",") if c.strip()]
     vc = memory.version_check()
-    print(f"SYSTEM V{vc['version']} · " + ("parameters match ✔" if vc["ok"] else "⚠ " + vc["problem"] + " " + "; ".join(vc.get("diffs", []))))
-    print(f"learning.json: {L.get('generated', 'never run: run desk.py learn')} (data through {L.get('data_through')})")
+    j = lambda d: json.dumps(d, default=str)
+    short = lambda v: f"n={v.get('n', 0)} avg {v.get('avg_r', 0):+.2f}R win {v.get('win_rate', 0):.0%} · {v.get('evidence', '')[:24]}"
+    print(f"MEMORY REVIEW · system V{vc['version']} " + ("✔" if vc["ok"] else "⚠ " + vc["problem"]) +
+          f" · learning {L.get('generated', 'never: run desk.py learn')} (data through {L.get('data_through')})")
+    rn = L.get("regime_now") or {}
+    ff = lambda x, spec: format(x, spec) if isinstance(x, (int, float)) else "n/a"
+    print(f"\n[1] REGIME (composite): {rn.get('trend')} · {rn.get('risk')} · {rn.get('volatility')} · VIX {ff(rn.get('vix'), '.1f')} · "
+          f"breadth {ff(rn.get('breadth_50d'), '.0%')} · 10Y {ff(rn.get('tnx'), '.2f')}% · leaders {rn.get('leaders')} · Fed {rn.get('fed_signal')}")
+    sc = I.get("similar_conditions") or {}
+    print("    backtest on the 30 most similar past days (BACKTEST, biased; for confidence only):")
+    for k, v in ((sc.get("backtest_on_similar_days") or {}).get("by_setup") or {}).items():
+        print(f"      {k}: {short(v)}")
+    lab = sc.get("backtest_same_regime_label") or {}
+    print(f"    backtest in the same label ({lab.get('label')}):")
+    for k, v in (lab.get("by_setup") or {}).items():
+        print(f"      {k}: {short(v)}")
+    ps = memory.predictions()
+    rel = [p for p in ps if not tickers or p.get("ticker") in tickers or p.get("benchmark") in tickers]
+    cal = I.get("calibration") or {}
+    print(f"\n[2] PREDICTIONS: {cal.get('scored', 0)} scored · directional {(cal.get('accuracy') or {}).get('directional')} · "
+          + "; ".join(f"{b['bucket']}: {b['n']}" + (f" {b['flag']}" if b['flag'].startswith(('OVER', 'UNDER')) else "") for b in cal.get("buckets", [])))
+    for p in rel[-8:]:
+        print(f"    #{p['id']} {p['created'][:10]} {p['statement']} ({p['confidence_pct']:.0f}%) → {p.get('status')}"
+              + (f" {'✔' if p.get('correct') else '✘'}" if p.get("status") == "scored" else f" due {p['due']}")
+              + (f" · lesson: {p['lesson']}" if p.get("lesson") else ""))
+    es = memory.events()
+    rel_e = [e for e in es if (cats and e["category"] in cats) or (tickers and set(tickers) & set(e.get("tickers", [])))] \
+        if (cats or tickers) else es[-5:]
+    print(f"\n[3] SIMILAR EVENTS ({len(rel_e)}):")
+    for e in rel_e[-8:]:
+        rx = (e.get("reaction") or {})
+        print(f"    #{e['id']} {e['date']} [{e['category']}] {e['title'][:70]} · expected: {e['expected_impact'][:80]} · "
+              f"{rx.get('verdict', 'pending')} · lesson: {e.get('lesson') or '-'}")
+    closed = [t for t in book["trades"] if t["status"] == "closed"]
+    print(f"\n[4] SIMILAR TRADES: {len(closed)} closed")
+    for t in closed[-6:]:
+        print(f"    #{t['id']} {t['ticker']} {t['direction']} {t.get('strategies')} {t.get('regime_trend')} → {t['pnl']:+.0f} ({t['r_multiple']:+.2f}R)")
+    perf = L.get("performance") or {}
+    for k in ("by_strategies", "by_composite_trend"):
+        for g, v in (perf.get(k) or {}).items():
+            print(f"    {k[3:]} {g}: {short(v)}")
+    snaps = I.get("company_snapshots") or {}
+    print("\n[5] COMPANY FILES:" + ("" if tickers else " (pass --tickers to retrieve)"))
+    for t in tickers:
+        sn = snaps.get(t, {})
+        te, fu = sn.get("technical") or {}, sn.get("fundamentals") or {}
+        f = lambda x, spec: format(x, spec) if isinstance(x, (int, float)) else "n/a"
+        iv = (sn.get("options") or {}).get("atm_iv_30d")
+        print(f"    {t}: {te.get('trend')} · vs 50d {f(te.get('vs_50d'), '+.1%')} · RSI {f(te.get('rsi14'), '.0f')} · "
+              f"RS 3m vs SPY {f(te.get('rs_3m_vs_spy'), '+.1%')} · support {f(te.get('support_20d_low'), '.2f')} / "
+              f"resistance {f(te.get('resistance_20d_high'), '.2f')} · fwd P/E {f(fu.get('forwardPE'), '.1f')} · "
+              f"next earnings {fu.get('next_earnings')} · options: {('ATM IV ' + f(iv, '.0%')) if sn.get('options') else 'not analyzed'}")
+        for t2 in [x for x in book["trades"] if x["ticker"] == t]:
+            print(f"      trade #{t2['id']} {t2['opened']} {t2['status']} {t2.get('pnl', 'open')}")
+        for r in [x for x in memory.rejections() if x["ticker"] == t]:
+            print(f"      rejected R{r['id']} {r['decided']} ({r['reason']})")
+    errs = memory.errors()
+    print(f"\n[6] RECENT MISTAKES ({len(errs)}): repeated types {(I.get('errors') or {}).get('repeated_types') or 'none'}")
+    for e in errs[-6:]:
+        print(f"    E{e['id']} {e['date']} {e['error_type']} ({e['severity']}, {e['status']}): {e['lesson']}")
+    pats = I.get("patterns") or []
+    today_tags = {rn.get("trend"), rn.get("risk"), rn.get("volatility")}
+    rel_p = [p for p in pats if p["pattern"].split(" × ")[-1] in today_tags]
+    print(f"\n[7] PATTERNS relevant to today's regime ({len(rel_p)} of {len(pats)}):")
+    for p in rel_p[:6]:
+        print(f"    {p['pattern']} [{p['source']}] {p['status']} · n={p['n']} avg {p['avg_r']:+.2f}R")
+    print("\n[8] EXPERIMENTS:")
+    for x in I.get("experiments") or []:
+        print(f"    X{x['id']} {x['name']} [{x['status']}]: {x['suggestion']}")
+    o = L.get("options") or {}
+    print(f"\n[9] OPTIONS: {o.get('closed_option_trades', 0)} closed option trades · " + j({k: o.get(k) for k in ('options_vs_stock', 'iv_vs_realized', 'theta') if o.get(k)}))
     acct = paper.account(book)
-    print(f"\n[10] EXPOSURE equity ${acct['equity']:,.0f} · cash ${acct['cash']:,.0f} · open risk ${acct['open_risk']:,.0f} "
+    print(f"\n[10] EXPOSURE: equity ${acct['equity']:,.0f} · cash ${acct['cash']:,.0f} · open risk ${acct['open_risk']:,.0f} "
           f"({acct['open_risk'] / acct['equity']:.2%} of 5%) · options ${acct['options_exposure']:,.0f}")
-    tr = book["trades"]
-    closed = sorted([x for x in tr if x["status"] == "closed"], key=lambda x: x.get("closed", ""))
-    print("[1] RECENT TRADES:", *[f"  #{x['id']} {x['ticker']} {x['direction']} {x['status']} {x.get('pnl', '')}" for x in tr[-8:]] or ["  none"], sep="\n")
-    print("[2] RECENT LOSERS:", *[f"  #{x['id']} {x['ticker']} {x['pnl']:+.0f} ({x['r_multiple']:+.2f}R) {x.get('exit_reason')} · {x.get('setup')}" for x in closed if x["pnl"] <= 0][-5:] or ["  none"], sep="\n")
-    print("[3] RECENT WINNERS:", *[f"  #{x['id']} {x['ticker']} {x['pnl']:+.0f} ({x['r_multiple']:+.2f}R) {x.get('exit_reason')} · {x.get('setup')}" for x in closed if x["pnl"] > 0][-5:] or ["  none"], sep="\n")
-    perf = L.get("performance", {})
-    print("[4] STRATEGY EVIDENCE (closed paper trades):")
-    for k, v in (perf.get("by_strategies") or {}).items():
-        print(f"  {k}: n={v['n']} win {v.get('win_rate', 0):.0%} avgR {v.get('avg_r', 0):+.2f} · {v['evidence']}")
-    if not perf.get("by_strategies"):
-        print("  no closed trades yet")
-    ft = L.get("forward_test", {})
-    print(f"    screener forward test: {ft.get('signals', 0)} signals, {ft.get('resolved', 0)} resolved")
-    for k, v in (ft.get("by_setup") or {}).items():
-        print(f"    {k}: n={v['n']} win {v.get('win_rate', 0):.0%} avgR {v.get('avg_r', 0):+.2f} · {v['evidence']}")
-    tags = memory.regime_tags()
-    print(f"[5] CURRENT REGIME (rule, latest scan {tags['regime_source']}): {tags['regime_rule']} → {tags['regime_trend']} · {tags['regime_vol']} · {tags['regime_risk']}")
-    print("[6] HISTORY IN THIS REGIME:")
-    print("   trades:", json.dumps({k: {kk: v.get(kk) for kk in ("n", "win_rate", "avg_r", "evidence")} for k, v in (perf.get("by_regime_trend") or {}).items()}, default=str))
-    print("   signals:", json.dumps({k: {kk: v.get(kk) for kk in ("n", "avg_r", "evidence")} for k, v in (ft.get("by_regime") or {}).items()}, default=str))
-    reg = (L.get("regimes") or {}).get("by_regime", {}).get(tags["regime_rule"] or "", {})
-    print("   SPY after this regime label:", json.dumps({k: reg.get(k) for k in ("days", "spy_fwd_5d_avg", "n_5d", "best_sectors_5d_vs_spy", "evidence")}, default=str))
-    print("[7] PAST EVENTS BY CATEGORY:", json.dumps(L.get("events") or "none", default=str))
-    o = L.get("options", {})
-    print(f"[8/9] OPTIONS LEARNING: {o.get('closed_option_trades', 0)} closed option trades")
-    for k in ("by_structure", "by_dte_bucket", "by_delta_bucket"):
-        for kk, v in (o.get(k) or {}).items():
-            print(f"   {k[3:]} {kk}: n={v['n']} avgR {v.get('avg_r', 0):+.2f} · {v['evidence']}")
-    for k in ("options_vs_stock", "iv_vs_realized", "theta"):
-        if o.get(k):
-            print(f"   {k}: {json.dumps(o[k], default=str)}")
-    pr = L.get("predictions", {})
-    print(f"[12] PREDICTIONS: {pr.get('scored', 0)} scored / {pr.get('total', 0)} total · accuracy "
-          f"{(pr.get('overall') or {}).get('accuracy', 'n/a')} · {(pr.get('overall') or {}).get('evidence', '')}")
-    for p in [p for p in memory.predictions() if p.get("status") != "scored"]:
-        print(f"   open #{p['id']} {p['statement']} (due {p['due']}, mark {p.get('mark_return')})")
-    print("[11] WATCHLIST, lessons and running experiments: read the Obsidian notes "
-          "03 - Portfolio/Watchlist.md and 09 - Strategy Research/Improvement Pipeline.md")
+    for t in [x for x in book["trades"] if x["status"] == "open"]:
+        print(f"    open #{t['id']} {t['ticker']} {t['direction']} {t['quantity']} @ {t['entry_price']} stop {t['stop']} target {t['target']}")
+    print("\nAlso read: Watchlist.md, Improvement Pipeline.md and the last Daily Intelligence self-critique in the vault.")
 
 
 def cmd_obsidian(a):
@@ -383,7 +527,12 @@ def main():
     p.add_argument("--regime", default=""); p.add_argument("--confidence", default="medium")
     p.add_argument("--from-last-options", action="store_true")
     p.add_argument("--strategy"); p.add_argument("--catalyst-category"); p.add_argument("--horizon-days", type=int)
-    p = sub.add_parser("predict"); p.add_argument("action", choices=["add", "list", "score"]); p.add_argument("ticker", nargs="?")
+    p.add_argument("--scorecard", type=int); p.add_argument("--event-ids"); p.add_argument("--prediction-ids")
+    p = sub.add_parser("predict"); p.add_argument("action", choices=["add", "list", "score", "resolve", "update"]); p.add_argument("ticker", nargs="?")
+    p.add_argument("--id", type=int); p.add_argument("--kind", default="price", choices=["price", "event"]); p.add_argument("--due")
+    p.add_argument("--asset"); p.add_argument("--confidence-pct", type=float); p.add_argument("--supporting")
+    p.add_argument("--contradicting"); p.add_argument("--event-id", type=int); p.add_argument("--outcome", choices=["correct", "incorrect"])
+    p.add_argument("--actual"); p.add_argument("--actual-magnitude", type=float); p.add_argument("--source"); p.add_argument("--lesson")
     p.add_argument("--direction"); p.add_argument("--days", type=int); p.add_argument("--confidence", default="medium")
     p.add_argument("--reason", default=""); p.add_argument("--catalyst", default=""); p.add_argument("--benchmark")
     p.add_argument("--magnitude", type=float); p.add_argument("--category"); p.add_argument("--strategy")
@@ -392,21 +541,47 @@ def main():
     p.add_argument("--title"); p.add_argument("--date"); p.add_argument("--category"); p.add_argument("--expected", default="")
     p.add_argument("--expected-spy"); p.add_argument("--tickers"); p.add_argument("--sectors")
     p.add_argument("--after-close", action="store_true"); p.add_argument("--source"); p.add_argument("--notes")
-    p.add_argument("--lesson"); p.add_argument("--options-impact")
+    p.add_argument("--lesson"); p.add_argument("--options-impact"); p.add_argument("--time"); p.add_argument("--what-happened")
+    p.add_argument("--market-expected"); p.add_argument("--actual-vs-expected"); p.add_argument("--reliability")
+    p.add_argument("--interpretation"); p.add_argument("--second-order")
+    p = sub.add_parser("reject"); p.add_argument("action", choices=["add", "update", "list"]); p.add_argument("ticker", nargs="?")
+    p.add_argument("--id", type=int); p.add_argument("--direction", default="LONG"); p.add_argument("--instrument", default="stock")
+    p.add_argument("--entry", type=float); p.add_argument("--stop", type=float); p.add_argument("--target", type=float)
+    p.add_argument("--quantity", type=int); p.add_argument("--reason"); p.add_argument("--thesis"); p.add_argument("--catalyst")
+    p.add_argument("--alternative"); p.add_argument("--strategy"); p.add_argument("--scorecard", type=int)
+    p.add_argument("--event-id", type=int); p.add_argument("--notes"); p.add_argument("--decided"); p.add_argument("--regime")
+    p.add_argument("--verdict"); p.add_argument("--lesson")
+    p = sub.add_parser("error"); p.add_argument("action", choices=["add", "update", "list"]); p.add_argument("--id", type=int)
+    p.add_argument("--subject"); p.add_argument("--type"); p.add_argument("--reasoning"); p.add_argument("--happened")
+    p.add_argument("--missed"); p.add_argument("--root-cause"); p.add_argument("--severity", default="low"); p.add_argument("--lesson")
+    p.add_argument("--correction"); p.add_argument("--evidence"); p.add_argument("--date"); p.add_argument("--trade-id", type=int)
+    p.add_argument("--prediction-id", type=int); p.add_argument("--event-id", type=int); p.add_argument("--source"); p.add_argument("--status")
+    p = sub.add_parser("experiment"); p.add_argument("action", choices=["add", "update", "list"]); p.add_argument("--id", type=int)
+    p.add_argument("--name"); p.add_argument("--hypothesis"); p.add_argument("--reason"); p.add_argument("--dataset")
+    p.add_argument("--baseline"); p.add_argument("--alternative"); p.add_argument("--min-n", type=int, default=30)
+    p.add_argument("--decision"); p.add_argument("--evidence"); p.add_argument("--notes")
+    p = sub.add_parser("score"); p.add_argument("action", choices=["add", "list"]); p.add_argument("ticker", nargs="?")
+    p.add_argument("--direction", default="LONG"); p.add_argument("--strategy"); p.add_argument("--notes")
+    for f in ("catalyst", "fundamentals", "technical", "regime", "sector", "options", "liquidity", "risk_reward", "timing", "contradictory"):
+        p.add_argument("--" + f.replace("_", "-"), type=float, dest=f)
+    p = sub.add_parser("regime"); p.add_argument("--k", type=int, default=10)
     p = sub.add_parser("version"); p.add_argument("action", choices=["show", "check", "new"]); p.add_argument("--version")
     p.add_argument("--name", default=""); p.add_argument("--changes", default=""); p.add_argument("--reason", default="")
     p.add_argument("--evidence", default=""); p.add_argument("--expected", default=""); p.add_argument("--approved-by", default="")
-    sub.add_parser("learn"); sub.add_parser("context")
+    sub.add_parser("learn")
+    p = sub.add_parser("context"); p.add_argument("--tickers"); p.add_argument("--categories")
     p = sub.add_parser("recall"); p.add_argument("ticker")
     sub.add_parser("obsidian")
     a = ap.parse_args()
     logging.basicConfig(level=logging.INFO if a.verbose else logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
     {"scan": cmd_scan, "options": cmd_options, "size": cmd_size, "news": cmd_news, "quote": cmd_quote,
      "paper": cmd_paper, "obsidian": cmd_obsidian, "predict": cmd_predict, "event": cmd_event, "version": cmd_version,
-     "learn": cmd_learn, "recall": cmd_recall, "context": cmd_context}[a.cmd](a)
+     "learn": cmd_learn, "recall": cmd_recall, "context": cmd_context, "reject": cmd_reject, "error": cmd_error,
+     "experiment": cmd_experiment, "score": cmd_score, "regime": cmd_regime}[a.cmd](a)
     # keep the Obsidian vault current after anything that changes memory
     if a.cmd in ("scan", "learn") or (a.cmd == "paper" and a.action in ("update", "add-stock", "add-option", "close")) or \
-            (a.cmd in ("predict", "event", "version") and a.action in ("add", "update", "score", "new")):
+            (a.cmd in ("predict", "event", "version", "reject", "error", "experiment", "score") and
+             a.action in ("add", "update", "score", "new", "resolve")):
         from desk import obsidian
         obsidian.safe_sync()
 

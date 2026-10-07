@@ -113,3 +113,29 @@ sector_etfs:
 # Obsidian mirror (local Mac only; skipped automatically where the folder doesn't exist, e.g. GitHub Actions)
 obsidian:
   folder: "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Samanyu/brain 2/Trading"
+
+# Decision scorecard (V1.1). Each serious candidate is scored 0-10 on every factor BEFORE the outcome is known.
+# Weights depend on the strategy (not a blind average); a factor at or below its gate caps the overall score.
+# "contradictory" = 10 when contradictory evidence is weak or fully addressed, 0 when it is strong and unaddressed.
+# These weights are judgment-based starting values, not evidence-based; experiment #1 tests whether the score
+# predicts outcomes at all. The scorecard is informational: it does not override any rule.
+scorecard:
+  default_weights: {catalyst: 1.0, fundamentals: 1.0, technical: 1.0, regime: 1.0, sector: 1.0, options: 0.5,
+                    liquidity: 1.0, risk_reward: 1.5, timing: 1.0, contradictory: 1.0}
+  strategy_weights:
+    News-driven: {catalyst: 2.0, timing: 1.5}
+    Catalyst: {catalyst: 2.0, timing: 1.5}
+    Earnings: {catalyst: 2.0, fundamentals: 1.5, options: 1.5}
+    Breakout: {technical: 2.0, sector: 1.5}
+    Pullback: {technical: 2.0, regime: 1.5}
+    Momentum: {technical: 1.5, sector: 1.5, regime: 1.5}
+    Mean reversion: {technical: 1.5, regime: 1.5}
+    Sector rotation: {sector: 2.0, regime: 1.5}
+    Macro: {regime: 2.0, catalyst: 1.5}
+    Political: {catalyst: 1.5, regime: 1.5}
+    Geopolitical: {catalyst: 1.5, regime: 1.5}
+    Options directional: {options: 2.0, liquidity: 1.5}
+    Options spread: {options: 2.0, liquidity: 1.5}
+    Volatility: {options: 2.0, regime: 1.5}
+  gate: {risk_reward: 3, liquidity: 3}
+  gate_cap: 4
