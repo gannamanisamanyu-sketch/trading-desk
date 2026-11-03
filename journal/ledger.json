@@ -22,7 +22,7 @@
       "confidence": "medium",
       "option": {},
       "notes": " Memory fields backfilled 2026-10-07: strategy from setup news_mismatch, catalyst category AI, regime tags from the 15:16 ET scan; holding horizon not recorded at entry (plan was to exit before Nov 17 earnings).",
-      "status": "open",
+      "status": "closed",
       "last_mark": 237.47000122070312,
       "strategies": [
         "News-driven"
@@ -38,7 +38,14 @@
       "event_ids": [
         2
       ],
-      "prediction_ids": []
+      "prediction_ids": [],
+      "exit_price": 230.52,
+      "closed": "2026-10-08",
+      "exit_reason": "stop",
+      "pnl": -113.04999999999978,
+      "return_pct": -0.025161754133716702,
+      "r_multiple": -1.0,
+      "holding_days": 1
     }
   ]
 }

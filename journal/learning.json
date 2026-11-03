@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02 16:30 ET",
+ "generated": "2026-11-02 21:08 ET",
  "data_through": "2026-11-02",
  "system_version": "1.1",
  "version_check": {
@@ -11,30 +11,494 @@
  "trades": {
   "1": {
    "mfe_pct": 0.002537350717717897,
-   "mae_pct": 0.15033620260944172,
+   "mae_pct": 0.027995068704209303,
    "mfe_r": 0.10084156709558861,
-   "mae_r": 5.974790223706681,
-   "realized_vol": 0.3204680469276235,
+   "mae_r": 1.1126040162158632,
    "underlying_last": 202.05999755859375
   }
  },
  "performance": {
   "overall": {
-   "n": 0,
-   "evidence": "INSUFFICIENT (n=0 < 20): no conclusions"
+   "n": 1,
+   "win_rate": 0.0,
+   "avg_r": -1.0,
+   "median_r": -1.0,
+   "std_r": null,
+   "ci95_mean_r": [
+    null,
+    null
+   ],
+   "risk_adjusted": null,
+   "avg_win_r": null,
+   "avg_loss_r": -1.0,
+   "profit_factor": 0.0,
+   "avg_win": null,
+   "avg_loss": -113.04999999999978,
+   "expected_value": -113.04999999999978,
+   "total_pnl": -113.04999999999978,
+   "return_on_start": -0.0037683333333333262,
+   "max_drawdown": -113.04999999999978,
+   "profit_factor_usd": 0.0,
+   "avg_holding_days": 1.0,
+   "distinct_tickers": 1,
+   "regimes_covered": 1,
+   "months_covered": 1,
+   "avg_r_ex_best": null,
+   "top_ticker_share": 1.0,
+   "robust": false,
+   "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
   },
-  "by_strategies": {},
-  "by_regime_trend": {},
-  "by_regime_vol": {},
-  "by_regime_risk": {},
-  "by_catalyst_category": {},
-  "by_sector": {},
-  "by_instrument": {},
-  "by_direction": {},
-  "by_structure": {},
-  "by_system_version": {}
+  "by_strategies": {
+   "News-driven": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_regime_trend": {
+   "SIDEWAYS": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_regime_vol": {
+   "LOW VOLATILITY": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_regime_risk": {
+   "MIXED": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_catalyst_category": {
+   "AI": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_sector": {
+   "Semiconductors": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_instrument": {
+   "stock": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_direction": {
+   "LONG": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_structure": {
+   "Stock": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_system_version": {
+   "1.0": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_composite_trend": {
+   "Bull": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_composite_risk": {
+   "Mixed": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  },
+  "by_composite_vol": {
+   "Normal Volatility": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  }
  },
- "strategy_by_regime": {},
+ "strategy_by_regime": {
+  "News-driven": {
+   "SIDEWAYS": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
+   }
+  }
+ },
  "options": {
   "closed_option_trades": 0
  },
@@ -2632,7 +3096,7 @@
       "label": "#1 NVDA",
       "r": -1.0,
       "status": "resolved",
-      "actual_r": null
+      "actual_r": -1.0
      }
     ],
     "alternatives": [
@@ -2659,21 +3123,21 @@
   ],
   "benchmarks": {
    "1": {
-    "window": "2026-10-07 \u2192 2026-11-02",
-    "trade_return": -0.1455152976758416,
-    "status": "open",
-    "underlying_return": -0.1455152976758416,
+    "window": "2026-10-07 \u2192 2026-10-08",
+    "trade_return": -0.025161754133716685,
+    "status": "closed",
+    "underlying_return": -0.025330926851021007,
     "S&P 500 (SPY)": {
-     "return": -0.03232031608048136,
-     "excess": -0.11319498159536023
+     "return": -0.004233007580038639,
+     "excess": -0.020928746553678046
     },
     "Nasdaq-100 (QQQ)": {
-     "return": -0.10114414842853381,
-     "excess": -0.044371149247307784
+     "return": -0.013395224737745237,
+     "excess": -0.011766529395971448
     },
     "Sector/industry (SMH)": {
-     "return": -0.1867430783599069,
-     "excess": 0.041227780684065296
+     "return": -0.028414650389844587,
+     "excess": 0.003252896256127902
     }
    }
   },
@@ -3989,6 +4453,36 @@
       "evidence": "NOT PROVEN (n=89): CI includes 0 or robustness checks failed"
      }
     }
+   },
+   "paper_trades_same_regime": {
+    "n": 1,
+    "win_rate": 0.0,
+    "avg_r": -1.0,
+    "median_r": -1.0,
+    "std_r": null,
+    "ci95_mean_r": [
+     null,
+     null
+    ],
+    "risk_adjusted": null,
+    "avg_win_r": null,
+    "avg_loss_r": -1.0,
+    "profit_factor": 0.0,
+    "avg_win": null,
+    "avg_loss": -113.04999999999978,
+    "expected_value": -113.04999999999978,
+    "total_pnl": -113.04999999999978,
+    "return_on_start": -0.0037683333333333262,
+    "max_drawdown": -113.04999999999978,
+    "profit_factor_usd": 0.0,
+    "avg_holding_days": 1.0,
+    "distinct_tickers": 1,
+    "regimes_covered": 1,
+    "months_covered": 1,
+    "avg_r_ex_best": null,
+    "top_ticker_share": 1.0,
+    "robust": false,
+    "evidence": "INSUFFICIENT (n=1 < 20): no conclusions"
    }
   },
   "errors": {

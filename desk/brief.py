@@ -47,7 +47,9 @@ def run_scan(refresh: bool = True) -> Dict[str, object]:
     gaps: List[str] = []
     t0 = time.time()
     session = market_session()
+    market.DATA_GAPS.clear()
     data = _safe("universe prices", lambda: market.load_universe_data(refresh), gaps)
+    gaps.extend(market.DATA_GAPS)
     cross = _safe("cross-asset", market.cross_asset_snapshot, gaps, pd.DataFrame())
     vix = float(cross.set_index("symbol").loc["^VIX", "last"]) if len(cross) else np.nan
     vix3m = float(cross.set_index("symbol").loc["^VIX3M", "last"]) if len(cross) else np.nan

@@ -64,6 +64,66 @@ def download_daily(tickers: List[str], period: str = "1y", chunk: int = 60, retr
     still = [t for t in tickers if t not in out["close"] or out["close"][t].dropna().empty]
     if still:
         log.warning("no data after retries for: %s", still)
+    return repair_last_bar(out, tickers)
+
+
+DATA_GAPS: List[str] = []
+
+
+def repair_last_bar(out: Dict[str, pd.DataFrame], tickers: List[str], chunk: int = 80) -> Dict[str, pd.DataFrame]:
+    """Yahoo sometimes returns the latest daily bar with volume but blank prices (seen 2026-11-02).
+
+    Rebuild that day from 5-minute bars; if that fails, drop the row and record a data gap, so a blank
+    row can never masquerade as 'every stock missing' (which silently empties the screener and breadth)."""
+    c = out["close"]
+    if c.empty:
+        return out
+    last = c.index[-1]
+    if c.iloc[-1].isna().mean() < 0.5:
+        return out
+    day = last.date()
+    rebuilt = {f: {} for f in ("open", "high", "low", "close", "volume")}
+    names = [t for t in tickers if t in c.columns]
+    for i in range(0, len(names), chunk):
+        try:
+            raw = yf.download(names[i:i + chunk], period="5d", interval="5m", auto_adjust=True, progress=False,
+                              group_by="column", threads=True, prepost=False)
+        except Exception:  # pragma: no cover - network
+            continue
+        if raw.empty:
+            continue
+        idx = raw.index.tz_convert("America/New_York") if raw.index.tz is not None else raw.index
+        raw.index = idx
+        today = raw[[d.date() == day for d in raw.index]]
+        for t in names[i:i + chunk]:
+            try:
+                cl = today["Close"][t].dropna()
+                if cl.empty:
+                    continue
+                rebuilt["open"][t] = float(today["Open"][t].dropna().iloc[0])
+                rebuilt["high"][t] = float(today["High"][t].max())
+                rebuilt["low"][t] = float(today["Low"][t].min())
+                rebuilt["close"][t] = float(cl.iloc[-1])
+                rebuilt["volume"][t] = float(today["Volume"][t].sum())
+            except Exception:
+                continue
+    got = len(rebuilt["close"])
+    if got >= 0.8 * len(names):
+        for f in ("open", "high", "low", "close"):
+            for t, v in rebuilt[f].items():
+                out[f].loc[last, t] = v
+        vol = out["volume"]                    # Yahoo's daily volume was intact; keep it, fill only true gaps
+        for t, v in rebuilt["volume"].items():
+            if pd.isna(vol.loc[last, t]) or vol.loc[last, t] == 0:
+                vol.loc[last, t] = v
+        msg = (f"Yahoo daily bar for {day} had blank prices; rebuilt from 5-minute bars for {got}/{len(names)} "
+               f"tickers (regular session only); Yahoo's daily volume kept")
+    else:
+        for f in out:
+            out[f] = out[f].iloc[:-1]
+        msg = f"Yahoo daily bar for {day} had blank prices and could not be rebuilt; using data through the prior day"
+    log.warning(msg)
+    DATA_GAPS.append(msg)
     return out
 
 
