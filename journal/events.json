@@ -540,60 +540,60 @@
         "KRE": {
           "1d": -0.004546096002257971,
           "1w": -0.011791473764052207,
-          "1m": null,
+          "1m": 0.035374312904678185,
           "unit": "%"
         },
         "XLF": {
           "1d": 0.0024127180928157355,
           "1w": 0.021714887634582514,
-          "1m": null,
+          "1m": 0.061432767130224164,
           "unit": "%"
         },
         "S&P 500 (SPY)": {
           "1d": 0.005497992684414754,
           "1w": 0.004220226919415593,
-          "1m": null,
+          "1m": -0.026431657334116343,
           "unit": "%"
         },
         "Nasdaq-100 (QQQ)": {
           "1d": 0.004575457394402571,
           "1w": -0.013435644030254101,
-          "1m": null,
+          "1m": -0.09378468892531555,
           "unit": "%"
         },
         "VIX": {
           "1d": -0.5100002288818359,
           "1w": -0.3100004196166992,
-          "1m": null,
+          "1m": 5.309999465942383,
           "unit": "points"
         },
         "10Y yield": {
           "1d": -4.199981689453125,
           "1w": -7.100009918212891,
-          "1m": null,
+          "1m": -35.899972915649414,
           "unit": "bp"
         },
         "Dollar (DXY)": {
           "1d": -0.0033277512379751295,
           "1w": 0.004012955558944098,
-          "1m": null,
+          "1m": -0.0029362379146490314,
           "unit": "%"
         },
         "Oil (WTI)": {
           "1d": 0.00011184318680901306,
           "1w": 0.048194090840725456,
-          "1m": null,
+          "1m": 0.07447160919141127,
           "unit": "%"
         },
         "Gold": {
           "1d": 0.007289331791870524,
           "1w": 0.008131325672849243,
-          "1m": null,
+          "1m": -0.05205925531937383,
           "unit": "%"
         }
       },
       "one_hour": null,
-      "verdict": "1-day move +0.5% (0.7\u00d7 a typical day); 1-month follow-through pending"
+      "verdict": "OVERREACTION by rule: +0.5% day 1, -2.6% after a month (0.7\u00d7 a typical day)"
     },
     "what_happened": "Fed Vice Chair Bowman said bank supervision will be restructured and criticized rules that block rural bank mergers (Oct 6).",
     "interpretation": "Slow-burn regulatory tailwind for bank M&A; no tradable signal while financials are weak (-8% vs SPY over 1m).",
@@ -633,7 +633,132 @@
     "regime_vol": "NORMAL VOLATILITY",
     "regime_risk": "MIXED",
     "regime_rule": "NEUTRAL",
-    "regime_source": "2026-11-02 21:11 ET"
+    "regime_source": "2026-11-02 21:11 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-11-02",
+      "returns": {
+        "SPY": {
+          "1d": -0.004790127636589259,
+          "5d": null
+        },
+        "COP": {
+          "1d": -0.046679234554227955,
+          "5d": null
+        },
+        "CVX": {
+          "1d": -0.03290590972915586,
+          "5d": null
+        },
+        "OXY": {
+          "1d": -0.05124998092651367,
+          "5d": null
+        },
+        "MPC": {
+          "1d": -0.032244274017144026,
+          "5d": null
+        },
+        "PSX": {
+          "1d": -0.027542970679148016,
+          "5d": null
+        },
+        "XLE": {
+          "1d": -0.0395600796324902,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": false,
+      "multi_asset": {
+        "COP": {
+          "1d": -0.046679234554227955,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "CVX": {
+          "1d": -0.03290590972915586,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "OXY": {
+          "1d": -0.05124998092651367,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "MPC": {
+          "1d": -0.032244274017144026,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "PSX": {
+          "1d": -0.027542970679148016,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLE": {
+          "1d": -0.0395600796324902,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": -0.004790127636589259,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": -0.013613467989181949,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": 1.7299995422363281,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": -3.4999847412109375,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": -0.0012759840687334156,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.07356899212491452,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": 0.018133370202707777,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": {
+        "SPY": 0.004305943489555153,
+        "QQQ": 0.004320323038444318,
+        "COP": -0.004305450693705359,
+        "CVX": 0.007224773075907853,
+        "OXY": 0.003390910438201722,
+        "MPC": 0.02352068810431618,
+        "PSX": 0.022712855072346994
+      },
+      "verdict": "1-day move -4.7% (2.4\u00d7 a typical day); 1-month follow-through pending"
+    }
   },
   {
     "id": 7,
@@ -665,7 +790,84 @@
     "regime_vol": "NORMAL VOLATILITY",
     "regime_risk": "MIXED",
     "regime_rule": "NEUTRAL",
-    "regime_source": "2026-11-02 21:11 ET"
+    "regime_source": "2026-11-02 21:11 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-11-02",
+      "returns": {
+        "SPY": {
+          "1d": -0.004790127636589259,
+          "5d": null
+        },
+        "MRVL": {
+          "1d": -0.12724028009668042,
+          "5d": null
+        },
+        "SMH": {
+          "1d": -0.02713926188216631,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "MRVL": {
+          "1d": -0.12724028009668042,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "SMH": {
+          "1d": -0.02713926188216631,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": -0.004790127636589259,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": -0.013613467989181949,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": 1.7299995422363281,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": -3.4999847412109375,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": -0.0012759840687334156,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.07356899212491452,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": 0.018133370202707777,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move -12.7% (2.5\u00d7 a typical day); 1-month follow-through pending"
+    }
   },
   {
     "id": 8,
@@ -697,7 +899,84 @@
     "regime_vol": "NORMAL VOLATILITY",
     "regime_risk": "MIXED",
     "regime_rule": "NEUTRAL",
-    "regime_source": "2026-11-02 21:11 ET"
+    "regime_source": "2026-11-02 21:11 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-11-03",
+      "returns": {
+        "SPY": {
+          "1d": 0.0029916235514395595,
+          "5d": null
+        },
+        "AAPL": {
+          "1d": -0.018976156564048385,
+          "5d": null
+        },
+        "XLK": {
+          "1d": 0.01314426168113636,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "AAPL": {
+          "1d": -0.018976156564048385,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLK": {
+          "1d": 0.01314426168113636,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": 0.0029916235514395595,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": 0.006151906908329119,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": -0.31999969482421875,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": 5.800008773803711,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": 0.0011793881727963917,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.0038358153648541116,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": -0.0073559538981623485,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move -1.9% (1.3\u00d7 a typical day); 1-month follow-through pending"
+    }
   },
   {
     "id": 9,
@@ -729,7 +1008,10 @@
     "regime_vol": "NORMAL VOLATILITY",
     "regime_risk": "MIXED",
     "regime_rule": "NEUTRAL",
-    "regime_source": "2026-11-02 21:11 ET"
+    "regime_source": "2026-11-02 21:11 ET",
+    "reaction": {
+      "status": "pending"
+    }
   },
   {
     "id": 10,
@@ -760,6 +1042,86 @@
     "regime_vol": "NORMAL VOLATILITY",
     "regime_risk": "MIXED",
     "regime_rule": "NEUTRAL",
-    "regime_source": "2026-11-02 21:11 ET"
+    "regime_source": "2026-11-02 21:11 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-11-02",
+      "returns": {
+        "SPY": {
+          "1d": -0.004790127636589259,
+          "5d": null
+        },
+        "XLI": {
+          "1d": 0.013799360224655999,
+          "5d": null
+        },
+        "XLB": {
+          "1d": 0.017633607525238792,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "XLI": {
+          "1d": 0.013799360224655999,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLB": {
+          "1d": 0.017633607525238792,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": -0.004790127636589259,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": -0.013613467989181949,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": 1.7299995422363281,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": -3.4999847412109375,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": -0.0012759840687334156,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.07356899212491452,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": 0.018133370202707777,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": {
+        "SPY": 0.0010850427218012104,
+        "QQQ": 0.0016123256620153015
+      },
+      "verdict": "1-day move -0.5% (0.6\u00d7 a typical day); 1-month follow-through pending"
+    }
   }
 ]
