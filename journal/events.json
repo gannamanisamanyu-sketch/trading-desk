@@ -50,66 +50,66 @@
         "MRVL": {
           "1d": -0.008118315077919158,
           "1w": -0.06348661925470267,
-          "1m": null,
+          "1m": -0.4427200088485317,
           "unit": "%"
         },
         "AVGO": {
           "1d": 0.0018626758510384978,
           "1w": -0.0492270033266361,
-          "1m": null,
+          "1m": -0.1333386170594083,
           "unit": "%"
         },
         "SMH": {
           "1d": -0.01181023036067197,
           "1w": -0.07016601562500002,
-          "1m": null,
+          "1m": -0.20240314468564724,
           "unit": "%"
         },
         "S&P 500 (SPY)": {
           "1d": -0.0024003081645026514,
           "1w": -0.0013862545439105034,
-          "1m": null,
+          "1m": -0.01586472161196295,
           "unit": "%"
         },
         "Nasdaq-100 (QQQ)": {
           "1d": -0.0025406007213888415,
           "1w": -0.021180483886375945,
-          "1m": null,
+          "1m": -0.08930306744936978,
           "unit": "%"
         },
         "VIX": {
           "1d": 0.06999969482421875,
           "1w": 0.26000022888183594,
-          "1m": null,
+          "1m": 1.5599994659423828,
           "unit": "points"
         },
         "10Y yield": {
           "1d": 0.7999897003173828,
           "1w": -5.200004577636719,
-          "1m": null,
+          "1m": -37.5,
           "unit": "bp"
         },
         "Dollar (DXY)": {
           "1d": 0.004026279341476036,
           "1w": 0.0034370860043955176,
-          "1m": null,
+          "1m": -0.005548487000360036,
           "unit": "%"
         },
         "Oil (WTI)": {
           "1d": -0.012969629141829642,
           "1w": 0.052549159435916204,
-          "1m": null,
+          "1m": -0.02437388467877044,
           "unit": "%"
         },
         "Gold": {
           "1d": -0.011081631979546591,
           "1w": -0.0023405919945013176,
-          "1m": null,
+          "1m": -0.014425234872593395,
           "unit": "%"
         }
       },
       "one_hour": null,
-      "verdict": "1-day move -0.8% (0.2\u00d7 a typical day); 1-month follow-through pending"
+      "verdict": "UNDERREACTION by rule: -0.8% day 1 continued to -44.3% after a month (0.2\u00d7 a typical day)"
     },
     "what_happened": "Marvell investor day raised its FY2028 revenue target to ~$20B on AI data-center demand; S&P 500 inclusion was announced after the close (Oct 6).",
     "market_expected": "Guidance upgrade largely priced (MRVL +5.8% on Oct 6, opened +10%).",
@@ -162,60 +162,60 @@
         "NVDA": {
           "1d": -0.00739844604505957,
           "1w": -0.044808564514973837,
-          "1m": null,
+          "1m": -0.16284904622684604,
           "unit": "%"
         },
         "SMH": {
           "1d": -0.01181023036067197,
           "1w": -0.07016601562500002,
-          "1m": null,
+          "1m": -0.20240314468564724,
           "unit": "%"
         },
         "S&P 500 (SPY)": {
           "1d": -0.0024003081645026514,
           "1w": -0.0013862545439105034,
-          "1m": null,
+          "1m": -0.01586472161196295,
           "unit": "%"
         },
         "Nasdaq-100 (QQQ)": {
           "1d": -0.0025406007213888415,
           "1w": -0.021180483886375945,
-          "1m": null,
+          "1m": -0.08930306744936978,
           "unit": "%"
         },
         "VIX": {
           "1d": 0.06999969482421875,
           "1w": 0.26000022888183594,
-          "1m": null,
+          "1m": 1.5599994659423828,
           "unit": "points"
         },
         "10Y yield": {
           "1d": 0.7999897003173828,
           "1w": -5.200004577636719,
-          "1m": null,
+          "1m": -37.5,
           "unit": "bp"
         },
         "Dollar (DXY)": {
           "1d": 0.004026279341476036,
           "1w": 0.0034370860043955176,
-          "1m": null,
+          "1m": -0.005548487000360036,
           "unit": "%"
         },
         "Oil (WTI)": {
           "1d": -0.012969629141829642,
           "1w": 0.052549159435916204,
-          "1m": null,
+          "1m": -0.02437388467877044,
           "unit": "%"
         },
         "Gold": {
           "1d": -0.011081631979546591,
           "1w": -0.0023405919945013176,
-          "1m": null,
+          "1m": -0.014425234872593395,
           "unit": "%"
         }
       },
       "one_hour": null,
-      "verdict": "1-day move -0.7% (0.3\u00d7 a typical day); 1-month follow-through pending"
+      "verdict": "UNDERREACTION by rule: -0.7% day 1 continued to -16.3% after a month (0.3\u00d7 a typical day)"
     },
     "what_happened": "Reuters, citing the FT, reported SpaceX is seeking ~$40B of financing led by Apollo to buy Nvidia chips (Oct 6, 18:37 ET).",
     "interpretation": "Another very large AI-compute buyer; the financing is debt-funded and SpaceX's own stock slipped on the report (headline, Yahoo Finance 10:02 ET Oct 7), so the market may discount debt-funded demand (low confidence, n=1).",
@@ -278,67 +278,67 @@
         "IWM": {
           "1d": -0.01293802579881942,
           "1w": -0.016492443986836247,
-          "1m": null,
+          "1m": 0.00938371608303723,
           "unit": "%"
         },
         "XLK": {
           "1d": -0.003019805001740372,
           "1w": -0.02831683772625304,
-          "1m": null,
+          "1m": -0.12638613257077658,
           "unit": "%"
         },
         "XLRE": {
           "1d": -0.012895347906900612,
           "1w": 0.017761639514250804,
-          "1m": null,
+          "1m": 0.09732360458647293,
           "unit": "%"
         },
         "XLU": {
           "1d": -0.00024291354641081675,
           "1w": 0.017249734866490618,
-          "1m": null,
+          "1m": 0.059766741826830394,
           "unit": "%"
         },
         "S&P 500 (SPY)": {
           "1d": -0.0024003081645026514,
           "1w": -0.0013862545439105034,
-          "1m": null,
+          "1m": -0.01586472161196295,
           "unit": "%"
         },
         "Nasdaq-100 (QQQ)": {
           "1d": -0.0025406007213888415,
           "1w": -0.021180483886375945,
-          "1m": null,
+          "1m": -0.08930306744936978,
           "unit": "%"
         },
         "VIX": {
           "1d": 0.06999969482421875,
           "1w": 0.26000022888183594,
-          "1m": null,
+          "1m": 1.5599994659423828,
           "unit": "points"
         },
         "10Y yield": {
           "1d": 0.7999897003173828,
           "1w": -5.200004577636719,
-          "1m": null,
+          "1m": -37.5,
           "unit": "bp"
         },
         "Dollar (DXY)": {
           "1d": 0.004026279341476036,
           "1w": 0.0034370860043955176,
-          "1m": null,
+          "1m": -0.005548487000360036,
           "unit": "%"
         },
         "Oil (WTI)": {
           "1d": -0.012969629141829642,
           "1w": 0.052549159435916204,
-          "1m": null,
+          "1m": -0.02437388467877044,
           "unit": "%"
         },
         "Gold": {
           "1d": -0.011081631979546591,
           "1w": -0.0023405919945013176,
-          "1m": null,
+          "1m": -0.014425234872593395,
           "unit": "%"
         }
       },
@@ -347,7 +347,7 @@
         "QQQ": -0.0007122669030786843,
         "IWM": -0.000754957611669993
       },
-      "verdict": "1-day move -1.3% (1.1\u00d7 a typical day); 1-month follow-through pending"
+      "verdict": "OVERREACTION by rule: -1.3% day 1, +0.9% after a month (1.1\u00d7 a typical day)"
     },
     "time": "14:00",
     "what_happened": "Fed released the minutes of the Sep 15-16 FOMC meeting at 2:00 pm ET.",
@@ -417,78 +417,78 @@
         "MPC": {
           "1d": 0.022897642588299627,
           "1w": 0.10320109896035823,
-          "1m": null,
+          "1m": -0.0917984394220831,
           "unit": "%"
         },
         "VLO": {
           "1d": 0.011640677612238637,
           "1w": 0.08883161615843216,
-          "1m": null,
+          "1m": -0.12850053661639826,
           "unit": "%"
         },
         "DAL": {
           "1d": -0.008247759637712071,
           "1w": -0.04888846333337815,
-          "1m": null,
+          "1m": 0.06975885177563179,
           "unit": "%"
         },
         "UAL": {
           "1d": -0.015196250432635838,
           "1w": -0.07723249465918525,
-          "1m": null,
+          "1m": 0.034906576235121944,
           "unit": "%"
         },
         "XLE": {
           "1d": -0.006117637484681415,
           "1w": 0.05411759918811265,
-          "1m": null,
+          "1m": -0.0034509995404411464,
           "unit": "%"
         },
         "S&P 500 (SPY)": {
           "1d": -0.0024003081645026514,
           "1w": -0.0013862545439105034,
-          "1m": null,
+          "1m": -0.01586472161196295,
           "unit": "%"
         },
         "Nasdaq-100 (QQQ)": {
           "1d": -0.0025406007213888415,
           "1w": -0.021180483886375945,
-          "1m": null,
+          "1m": -0.08930306744936978,
           "unit": "%"
         },
         "VIX": {
           "1d": 0.06999969482421875,
           "1w": 0.26000022888183594,
-          "1m": null,
+          "1m": 1.5599994659423828,
           "unit": "points"
         },
         "10Y yield": {
           "1d": 0.7999897003173828,
           "1w": -5.200004577636719,
-          "1m": null,
+          "1m": -37.5,
           "unit": "bp"
         },
         "Dollar (DXY)": {
           "1d": 0.004026279341476036,
           "1w": 0.0034370860043955176,
-          "1m": null,
+          "1m": -0.005548487000360036,
           "unit": "%"
         },
         "Oil (WTI)": {
           "1d": -0.012969629141829642,
           "1w": 0.052549159435916204,
-          "1m": null,
+          "1m": -0.02437388467877044,
           "unit": "%"
         },
         "Gold": {
           "1d": -0.011081631979546591,
           "1w": -0.0023405919945013176,
-          "1m": null,
+          "1m": -0.014425234872593395,
           "unit": "%"
         }
       },
       "one_hour": null,
-      "verdict": "1-day move +2.3% (1.0\u00d7 a typical day); 1-month follow-through pending"
+      "verdict": "OVERREACTION by rule: +2.3% day 1, -9.2% after a month (1.0\u00d7 a typical day)"
     },
     "what_happened": "Houthi attacks on Saudi Arabia reported (CNBC World, Oct 7); WTI near $89.",
     "interpretation": "Keeps a risk premium in crude; refiners benefit, airlines and chemicals are hurt (desk report, medium confidence).",
@@ -975,7 +975,7 @@
         }
       },
       "one_hour": null,
-      "verdict": "1-day move -1.9% (1.3\u00d7 a typical day); 1-month follow-through pending"
+      "verdict": "1-day move -1.9% (1.2\u00d7 a typical day); 1-month follow-through pending"
     }
   },
   {
@@ -997,12 +997,12 @@
     "options_impact": "",
     "lesson": "",
     "time": null,
-    "what_happened": "Midterm elections on Tuesday Nov 3 decide control of the House and Senate; results arrive after the close.",
+    "what_happened": "Democrats won control of both the House and Senate; President Trump said he accepts the results and will work with them (CNBC, CNN, CBS, Nov 4).",
     "market_expected": "Markets 'on edge'; unease about the vote adds to AI-boom worries (CNBC/Yahoo, Nov 2).",
-    "actual_vs_expected": "",
+    "actual_vs_expected": "Direction was uncertain in advance. S&P 500 +1.58%, Dow +3.03% (best post-midterm day in 44 years per CNN), Nasdaq +1.44%; VIX -20%.",
     "reliability": "high (scheduled event)",
-    "interpretation": "Binary overnight risk for any position held through Tuesday's close; sector effects depend on the outcome (low confidence on direction).",
-    "second_order": "",
+    "interpretation": "Gridlock plus removal of contested-result risk read as positive; oil and defense fell on expectations of pressure to wind down the Iran war; AI and chips fell on regulatory worry (medium confidence).",
+    "second_order": "Energy and defense down, healthcare and renewables up, AI infrastructure down.",
     "recorded": "2026-11-02 21:14",
     "regime_trend": "SIDEWAYS",
     "regime_vol": "NORMAL VOLATILITY",
@@ -1010,7 +1010,91 @@
     "regime_rule": "NEUTRAL",
     "regime_source": "2026-11-02 21:11 ET",
     "reaction": {
-      "status": "pending"
+      "status": "partial",
+      "reaction_day": "2026-11-04",
+      "returns": {
+        "SPY": {
+          "1d": 0.016411487086211318,
+          "5d": null
+        },
+        "XLV": {
+          "1d": 0.030594443502390378,
+          "5d": null
+        },
+        "XLE": {
+          "1d": -0.04724057455702202,
+          "5d": null
+        },
+        "XLF": {
+          "1d": 0.034621430141311915,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "XLV": {
+          "1d": 0.030594443502390378,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLE": {
+          "1d": -0.04724057455702202,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLF": {
+          "1d": 0.034621430141311915,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": 0.016411487086211318,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": 0.009543511772923008,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": -4.260000228881836,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": -5.800008773803711,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": -0.0059389745815422446,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.09189296012261661,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": 0.04727953953555297,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move +1.6% (2.0\u00d7 a typical day); 1-month follow-through pending"
     }
   },
   {
@@ -1122,6 +1206,257 @@
         "QQQ": 0.0016123256620153015
       },
       "verdict": "1-day move -0.5% (0.6\u00d7 a typical day); 1-month follow-through pending"
+    }
+  },
+  {
+    "id": 11,
+    "date": "2026-11-03",
+    "after_close": true,
+    "title": "AMD Q3 beat and strong guide; stock reaction muted after a -16% week",
+    "category": "Earnings",
+    "expected_impact": "Recorded after the reaction; no prior expectation logged.",
+    "expected_spy": null,
+    "tickers": [
+      "AMD"
+    ],
+    "sectors": [
+      "SMH"
+    ],
+    "source": "CNBC Nov 4; 24/7 Wall St Nov 4; Gurufocus",
+    "notes": "",
+    "options_impact": "",
+    "lesson": "",
+    "time": null,
+    "what_happened": "Adj. EPS $2.09 vs ~$1.97 consensus; revenue ~$13.38B vs ~$13.08B; Q4 guide ~$17B. After-hours gains of 5-7% faded by the Nov 4 morning.",
+    "market_expected": "",
+    "actual_vs_expected": "",
+    "reliability": "high (company results); price reaction varies by source",
+    "interpretation": "Market wants proof of Q4 execution; a beat is not enough during an AI unwind (medium confidence).",
+    "second_order": "",
+    "recorded": "2026-11-04 20:30",
+    "regime_trend": "BULL",
+    "regime_vol": "NORMAL VOLATILITY",
+    "regime_risk": "RISK-ON",
+    "regime_rule": "BULL",
+    "regime_source": "2026-11-04 20:30 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-11-04",
+      "returns": {
+        "SPY": {
+          "1d": 0.016411487086211318,
+          "5d": null
+        },
+        "AMD": {
+          "1d": 0.010229411592202142,
+          "5d": null
+        },
+        "SMH": {
+          "1d": -0.027077080953623045,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "AMD": {
+          "1d": 0.010229411592202142,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "SMH": {
+          "1d": -0.027077080953623045,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": 0.016411487086211318,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": 0.009543511772923008,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": -4.260000228881836,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": -5.800008773803711,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": -0.0059389745815422446,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.09189296012261661,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": 0.04727953953555297,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move +1.0% (0.2\u00d7 a typical day); 1-month follow-through pending"
+    }
+  },
+  {
+    "id": 12,
+    "date": "2026-11-04",
+    "after_close": false,
+    "title": "Oil falls ~8.6% to below $90 after the midterm result",
+    "category": "Oil",
+    "expected_impact": "Recorded after the reaction; continues event #6.",
+    "expected_spy": null,
+    "tickers": [
+      "COP",
+      "CVX",
+      "OXY",
+      "XOM"
+    ],
+    "sectors": [
+      "XLE"
+    ],
+    "source": "CNBC Nov 4 15:14 ET; TheStreet Nov 4",
+    "notes": "",
+    "options_impact": "",
+    "lesson": "",
+    "time": null,
+    "what_happened": "WTI $87.81 (-8.6%), -14.6% in 5 days. XLE -4.7%.",
+    "market_expected": "",
+    "actual_vs_expected": "",
+    "reliability": "high (prices); the reason is interpretation",
+    "interpretation": "Traders price a faster end to the Iran war under a Democratic Congress; also eases fears of more Fed hikes (medium confidence).",
+    "second_order": "",
+    "recorded": "2026-11-04 20:30",
+    "regime_trend": "BULL",
+    "regime_vol": "NORMAL VOLATILITY",
+    "regime_risk": "RISK-ON",
+    "regime_rule": "BULL",
+    "regime_source": "2026-11-04 20:30 ET",
+    "reaction": {
+      "status": "partial",
+      "reaction_day": "2026-11-04",
+      "returns": {
+        "SPY": {
+          "1d": 0.016411487086211318,
+          "5d": null
+        },
+        "COP": {
+          "1d": -0.051315711333286385,
+          "5d": null
+        },
+        "CVX": {
+          "1d": -0.03671152002313849,
+          "5d": null
+        },
+        "OXY": {
+          "1d": -0.05129899815432537,
+          "5d": null
+        },
+        "XOM": {
+          "1d": -0.04519330535917443,
+          "5d": null
+        },
+        "XLE": {
+          "1d": -0.04724057455702202,
+          "5d": null
+        }
+      },
+      "spy_expectation_correct": null,
+      "multi_asset": {
+        "COP": {
+          "1d": -0.051315711333286385,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "CVX": {
+          "1d": -0.03671152002313849,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "OXY": {
+          "1d": -0.05129899815432537,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XOM": {
+          "1d": -0.04519330535917443,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "XLE": {
+          "1d": -0.04724057455702202,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "S&P 500 (SPY)": {
+          "1d": 0.016411487086211318,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Nasdaq-100 (QQQ)": {
+          "1d": 0.009543511772923008,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "VIX": {
+          "1d": -4.260000228881836,
+          "1w": null,
+          "1m": null,
+          "unit": "points"
+        },
+        "10Y yield": {
+          "1d": -5.800008773803711,
+          "1w": null,
+          "1m": null,
+          "unit": "bp"
+        },
+        "Dollar (DXY)": {
+          "1d": -0.0059389745815422446,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Oil (WTI)": {
+          "1d": -0.09189296012261661,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        },
+        "Gold": {
+          "1d": 0.04727953953555297,
+          "1w": null,
+          "1m": null,
+          "unit": "%"
+        }
+      },
+      "one_hour": null,
+      "verdict": "1-day move -5.1% (2.6\u00d7 a typical day); 1-month follow-through pending"
     }
   }
 ]

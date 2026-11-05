@@ -81,9 +81,16 @@ def run_scan(refresh: bool = True) -> Dict[str, object]:
 
     # Size each setup with the risk engine and pull fundamentals + earnings dates for the top names
     sized = []
-    for _, s in setups.head(15).iterrows():
+    # The score favors longs in bullish regimes, so a plain top-N hides every short: always include them,
+    # both for the report's bull/bear comparison and so the forward test collects short signals (experiment X1).
+    if len(setups):
+        shorts = setups[setups["direction"] == "SHORT"].head(10)
+        pick = pd.concat([setups.head(15), shorts]).drop_duplicates("ticker")
+    else:
+        pick = setups
+    for _, s in pick.iterrows():
         sz = risk.size_stock(acct["equity"], s["entry"], s["stop"], s["target"], acct["open_risk"], s["direction"])
-        f = A.fundamentals(s["ticker"]) if len(sized) < 10 else {}
+        f = A.fundamentals(s["ticker"]) if (len(sized) < 10 or s["direction"] == "SHORT") else {}
         sized.append({**s.to_dict(), "shares": sz.quantity, "invested": sz.invested, "risk_$": sz.risk,
                       "risk_pct": sz.risk_pct, "profit_at_target": sz.potential_profit, "binding_limit": sz.binding_limit,
                       "next_earnings": f.get("next_earnings"), "fwd_pe": f.get("forwardPE"),
@@ -163,7 +170,7 @@ def _write(packet, cross, eco, sectors, headlines, eightk, buys, reddit, st_tren
                             "risk_$", "chg_1d", "rs_3m_vs_spy", "next_earnings", "fwd_pe", "analyst_target", "score"],
                     {"price": "{:,.2f}", "entry": "{:,.2f}", "stop": "{:,.2f}", "target": "{:,.2f}", "reward_risk": "{:.1f}",
                      "risk_$": "${:,.0f}", "chg_1d": "{:+.1%}", "rs_3m_vs_spy": "{:+.1%}", "fwd_pe": "{:.1f}",
-                     "analyst_target": "{:,.2f}", "score": "{:.2f}"}, 15)]
+                     "analyst_target": "{:,.2f}", "score": "{:.2f}"}, 25)]
     a = packet["account"]
     L += ["## Paper portfolio ($30,000 start)",
           f"Equity **${a['equity']:,.2f}** ({pct(a['total_return'], 2)}) · cash ${a['cash']:,.2f} · open risk ${a['open_risk']:,.0f} "
