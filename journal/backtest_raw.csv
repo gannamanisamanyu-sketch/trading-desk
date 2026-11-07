@@ -5690,3 +5690,15 @@ date,ticker,direction,setups,entry_ref,stop,target,reward_risk,score,regime_rule
 2026-11-04,MRNA,LONG,rs_leader,258.31,228.3475,318.2351,2.0,2.816,NEUTRAL,Biotech,1.1
 2026-11-04,BIIB,LONG,rs_leader,254.52,242.8956,277.7688,2.0,2.734,NEUTRAL,Biotech,1.1
 2026-11-04,SPOT,LONG,rs_leader,627.76,594.019,695.242,2.0,2.423,NEUTRAL,Communication services,1.1
+2026-11-05,WMT,LONG,rs_leader,127.72,123.2646,136.6308,2.0,2.262,BEAR,Consumer staples,1.1
+2026-11-05,PG,LONG,rs_leader,167.1,162.2398,176.8204,2.0,2.237,BEAR,Consumer staples,1.1
+2026-11-05,ABBV,LONG,rs_leader,288.24,276.9016,310.9169,2.0,2.228,BEAR,Healthcare,1.1
+2026-11-05,MO,LONG,rs_leader,77.58,74.9636,82.8128,2.0,2.218,BEAR,Consumer staples,1.1
+2026-11-05,V,LONG,rs_leader,422.59,408.9396,449.8909,2.0,2.148,BEAR,Financials,1.1
+2026-11-05,MDT,LONG,rs_leader,104.84,100.9373,112.6454,2.0,1.939,BEAR,Healthcare,1.1
+2026-11-05,MA,LONG,rs_leader,655.92,634.1494,699.4611,2.0,1.861,BEAR,Financials,1.1
+2026-11-05,MAR,LONG,rs_leader,417.28,402.2109,447.4183,2.0,1.71,BEAR,Consumer discretionary,1.1
+2026-11-05,AMT,LONG,rs_leader,193.99,185.6433,210.6834,2.0,1.589,BEAR,Real estate,1.1
+2026-11-05,GILD,LONG,rs_leader,167.57,159.8221,183.0657,2.0,1.348,BEAR,Biotech,1.1
+2026-11-05,BIIB,LONG,rs_leader,243.93,231.8443,268.1013,2.0,0.959,BEAR,Biotech,1.1
+2026-11-05,DIS,LONG,rs_leader,117.22,113.5914,124.4771,2.0,0.65,BEAR,Communication services,1.1
